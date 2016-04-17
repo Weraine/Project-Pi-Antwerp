@@ -13,8 +13,11 @@ public class Snake : MonoBehaviour
 	public Transform bBorder = null;
 	public GUIText score_text;
 	private int score = 0;
+	private int screenWidth = Screen.width;
+	private int screenHeight = Screen.height;
 
-	public float speed = 0.075f;
+	public float speed = 0;
+	private float whenToStart = 0.3f;
 	private float timer = 10;
 	private short timeToNextMove = 10;
 
@@ -28,7 +31,7 @@ public class Snake : MonoBehaviour
 	void Start()
 	{
 		SpawnFood();
-		InvokeRepeating("Movement", 0.3f, speed);
+		InvokeRepeating("Movement", whenToStart, speed);
 	}
 
 	void Update()
@@ -103,16 +106,16 @@ public class Snake : MonoBehaviour
 
 	private void OnGUI()
 	{
-    if (GUI.Button(new Rect(10f, 575f, 130, 30), "Linksom \n Draaien") && timer > timeToNextMove)
+		if (GUI.Button(new Rect(screenWidth * 0.05f, screenHeight* 0.92f, 200, 100), "Linksom \n Draaien") && timer > timeToNextMove)
 		{
-      transform.Rotate(Vector3.forward, 90);
-      timer = 0;
+			transform.Rotate(Vector3.forward, 90);
+			timer = 0;
 		}
 
-		if (GUI.Button(new Rect(240f, 575f, 130, 30), "Rechtsom \n Draaien"))
+		if (GUI.Button(new Rect(screenWidth * 0.7f, screenHeight * 0.92f, 200, 100), "Rechtsom \n Draaien"))
 		{
-      transform.Rotate(Vector3.forward, -90);
-      timer = 0;
+			transform.Rotate(Vector3.forward, -90);
+			timer = 0;
 		}
 	}
 
