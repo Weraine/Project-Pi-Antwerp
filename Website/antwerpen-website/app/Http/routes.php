@@ -11,6 +11,14 @@
 |
 */
 
+use App\Project;
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
-    return view('welcome');
+    
+    $projecten = Project::orderBy('idProject', 'asc')->get();
+    
+    return view('projecten', [
+        'projecten' => $projecten
+    ]);
 });
