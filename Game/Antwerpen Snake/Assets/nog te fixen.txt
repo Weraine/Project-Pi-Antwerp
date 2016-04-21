@@ -1,3 +1,4 @@
-
-*2d box collider op zelfgemaakt 3D model werkt niet zo goed
-*positioneren + font grootte werken niet goed?
+*Vragen+antwoorden
+*modellen draaien?
+*code: food niet op idem plaats (vorige onthouden?) + border rond player hiervoor?
+*collider van pencil  werkt niet altijd

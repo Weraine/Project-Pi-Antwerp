@@ -12,7 +12,6 @@ public class Navbar : MonoBehaviour {
   private float iconSize;
 
 	void Start () {
-    transform.localScale = new Vector3(screenWidth, screenHeight * 0.0012f, 0);
     iconSize = screenWidth * 0.1f;
 	}
 	
