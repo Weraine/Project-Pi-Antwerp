@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 807be54ca8edfa5429e159366af43529
+timeCreated: 1460064054
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - tailPrefab: {instanceID: 0}
+  - food: {instanceID: 0}
+  - rBorder: {instanceID: 0}
+  - lBorder: {instanceID: 0}
+  - tBorder: {instanceID: 0}
+  - bBorder: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
