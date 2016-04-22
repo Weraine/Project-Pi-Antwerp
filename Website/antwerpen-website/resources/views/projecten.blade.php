@@ -15,11 +15,11 @@
         <article>
             <time> {{ $project->created_at }} </time>
             <h1>
-                <a href="">{{ $project->naam }}</a>
+                <a href="project/{{$project->idProject}}">{{ $project->naam }}</a>
             </h1>
             <p>{{ str_limit($project->uitleg, $limit = 250, $end='...')  }}</p>
             <div>
-                <a href="">meer lezen</a>
+                <a href="project/{{$project->idProject}}">meer lezen</a>
             </div>
         </article>
     </li>

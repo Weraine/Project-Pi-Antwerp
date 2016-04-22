@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/project/{id}', function($id) {
 
-    $project = Project::where('idProject', '=', $id)->get();
+    $project = Project::where('idProject', '=', $id)->first();
 
     return view('project', [
         'project' => $project

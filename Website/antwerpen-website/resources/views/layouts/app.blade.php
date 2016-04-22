@@ -35,11 +35,8 @@
                                     </div>
                                     <div class="quick-menu">
                                     <a href="">
-<<<<<<< HEAD
-                                        <img src="/pictures/kaai-profile.svg" alt="">
-=======
                                         <img class="profile" src="/pictures/kaai-profile.svg" alt="">
->>>>>>> refs/remotes/origin/master
+
                                     </a>
                                 </div>
                                 </div>
