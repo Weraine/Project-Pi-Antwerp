@@ -33,6 +33,11 @@
                                             <input id="searchField" type="text" placeholder="Wat wilt u vinden?" name>
                                         </div>
                                     </div>
+                                    <div class="quick-menu">
+                                    <a href="">
+                                        <img src="pictures/kaai-profile.svg" alt="">
+                                    </a>
+                                </div>
                                 </div>
                             </div>
                         </div>
