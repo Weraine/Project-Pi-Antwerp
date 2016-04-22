@@ -7,10 +7,10 @@
     <p>testlalalala</p>
 </div>
 
-
+<ul id="project-container">
 @foreach ($projecten as $project)
 
-    <div class="project-box">
+    <li class="titles-wrap animated project-box">
        <img src=" {{$project->foto}}" alt="">
         <article>
             <time> {{ $project->created_at }} </time>
@@ -22,9 +22,9 @@
                 <a href="">meer lezen</a>
             </div>
         </article>
-    </div>
+    </li>
             
 @endforeach
-
+</ul>
 
 @endsection
