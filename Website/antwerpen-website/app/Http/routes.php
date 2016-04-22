@@ -32,4 +32,3 @@ Route::get('/project/{id}', function($id) {
         'project' => $project
     ]);
 });
-
