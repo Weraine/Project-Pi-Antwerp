@@ -36,6 +36,7 @@ header{
     margin: 0rem;
     overflow: hidden;
     display: inline-block;
+    margin-left: 7px;
 }
 
 .logo-wrapper img{
@@ -134,7 +135,7 @@ header{
 }
 
 .container{
-    padding: 1.78571rem;
+    padding: 1.78571rem 0 0;
     margin: 0 auto;
     max-width: 91.42857rem;
 
@@ -151,10 +152,21 @@ header{
     margin-bottom: auto;
 }
 
+.search-desktop {
+    margin-top: -10px;
+}
+
+.quick-menu {
+    float: right;
+    margin-top: -30px;
+    margin-right: 20px;
+}
+
+
 /* Project box */
 
 .project-box {
-    width: 30%;
+    width: 31%;
     height: 100%;
     float: left;
     margin-left: 1.42857rem;
