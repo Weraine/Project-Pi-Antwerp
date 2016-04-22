@@ -150,3 +150,27 @@ header{
     margin-top: -50px;
     margin-bottom: auto;
 }
+
+/* Project box */
+
+.project-box {
+    width: 30%;
+    height: 100%;
+    float: left;
+    margin-left: 1.42857rem;
+    margin-bottom: 25px;
+    background-color: white;
+    box-shadow: 0px 2px 0px 0px rgba(50, 50, 50, 0.5)
+}
+
+article {
+    padding: 20px;
+}
+
+time {
+    font-size: 0.85em;
+}
+
+.project-box img {
+    width: 100%;
+}
