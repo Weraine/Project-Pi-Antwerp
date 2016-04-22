@@ -22,12 +22,3 @@ Route::get('/', function () {
         'projecten' => $projecten
     ]);
 });
-
-Route::get('/project/{id}', function($id) {
-
-    $project = Project::where('idProject', '=', $id)->get();
-
-    return view('project', [
-        'project' => $project
-    ]);
-});

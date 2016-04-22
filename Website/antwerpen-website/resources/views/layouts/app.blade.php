@@ -35,11 +35,7 @@
                                     </div>
                                     <div class="quick-menu">
                                     <a href="">
-<<<<<<< HEAD
-                                        <img src="/pictures/kaai-profile.svg" alt="">
-=======
                                         <img class="profile" src="/pictures/kaai-profile.svg" alt="">
->>>>>>> refs/remotes/origin/master
                                     </a>
                                 </div>
                                 </div>
@@ -56,6 +52,11 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+        <script src="/js/masonry.min.js" charset="utf-8"></script>
+        <script src="/js/main.js" charset="utf-8"></script>
+=======
     
+>>>>>>> refs/remotes/origin/master
     </body>
 </html>
