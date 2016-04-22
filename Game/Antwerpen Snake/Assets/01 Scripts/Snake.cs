@@ -5,44 +5,44 @@ using System.Linq;
 
 public class Snake : MonoBehaviour
 {
-	public GameObject tailPrefab = null;
-	public GameObject food_Diamond = null;
-	public GameObject food_Bomb = null;
-	public GameObject food_Plane = null;
-	public GameObject food_Pencil = null;
+	public GameObject tailPrefab = null; //staartobject
+	public GameObject food_Diamond = null; //antwoordoptie diamandobject
+  public GameObject food_Bomb = null; //antwoordoptie bombobject
+  public GameObject food_Plane = null; //antwoordoptie papieren vliegtuigobject
+  public GameObject food_Pencil = null; //antwoordoptie potloodObject
 
-	public Transform rBorder = null;
-	public Transform leftBorder = null;
-	public Transform tBorder = null;
-	public Transform bBorder = null;
+	public Transform r_Border = null; //rechtermuur
+	public Transform l_Border = null; //linkermuur
+	public Transform t_Border = null; //bovenmuur
+	public Transform b_Border = null; //ondermuur
 
-	public GUIText score_text;
-	public GUIText countDown_Text;
-	private string dieText = "";
-	private int score = 0;
-	private int screenWidth = Screen.width;
-	private int screenHeight = Screen.height;
+	public GUIText score_text; //tekst waarin de score wordt getoont
+	public GUIText countDown_Text; //tekst die aftelt bij het starten van het spel
+	private string dieText = ""; //tekst die wordt getoond als je botst tegen iets
+	private int score = 0; //de score wordt hierin opgeslagen
+	private int screenWidth = Screen.width; //leest de schermbreedte in en slaat deze op
+  private int screenHeight = Screen.height; //leest de schermhoogte in en slaat deze op
 
-	public float speed = 0;
-	private const float whenToStart = 3;
-	private float timerForMoving = 10;
-	private float timerForCountDown = 4;
-  private float time = 0f; //tijd in seconden sinds start
-	private const short timeToNextMove = 10;
-	private const short numberOfAnswers = 4;
+	private float speed = 0.25f;
+	private const float whenToStart = 3; //geeft aan over hoeveel seconded de snake moet beginnen met bewegen
+	private float timerForMoving = 10; //timer die ervoor zorgt dat je snake niet te snel kan afslaan
+	private float timerForCountDown = 4; //de variabele die helpt bij het aftellen in het begin van het spel
+  private float timePassed = 0f; //tijd in seconden sinds start
+	private const short timeToNextMove = 10; //vaste variabele die zegt wanneer je mag afdraaien
+	private const short numberOfAnswers = 4; //aantal mogelijke antwoorden
 
-	private Vector2 vector = Vector2.up; //beginrichting
-	private Vector2 moveVector;
+	private Vector2 vectorDirection = Vector2.up; //beginrichting
+	private Vector2 moveVector; //verplaatst de player
 
-	private List<Transform> tail = new List<Transform>();
-	private List<Object> foodList = new List<Object>();
+	private List<Transform> tailPieces = new List<Transform>(); //lijst die alle staartdelen opslaat
+	private List<Object> foods = new List<Object>(); //lijst waarin de mogelijke antwoorden opgeslagen wordt
 
-	private bool eat = false;
-	private bool isGamePlaying = false;
-	private bool isDead = false;
+	private bool hasEaten = false; //heeft de speler een antwoord opgeraapt?
+	private bool isGamePlaying = false; //is het spel al begonnen?
+	private bool isDead = false; //is de player dood?
 
-	public Texture2D popUpTex;
-	private GUIStyle dieStyle = new GUIStyle();
+	public Texture2D dieTexture; //texture die gebruikt wordt als je dood gaat
+	private GUIStyle dieStyle = new GUIStyle(); //stijl van de kader als je sterft
 
 	void Start()
 	{
@@ -53,7 +53,7 @@ public class Snake : MonoBehaviour
 		dieStyle.fixedHeight = 0;
 		dieStyle.stretchHeight = true;
 		dieStyle.overflow = new RectOffset(0, 0, 1, 1); ;
-		dieStyle.onNormal.background = popUpTex;
+    dieStyle.onNormal.background = dieTexture;
 
 		SpawnFood();
 		InvokeRepeating("Movement", whenToStart, speed);
@@ -71,40 +71,40 @@ public class Snake : MonoBehaviour
 				transform.Rotate(Vector3.forward, 90);
 				timerForMoving = 0;
 			}
-			moveVector = vector / 3f;
+      moveVector = vectorDirection / 3f;
 			timerForMoving++;
 
-		if (!isGamePlaying) { CountDown(); }
+		if (!isGamePlaying) { CountDown(); } //Is het spel bezig? Zo niet, tel af.
 	}
 
-	public void SpawnFood()//spawn food within borders
+	public void SpawnFood()//spawn food binnen de muren
 	{
 		short i = 0;
 		do
 		{
-			float x = Random.Range(leftBorder.position.x + 0.5f, rBorder.position.x - 0.5f);
-			float y = Random.Range(bBorder.position.y + 0.5f, tBorder.position.y - 0.5f);
+			float x = Random.Range(l_Border.position.x + 0.5f, r_Border.position.x - 0.5f);
+			float y = Random.Range(b_Border.position.y + 0.5f, t_Border.position.y - 0.5f);
 
 			float playerX = transform.position.x;
 			float playerY = transform.position.y;
 
-			if (x != playerX && y != playerY)
+			if (x != playerX && y != playerY) //zorgt ervoor dat de food niet op de player gespawnt kunnen worden
 			{
-				if (i == 0) { foodList.Insert(0, Instantiate(food_Diamond, new Vector2(x, y), Quaternion.identity)); }
-				if (i == 1) { foodList.Insert(0, Instantiate(food_Bomb, new Vector2(x, y), Quaternion.identity)); }
-				if (i == 2) { foodList.Insert(0, Instantiate(food_Pencil, new Vector2(x, y), Quaternion.identity)); }
-				if (i == 3) { foodList.Insert(0, Instantiate(food_Plane, new Vector2(x, y), Quaternion.identity)); }
+				if (i == 0) { foods.Insert(0, Instantiate(food_Diamond, new Vector2(x, y), Quaternion.identity)); }
+				if (i == 1) { foods.Insert(0, Instantiate(food_Bomb, new Vector2(x, y), Quaternion.identity)); }
+				if (i == 2) { foods.Insert(0, Instantiate(food_Pencil, new Vector2(x, y), Quaternion.identity)); }
+				if (i == 3) { foods.Insert(0, Instantiate(food_Plane, new Vector2(x, y), Quaternion.identity)); }
 				i++;
 			}
 		} while (i < numberOfAnswers);
 	}
 
-	void Movement() //move entire snake
+	void Movement() //move splayer
 	{
 		Vector2 taPos = transform.position;
 		Quaternion taRot = transform.rotation;
 
-		if (eat)
+    if (hasEaten)
 		{
 			if (speed > 0.002f)
 			{
@@ -112,24 +112,24 @@ public class Snake : MonoBehaviour
 			}
       GameObject g = (GameObject)Instantiate(tailPrefab, taPos, taRot);
 
-			tail.Insert(0, g.transform);
-			eat = false;
+      tailPieces.Insert(0, g.transform);
+      hasEaten = false;
 		}
-		else if (tail.Count > 0)
+    else if (tailPieces.Count > 0) //beweging voor staart
 		{
-			tail.Last().position = taPos;
-			tail.Last().rotation = taRot;
-			tail.Insert(0, tail.Last());
-			tail.RemoveAt(tail.Count - 1);
+      tailPieces.Last().position = taPos;
+      tailPieces.Last().rotation = taRot;
+      tailPieces.Insert(0, tailPieces.Last());
+      tailPieces.RemoveAt(tailPieces.Count - 1);
 		}
 		transform.Translate(moveVector);
 	}
 
-	void CountDown()
+	void CountDown() //aftellen begin
 	{
-    time = Time.fixedTime;
+    timePassed = Time.fixedTime;
 
-    if (time % 1 == 0)
+    if (timePassed % 1 == 0)
 			{
 				timerForCountDown--;
 				countDown_Text.text = timerForCountDown.ToString();
@@ -143,14 +143,14 @@ public class Snake : MonoBehaviour
 	}
 
 
-	void OnTriggerEnter2D(Collider2D c)
+	void OnTriggerEnter2D(Collider2D c) //als de snake botst tegen iets
 	{
 
 		if (c.tag.StartsWith("food"))
 		{
-			eat = true;
-			foreach (Object food in foodList) { Destroy(food); } //vernietigt de objecten
-			foodList.Clear(); //maakt de lijst leeg
+      hasEaten = true;
+			foreach (Object food in foods) { Destroy(food); } //vernietigt de objecten
+			foods.Clear(); //maakt de lijst leeg
 
 			SpawnFood();
 			Debug.Log(c.tag + " grabbed!");
@@ -167,13 +167,14 @@ public class Snake : MonoBehaviour
 
 	private void OnGUI()
 	{
-
+    //linksom draaien en reset timer voor de volgende afslag
 		if (GUI.Button(new Rect(screenWidth * 0.05f, screenHeight * 0.75f, 200, 100), "Linksom \n Draaien") && timerForMoving > timeToNextMove)
 		{
 			transform.Rotate(Vector3.forward, 90);
 			timerForMoving = 0;
 		}
 
+    //rechtsom draaien en reset timer voor de volgende afslag
 		if (GUI.Button(new Rect(screenWidth * 0.7f, screenHeight * 0.75f, 200, 100), "Rechtsom \n Draaien") && timerForMoving > timeToNextMove)
 		{
 			transform.Rotate(Vector3.forward, -90);
@@ -182,12 +183,15 @@ public class Snake : MonoBehaviour
 
 		if (isDead)
 		{
-			CancelInvoke("Movement");
-			GUI.DrawTexture(new Rect(screenWidth * 0.1f, screenHeight * 0.1f, screenWidth * 0.80f, screenHeight * 0.75f), popUpTex); //achtergrond 
+			CancelInvoke("Movement"); //stoppen met moven
+      //teken de texture, text en box
+      GUI.DrawTexture(new Rect(screenWidth * 0.1f, screenHeight * 0.1f, screenWidth * 0.80f, screenHeight * 0.75f), dieTexture); //achtergrond 
 			GUI.Box(new Rect(screenWidth * 0.1f, screenHeight * 0.1f, screenWidth * 0.80f, screenHeight * 0.75f), "Je ben gebotst! \n Je score was: \n" + score, dieStyle);
-			if (GUI.Button(new Rect(screenWidth * 0.25f, screenHeight * 0.70f, screenWidth * 0.5f, screenHeight * 0.10f), "<size=20>Opnieuw proberen</size>"))
+			
+      //herbegin spel
+      if (GUI.Button(new Rect(screenWidth * 0.25f, screenHeight * 0.70f, screenWidth * 0.5f, screenHeight * 0.10f), "<size=20>Opnieuw proberen</size>"))
 			{
-				Application.LoadLevel("SnakeGame"); //herbegin spel
+				Application.LoadLevel("SnakeGame"); 
 			}
 		}
 	}

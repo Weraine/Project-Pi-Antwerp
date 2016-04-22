@@ -23,7 +23,7 @@ public class Navbar : MonoBehaviour {
 	{
 		if (GUI.Button(new Rect(0, 0, iconSize+7, iconSize+7), buttonHome, GUIStyle.none))
 		{
-			Application.OpenURL("http://unity3d.com/"); //URL nog aanpassen 
+      Application.OpenURL("http://pi.multimediatechnology.be/");
 		}
 		if (GUI.Button(new Rect(screenWidth * 0.2f, screenHeight * 0.01f, iconSize, iconSize), buttonList, GUIStyle.none))
 		{

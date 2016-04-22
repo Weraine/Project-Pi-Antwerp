@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\01 Scripts\Navbar.cs" />
      <Compile Include="Assets\01 Scripts\Snake.cs" />
+     <Compile Include="Assets\01 Scripts\StartScreenAndInstructionButtons.cs" />
      <Compile Include="Assets\01 Scripts\testforpopup.cs" />
      <None Include="Assets\nog te fixen.txt" />
  <Reference Include="UnityEngine.UI">
