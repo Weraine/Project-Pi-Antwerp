@@ -23,6 +23,7 @@ Route::get('/', function () {
     ]);
 });
 
+
 Route::get('/project/{id}', function($id) {
 
     $project = Project::where('idProject', '=', $id)->first();
@@ -31,3 +32,4 @@ Route::get('/project/{id}', function($id) {
         'project' => $project
     ]);
 });
+
