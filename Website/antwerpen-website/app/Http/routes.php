@@ -11,6 +11,25 @@
 |
 */
 
+use App\Project;
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
-    return view('welcome');
+
+    $projecten = Project::orderBy('idProject', 'asc')->get();
+
+    return view('projecten', [
+        'projecten' => $projecten
+    ]);
 });
+
+
+Route::get('/project/{id}', function($id) {
+
+    $project = Project::where('idProject', '=', $id)->first();
+
+    return view('project', [
+        'project' => $project
+    ]);
+});
+
