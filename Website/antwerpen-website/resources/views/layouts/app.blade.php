@@ -14,7 +14,7 @@
             <div class="kaai-outer-container">
                 <div class="logo-wrapper">
                     <a href="#">
-                        <img src="pictures/a-logo.svg" alt="a-logo" />
+                        <img src="/pictures/a-logo.svg" alt="a-logo" />
                     </a>
                 </div>
                 <div class="kaai-wrapper">
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="quick-menu">
                                     <a href="">
-                                        <img src="pictures/kaai-profile.svg" alt="">
+                                        <img src="/pictures/kaai-profile.svg" alt="">
                                     </a>
                                 </div>
                                 </div>
