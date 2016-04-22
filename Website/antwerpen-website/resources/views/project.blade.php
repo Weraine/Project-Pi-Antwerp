@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="project-hero-img">
-    <img src="" alt="">
+    <img src="{{$project->foto}}" alt="">
 </div>
 
 <div class="project-wrapper">
