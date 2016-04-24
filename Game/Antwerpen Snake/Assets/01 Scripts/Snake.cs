@@ -8,8 +8,8 @@ public class Snake : MonoBehaviour
 	public GameObject tailPrefab = null; //staartobject
 	public GameObject food_Diamond = null; //antwoordoptie diamandobject
   public GameObject food_Bomb = null; //antwoordoptie bombobject
-  public GameObject food_Plane = null; //antwoordoptie papieren vliegtuigobject
-  public GameObject food_Pencil = null; //antwoordoptie potloodObject
+  public GameObject food_Bike = null; //antwoordoptie papieren vliegtuigobject
+  public GameObject food_Choco = null; //antwoordoptie potloodObject
 
 	public Transform r_Border = null; //rechtermuur
 	public Transform l_Border = null; //linkermuur
@@ -23,6 +23,7 @@ public class Snake : MonoBehaviour
 	private int screenWidth = Screen.width; //leest de schermbreedte in en slaat deze op
   private int screenHeight = Screen.height; //leest de schermhoogte in en slaat deze op
 
+  private float buttonSize;
 	private float speed = 0.25f;
 	private const float whenToStart = 3; //geeft aan over hoeveel seconded de snake moet beginnen met bewegen
 	private float timerForMoving = 10; //timer die ervoor zorgt dat je snake niet te snel kan afslaan
@@ -41,11 +42,14 @@ public class Snake : MonoBehaviour
 	private bool isGamePlaying = false; //is het spel al begonnen?
 	private bool isDead = false; //is de player dood?
 
+  public Texture2D leftButtonTexture;
+  public Texture2D rightButtonTexture;
 	public Texture2D dieTexture; //texture die gebruikt wordt als je dood gaat
 	private GUIStyle dieStyle = new GUIStyle(); //stijl van de kader als je sterft
 
 	void Start()
 	{
+    buttonSize = screenWidth * 0.5f;
 		dieText = "Je ben gebotst! \n Je score was: \n" + score;
 
 		dieStyle.alignment = TextAnchor.MiddleCenter;
@@ -92,8 +96,8 @@ public class Snake : MonoBehaviour
 			{
 				if (i == 0) { foods.Insert(0, Instantiate(food_Diamond, new Vector2(x, y), Quaternion.identity)); }
 				if (i == 1) { foods.Insert(0, Instantiate(food_Bomb, new Vector2(x, y), Quaternion.identity)); }
-				if (i == 2) { foods.Insert(0, Instantiate(food_Pencil, new Vector2(x, y), Quaternion.identity)); }
-				if (i == 3) { foods.Insert(0, Instantiate(food_Plane, new Vector2(x, y), Quaternion.identity)); }
+        if (i == 2) { foods.Insert(0, Instantiate(food_Choco, new Vector2(x, y), Quaternion.identity)); }
+				if (i == 3) { foods.Insert(0, Instantiate(food_Bike, new Vector2(x, y), Quaternion.identity)); }
 				i++;
 			}
 		} while (i < numberOfAnswers);
@@ -168,14 +172,14 @@ public class Snake : MonoBehaviour
 	private void OnGUI()
 	{
     //linksom draaien en reset timer voor de volgende afslag
-		if (GUI.Button(new Rect(screenWidth * 0.05f, screenHeight * 0.75f, 200, 100), "Linksom \n Draaien") && timerForMoving > timeToNextMove)
+		if (GUI.Button(new Rect(screenWidth + 0.1f, screenHeight * 0.60f, buttonSize, buttonSize), leftButtonTexture, dieStyle) && timerForMoving > timeToNextMove)
 		{
 			transform.Rotate(Vector3.forward, 90);
 			timerForMoving = 0;
 		}
 
     //rechtsom draaien en reset timer voor de volgende afslag
-		if (GUI.Button(new Rect(screenWidth * 0.7f, screenHeight * 0.75f, 200, 100), "Rechtsom \n Draaien") && timerForMoving > timeToNextMove)
+    if (GUI.Button(new Rect(screenWidth * 0.65f, screenHeight * 0.60f, buttonSize, buttonSize), rightButtonTexture, dieStyle) && timerForMoving > timeToNextMove)
 		{
 			transform.Rotate(Vector3.forward, -90);
 			timerForMoving = 0;
