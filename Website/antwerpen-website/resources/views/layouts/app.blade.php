@@ -13,7 +13,7 @@
         <header>
             <div class="kaai-outer-container">
                 <div class="logo-wrapper">
-                    <a href="#">
+                    <a href="/">
                         <img src="/pictures/a-logo.svg" alt="a-logo" />
                     </a>
                 </div>
