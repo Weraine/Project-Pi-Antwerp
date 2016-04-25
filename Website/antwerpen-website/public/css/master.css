@@ -135,7 +135,7 @@ header{
 }
 
 .container{
-    padding: 60px 0 0;
+    padding: 50px 0 0;
     margin:  auto;
     max-width: 91.42857rem;
 
@@ -189,6 +189,31 @@ time {
     width: 100%;
 }
 
+.grid{
+    margin-top: 10px;
+}
+
 /* single project page */
 
+.project-wrapper img{
+    width: 65%;
+    height: auto;
+    z-index: -100;
+    margin-left: 20px;
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
