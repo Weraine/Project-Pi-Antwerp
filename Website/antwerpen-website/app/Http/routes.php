@@ -32,9 +32,6 @@ Route::get('/project/{id}', function($id) {
         'project' => $project
     ]);
 });
-<<<<<<< HEAD
-=======
-
 
 /*Route::get('/dashboard', function() {
 
@@ -45,7 +42,7 @@ Route::get('/project/{id}', function($id) {
         return Redirect::to('auth/login');
     }
 
-    
+
 });*/
 
 
@@ -63,5 +60,3 @@ Route::get('/auth/register', 'Auth\AuthController@getRegister');
 Route::post('/auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/dashboard', 'HomeController@dash');
-
->>>>>>> refs/remotes/origin/master
