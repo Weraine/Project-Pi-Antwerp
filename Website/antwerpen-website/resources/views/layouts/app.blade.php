@@ -35,8 +35,16 @@
                                     </div>
                                     <div class="quick-menu">
                                     <a href="">
+                                       @if (Auth::guest())						
+							<a href="/auth/register"><i class="fa fa-btn fa-heart"></i>Registreren</a>
+							<a href="/auth/login"><i class="fa fa-btn fa-sign-in"></i>Inloggen</a>
+						@else
+					
+							<a href="/dashboard">Welkom,{{ Auth::user()->name }}</a>
+                            <a href="/auth/logout"><i class="fa fa-btn fa-sign-out"></i>Afmelden</a>
+	
+						@endif
                                         <img class="profile" src="/pictures/kaai-profile.svg" alt="">
-
                                     </a>
                                 </div>
                                 </div>
