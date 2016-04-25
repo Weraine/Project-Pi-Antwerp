@@ -33,7 +33,6 @@ Route::get('/project/{id}', function($id) {
     ]);
 });
 
-
 /*Route::get('/dashboard', function() {
 
     if (Auth::check()) {
@@ -43,7 +42,7 @@ Route::get('/project/{id}', function($id) {
         return Redirect::to('auth/login');
     }
 
-    
+
 });*/
 
 
@@ -61,4 +60,3 @@ Route::get('/auth/register', 'Auth\AuthController@getRegister');
 Route::post('/auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/dashboard', 'HomeController@dash');
-
