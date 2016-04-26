@@ -1,4 +1,3 @@
 *Vragen+antwoorden
-*modellen draaien?
 *code: food niet op idem plaats (vorige onthouden?) + border rond player hiervoor?
-*collider van pencil  werkt niet altijd
+*script testforpopup is een random testscript
