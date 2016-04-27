@@ -183,6 +183,8 @@ article {
 
 time {
     font-size: 0.85em;
+    padding-bottom: 2rem;
+    color: rgb(159, 159, 159);
 }
 
 .project-box img {
@@ -196,11 +198,21 @@ time {
 /* single project page */
 
 .project-wrapper img{
-    width: 65%;
-    height: auto;
-    z-index: -100;
-    margin-left: 20px;
+    width: 100%;
 }
+
+.project-big-box{
+    margin-top: 10px;
+    width: 60%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    box-shadow: 0px 2px 0px 0px rgba(50, 50, 50, 0.5);
+}
+
+
+
 
 
 
