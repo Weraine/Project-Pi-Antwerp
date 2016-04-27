@@ -1,5 +1,6 @@
 jQuery(document).ready(function($){
     $('.grid').masonry({
+        procentPosition: true,
         columnWidth: 200,
         itemSelector: '.project-box',
         gutter: 10
