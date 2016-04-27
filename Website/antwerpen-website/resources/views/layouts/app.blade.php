@@ -8,6 +8,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/master.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="/css/vertical-timeline-css.css" media="screen" title="no title" charset="utf-8">
     </head>
     <body>
         <header>
@@ -35,14 +36,14 @@
                                     </div>
                                     <div class="quick-menu">
                                     <a href="">
-                                       @if (Auth::guest())						
+                                       @if (Auth::guest())
 							<a href="/auth/register"><i class="fa fa-btn fa-heart"></i>Registreren</a>
 							<a href="/auth/login"><i class="fa fa-btn fa-sign-in"></i>Inloggen</a>
 						@else
-					
+
 							<a href="/dashboard">Welkom,{{ Auth::user()->name }}</a>
                             <a href="/auth/logout"><i class="fa fa-btn fa-sign-out"></i>Afmelden</a>
-	
+
 						@endif
                                         <img class="profile" src="/pictures/kaai-profile.svg" alt="">
                                     </a>
@@ -64,6 +65,7 @@
 
 
         <script src="/js/masonry.min.js" charset="utf-8"></script>
+        <script src="/js/modernizr.js" charset="utf-8"></script>
         <script src="/js/main.js" charset="utf-8"></script>
 
 
