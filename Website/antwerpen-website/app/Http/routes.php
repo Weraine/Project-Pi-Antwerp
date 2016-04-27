@@ -33,18 +33,6 @@ Route::get('/project/{id}', function($id) {
     ]);
 });
 
-/*Route::get('/dashboard', function() {
-
-    if (Auth::check()) {
-        return view('dashboard');
-    }
-    else {
-        return Redirect::to('auth/login');
-    }
-
-
-});*/
-
 
 // Authentication Routes...
 Route::get('/auth/login', 'Auth\AuthController@getLogin');
@@ -59,4 +47,8 @@ Route::get('/auth/logout', function()
 Route::get('/auth/register', 'Auth\AuthController@getRegister');
 Route::post('/auth/register', 'Auth\AuthController@postRegister');
 
+/*--Profiel--*/
 Route::get('/dashboard', 'HomeController@dash');
+
+/*Admin*/
+Route::get('/admin', 'AdminController@panel');
