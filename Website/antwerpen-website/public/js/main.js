@@ -3,7 +3,7 @@ jQuery(document).ready(function($){
         procentPosition: true,
         columnWidth: 200,
         itemSelector: '.project-box',
-        gutter: 10
+        gutter: 8       
     });
 
 	var timelineBlocks = $('.cd-timeline-block'),

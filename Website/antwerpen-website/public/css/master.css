@@ -203,8 +203,8 @@ i{
 .project-box {
     padding: 0;
     width: 31%;
-    margin-left: 1.42857rem;
-    margin-bottom: 25px;
+    /*margin-left: 1.42857rem;*/
+    margin-bottom: 1.5rem;
     background-color: #F5F5F6;
     display: inline-block;
     vertical-align:top;
