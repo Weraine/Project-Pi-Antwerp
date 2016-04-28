@@ -1,9 +1,9 @@
 jQuery(document).ready(function($){
     $('.grid').masonry({
         procentPosition: true,
-        columnWidth: 200,
+        columnWidth: 150,
         itemSelector: '.project-box',
-        gutter: 8       
+        gutter: 8
     });
 
 	var timelineBlocks = $('.cd-timeline-block'),
