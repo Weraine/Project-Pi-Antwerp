@@ -296,7 +296,7 @@ time {
     content: "+";
     color: #000;
     -webkit-transition: -webkit-transform .2s linear;
-    -moz-transition: -webkit-transform .2s linear;
+    -moz-transition: -moz-transform .2s linear;
     transition: transform .2s linear;
 }
 
