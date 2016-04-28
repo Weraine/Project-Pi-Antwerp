@@ -41,8 +41,8 @@
                 							<a href="/auth/register"><i class="fa fa-heart"></i>Registreren</a>
                 							<a href="/auth/login"><i class="fa fa-sign-in"></i>Inloggen</a>
                 						@else
-                							<a href="/dashboard"><i class="fa fa-th"></i>Welkom, {{ Auth::user()->name }}</a>
-                                            <a href="/auth/logout"><i class="fa fa-sign-out"></i>Afmelden</a>
+                							<a href="/dashboard"><i class="fa fa-user"></i>Welkom, {{ Auth::user()->name }}</a>
+                                            <a href="/auth/logout">Afmelden<i class="fa fa-sign-out"></i></a>
                 						@endif
                                     </div>
                                 </div>
