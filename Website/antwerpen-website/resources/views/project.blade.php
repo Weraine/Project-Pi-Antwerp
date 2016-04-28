@@ -21,7 +21,7 @@
     <section id="cd-timeline" class="cd-container">
         @foreach($phases as $phase)
         	<div class="cd-timeline-block">
-        		<div class="cd-timeline-img cd-picture">
+        		<div class="cd-timeline-img cd-{{$phase->status}}">
                     <span>#{{$phase->faseNummer}}</span>
         		</div> <!-- cd-timeline-img -->
 
