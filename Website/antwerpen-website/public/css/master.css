@@ -296,9 +296,9 @@ time {
     content: "+";
     padding: 1px;
     color: #000;
-    -webkit-transition: -webkit-transform .2s linear;
-    -moz-transition: -moz-transform .2s linear;
-    transition: transform .2s linear;
+    -webkit-transition: -webkit-transform 1s linear;
+    -moz-transition: -moz-transform 1s linear;
+    transition: transform 1s linear;
 }
 
 .meerlezen:hover::before {
