@@ -18,7 +18,11 @@ use Illuminate\Http\Request;
 //!!!!!!!!NIEUWE CLASSES ALTIJD INCLUDEN DOOR "USE"!!!!!!!!//
 
 Route::get('/', function () {
-
+    /**
+    *Array bevat alle projecten en hun data.
+    *
+    *@var array
+    */
     $projecten = Project::orderBy('idProject', 'asc')->get();
 
     return view('projecten', [
@@ -29,10 +33,23 @@ Route::get('/', function () {
 
 Route::get('/project/{id}', function($id) {
 
+    /**
+    *Array bevat de data van een enkel project.
+    *
+    *@var array
+    */
     $project = Project::where('idProject', '=', $id)->first();
 
+    /**
+    *Array dat de fases bevat.
+    *
+    *@var array
+    */
+    $phases = Phase::where('idProject', '=', $id)->get();
+
     return view('project', [
-        'project' => $project
+        'project' => $project,
+        'phases' => $phases
     ]);
 });
 
