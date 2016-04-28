@@ -267,7 +267,13 @@ time {
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    background: white;
+    background: #F5F5F6;
+}
+
+.project-big-box h1{
+    font-family: "Antwerpen";
+    text-decoration: none;
+    color: black;
 }
 
 
