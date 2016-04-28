@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="quick-menu">
                                         @if (Auth::guest())
-                							<a href="/auth/register"><i class="fa fa-heart"></i>Registreren</a>
+                							<a href="/auth/register"><i class="fa fa-pencil-square-o"></i>Registreren</a>
                 							<a href="/auth/login"><i class="fa fa-sign-in"></i>Inloggen</a>
                 						@else
                 							<a href="/dashboard"><i class="fa fa-user"></i>Welkom, {{ Auth::user()->name }}</a>
