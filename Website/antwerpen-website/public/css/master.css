@@ -4,7 +4,7 @@ body{
 }
 
 html{
-    font-size: 100%;
+    font-size: 87.5%;
     line-height: 1.33em;
 }
 
@@ -294,6 +294,7 @@ time {
 
 .meerlezen::before {
     content: "+";
+    padding: 1px;
     color: #000;
     -webkit-transition: -webkit-transform .2s linear;
     -moz-transition: -moz-transform .2s linear;
