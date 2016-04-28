@@ -4,7 +4,8 @@ body{
 }
 
 html{
-    font-size: 87.5%;
+    font-size: 100%;
+    line-height: 1.33em;
 }
 
 header{
@@ -17,13 +18,15 @@ header{
     display: block;
 }
 
-h1, h1 a{
+h5, h5 a, .project-big-box h1{
     font-family: "Antwerpen";
     text-decoration: none;
-    color: black;
+    color: #282020;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-h1 a:hover{
+h5 a:hover{
     color: #0064B4;
     text-decoration: none;
 }
@@ -289,10 +292,18 @@ time {
     background: #F5F5F6;
 }
 
-.project-big-box h1{
-    font-family: "Antwerpen";
-    text-decoration: none;
-    color: black;
+.meerlezen::before {
+    content: "+";
+    color: #000;
+    -webkit-transition: -webkit-transform .2s linear;
+    -moz-transition: -webkit-transform .2s linear;
+    transition: transform .2s linear;
+}
+
+.meerlezen:hover::before { 
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 
