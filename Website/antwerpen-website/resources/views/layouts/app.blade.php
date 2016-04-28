@@ -7,6 +7,7 @@
         <title>Welkom | Antwerpen.be</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="/css/master.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/vertical-timeline-css.css" media="screen" title="no title" charset="utf-8">
     </head>
@@ -35,19 +36,14 @@
                                         </div>
                                     </div>
                                     <div class="quick-menu">
-                                    <a href="">
-                                       @if (Auth::guest())
-							<a href="/auth/register"><i class="fa fa-btn fa-heart"></i>Registreren</a>
-							<a href="/auth/login"><i class="fa fa-btn fa-sign-in"></i>Inloggen</a>
-						@else
-
-							<a href="/dashboard">Welkom,{{ Auth::user()->name }}</a>
-                            <a href="/auth/logout"><i class="fa fa-btn fa-sign-out"></i>Afmelden</a>
-
-						@endif
-                                        <img class="profile" src="/pictures/kaai-profile.svg" alt="">
-                                    </a>
-                                </div>
+                                        @if (Auth::guest())
+                							<a href="/auth/register"><i class="fa fa-heart"></i>Registreren</a>
+                							<a href="/auth/login"><i class="fa fa-sign-in"></i>Inloggen</a>
+                						@else
+                							<a href="/dashboard">Welkom,{{ Auth::user()->name }}</a>
+                                            <a href="/auth/logout"><i class="fa fa-btn fa-sign-out"></i>Afmelden</a>
+                						@endif
+                                    </div>
                                 </div>
                             </div>
                         </div>

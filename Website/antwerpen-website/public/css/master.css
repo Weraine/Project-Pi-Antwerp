@@ -1,6 +1,6 @@
 body{
-    background: #ebebeb;
-    font-family: "Open sans", sans-serif;
+    background: #fff;
+    font-family: "Sun Regular", sans-serif;
 }
 
 html{
@@ -8,7 +8,7 @@ html{
 }
 
 header{
-    background-color: #333333;
+    background-color: #2C5697;
     height: 3.57143rem;
     position: fixed;
     top: 0;
@@ -16,6 +16,27 @@ header{
     z-index: 5000;
     display: block;
 }
+
+h1, h1 a{
+    font-family: "Antwerpen";
+    text-decoration: none;
+    color: black;
+}
+
+h1 a:hover{
+    color: #0064B4;
+    text-decoration: none;
+}
+
+a{
+    font-weight: 700;
+    color: #0064B4;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
 
 .kaai-outer-container{
     height: 100%;
@@ -109,12 +130,12 @@ header{
 
 .search-field-wrapper input{
     width: 100%;
-    color: #ffffff;
+    color: black;
     outline: 0;
     border: none;
     border-radius: 0;
     box-shadow: none;
-    background-color: #666666;
+    background-color: #FFF;
     background-image: url("../pictures/search.svg");
     background-repeat: no-repeat;
     background-position: right 8px center;
@@ -131,7 +152,7 @@ header{
 
 ::selection {
     background: #3e4651;
-    color: #ffffff;
+    color: black;
 }
 
 .container{
@@ -164,27 +185,62 @@ header{
     margin-top: -30px;
 }
 
+.quick-menu a{
+    color: white;
+}
+
+.quick-menu a:hover{
+    color: #E5E5E5;
+}
+
+i{
+    padding-right: 10px;
+    padding-left: 5px;
+}
 
 /* Project box */
 
 .project-box {
+    padding: 0;
     width: 31%;
     margin-left: 1.42857rem;
     margin-bottom: 25px;
-    background-color: white;
-    box-shadow: 0px 2px 0px 0px rgba(50, 50, 50, 0.5);
+    background-color: #F5F5F6;
     display: inline-block;
     vertical-align:top;
+    border-top: 1px solid #E5E5E6;
+    border-left: 1px solid #E5E5E6;
+    border-right: 1px solid #E5E5E6;
+}
+
+.project-box a.footer-link{
+    font-weight: 700;
+    line-height: 3rem;
+    text-decoration: none;
+    color: black;
+    float: right;
+    padding-right: .5rem;
+}
+
+.project-box a.footer-link:hover{
+    color: #0064B4;
 }
 
 article {
     padding: 20px;
+    font-family: "SunAntwerpen";
 }
 
 time {
     font-size: 0.85em;
     padding-bottom: 2rem;
     color: rgb(159, 159, 159);
+}
+
+.project-box-footer{
+    min-height: 3rem;
+    border-top: 1px solid #BABABA;
+    border-bottom: 2px solid #E5E5E5;
 }
 
 .project-box img {
@@ -202,18 +258,17 @@ time {
 }
 
 .project-big-box{
+    border-top: 1px solid #E5E5E6;
+    border-left: 1px solid #E5E5E6;
+    border-right: 1px solid #E5E5E6;
+    border-bottom: 2px solid #BABABA;
     margin-top: 10px;
     width: 60%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
     background: white;
-    box-shadow: 0px 2px 0px 0px rgba(50, 50, 50, 0.5);
 }
-
-
-
-
 
 
 

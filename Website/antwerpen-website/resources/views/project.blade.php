@@ -53,7 +53,7 @@
 			<div class="cd-timeline-content">
 				<h2></h2>
 				<p></p>
-				<a href="#0" class="cd-read-more">Read more</a>
+				<a href="#0" class="cd-read-more">Lees meer</a>
 				<span class="cd-date"></span>
 			</div> <!-- cd-timeline-content -->
 		</div> <!-- cd-timeline-block -->

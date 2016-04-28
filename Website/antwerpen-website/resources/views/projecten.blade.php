@@ -18,6 +18,9 @@
                     <a href="project/{{$project->idProject}}">meer lezen</a>
                 </div>
             </article>
+            <div class="project-box-footer">
+                <a href="#" class="footer-link">Test Categorie</a>
+            </div>
         </div>
 
     @endforeach
