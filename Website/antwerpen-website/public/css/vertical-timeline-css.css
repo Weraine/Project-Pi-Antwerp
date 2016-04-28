@@ -119,13 +119,13 @@ Main components
   font-size: 1.3rem;
   font-family: "SunAntwerpen", sans-serif;
 }
-.cd-timeline-img.cd-picture {
+.cd-timeline-img.cd-done {
   background: #75ce66;
 }
-.cd-timeline-img.cd-movie {
+.cd-timeline-img.cd-not-started {
   background: #c03b44;
 }
-.cd-timeline-img.cd-location {
+.cd-timeline-img.cd-in-progress {
   background: #f0ca45;
 }
 @media only screen and (min-width: 1170px) {
