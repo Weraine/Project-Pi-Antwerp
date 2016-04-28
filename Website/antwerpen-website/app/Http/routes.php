@@ -12,7 +12,10 @@
 */
 
 use App\Project;
+use App\Phase;
 use Illuminate\Http\Request;
+
+//!!!!!!!!NIEUWE CLASSES ALTIJD INCLUDEN DOOR "USE"!!!!!!!!//
 
 Route::get('/', function () {
 
@@ -52,3 +55,4 @@ Route::get('/dashboard', 'HomeController@dash');
 
 /*Admin*/
 Route::get('/admin', 'AdminController@panel');
+Route::post('/admin/newproject', 'AdminController@newproject');
