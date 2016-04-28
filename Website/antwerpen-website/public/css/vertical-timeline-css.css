@@ -205,9 +205,13 @@ Main components
 .cd-timeline-content {
   position: relative;
   margin-left: 60px;
-  background: white;
+  background: #F5F5F6;
   padding: 1em;
-  box-shadow: 0 2px 0 rgba(50, 50, 50, 0.5);
+  border-bottom: 2px solid #BABABA;
+  border-top: 1px solid #E5E5E6;
+  border-right: 1px solid #E5E5E6;
+  border-left: 1px solid #E5E5E6;
+
 }
 .cd-timeline-content:after {
   content: "";
@@ -251,7 +255,7 @@ Main components
   height: 0;
   width: 0;
   border: 7px solid transparent;
-  border-right: 7px solid white;
+  border-right: 7px solid #E5E5E6;
 }
 @media only screen and (min-width: 768px) {
   .cd-timeline-content h2 {
@@ -277,7 +281,7 @@ Main components
     top: 24px;
     left: 100%;
     border-color: transparent;
-    border-left-color: white;
+    border-left-color: #E5E5E6;
   }
   .cd-timeline-content .cd-read-more {
     float: left;
@@ -298,7 +302,7 @@ Main components
     left: auto;
     right: 100%;
     border-color: transparent;
-    border-right-color: white;
+    border-right-color: #E5E5E6;
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
     float: right;
