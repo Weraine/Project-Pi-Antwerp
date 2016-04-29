@@ -48,7 +48,7 @@ class AdminController extends Controller
         *
         *@var int
         */   
-        $isActief = (isset($data['isActief'])) ? 1 : 0;
+        $isActief = (isset($data['isActief'])) ? $data['isActief'] : 0;
         
         //dd($data);
         
@@ -80,15 +80,35 @@ class AdminController extends Controller
         */ 
         $project = Project::where('idProject', '=', $id)->first();
         //dd($project);
+        
+        /**
+        *isActief is 0 of 1 om aan te geven of project actief is of niet.
+        *
+        *@var int
+        */ 
+        $isActief = ($project->isActief == 1) ? "true" : null;
+        
+        /**
+        *picpath bevat het pad naar de geuploade afbeelding.
+        *
+        *@var string
+        */   
+        $picpath = substr($project->foto, 10);
+        
+        $urlpath = "/admin/project-bewerken/" . $project->idProject;
+        
         return view('\admin\project-bewerken', [
-        'project' => $project
+        'project' => $project,
+        'isActief' => $isActief,
+        'picpath' => $picpath,
+        'urlpath' => $urlpath
     ]);
     }
     
     protected function postProjectBewerken($id)
     {
         
-        //dd( Input::all() );   om input data te testen.
+        //dd( Input::all() );  // om input data te testen.
         
         /**
         *Data bevat de values van inputfields van het nieuwe project.
@@ -102,8 +122,7 @@ class AdminController extends Controller
         *
         *@var string
         */   
-        $picpath = "/pictures/" . $data['foto'];
-        
+        $picpath = (isset($data['foto']))?"/pictures/" . $data['foto']:"";
         /**
         *isActief bevat 1 als checkbox aangevinkt is, 0 als deze uitgevinkt is.
         *
@@ -117,7 +136,8 @@ class AdminController extends Controller
         *@var int
         */ 
         
-        //dd($data);
+        
+        dd($data);
         
         /*Project->where('idProject', $id)
             ->update([
@@ -130,6 +150,6 @@ class AdminController extends Controller
         ]);*/
         
         
-        return view('\admin\project-bewerken');
+        return view('\admin\admin-panel');
     }
 }
