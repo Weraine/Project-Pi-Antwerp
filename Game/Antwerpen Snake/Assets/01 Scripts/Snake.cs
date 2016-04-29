@@ -102,14 +102,14 @@ public class Snake : MonoBehaviour
 		Vector2 taPos = transform.position;
 		Quaternion taRot = transform.rotation;
 
-		if (hasEaten)
+		if (hasEaten) //checkt of er iets opgeraapt is
 		{
 			GameObject g = (GameObject)Instantiate(tailPrefab, taPos, taRot);
 
 			tailPieces.Insert(0, g.transform);
 			hasEaten = false;
 		}
-		else if (tailPieces.Count > 0) //beweging voor staart
+		else if (tailPieces.Count > 0) //beweging en rotatie voor staart
 		{
 			tailPieces.Last().position = taPos;
 			tailPieces.Last().rotation = taRot;
