@@ -3,6 +3,16 @@
 
 @section('content')
 
+
+<div class="carousel">
+    <div class="">
+        
+    </div>
+</div>
+
+
+
+
 <div class="grid">
     @foreach ($projecten as $project)
 
