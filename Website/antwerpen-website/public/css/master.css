@@ -234,7 +234,7 @@ i{
     }
 }
 
-.project-box a.footer-link{
+.project-box a.footer-link, .project-box a.bewerken-link{
     font-weight: 700;
     line-height: 3rem;
     text-decoration: none;
@@ -244,7 +244,12 @@ i{
     font-family: "SunAntwerpen";
 }
 
-.project-box a.footer-link:hover{
+.project-box a.bewerken-link{
+    float: left;
+    padding-left: .5rem;
+}
+
+.project-box a.footer-link:hover, .project-box a.bewerken-link:hover {
     color: #0064B4;
 }
 
@@ -299,9 +304,9 @@ time {
     content: "+";
     padding: 1px;
     color: #000;
-    -webkit-transition: -webkit-transform 1s linear;
-    -moz-transition: -moz-transform 1s linear;
-    transition: transform 1s linear;
+    -webkit-transition: -webkit-transform 0.2s linear;
+    -moz-transition: -moz-transform 0.2s linear;
+    transition: transform 0.2s linear;
 }
 
 .meerlezen:hover::before {

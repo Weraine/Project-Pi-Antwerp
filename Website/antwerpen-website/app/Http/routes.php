@@ -72,4 +72,12 @@ Route::get('/dashboard', 'HomeController@dash');
 
 /*Admin*/
 Route::get('/admin', 'AdminController@panel');
-Route::post('/admin/newproject', 'AdminController@newproject');
+
+/*nieuw project aanmaken*/
+Route::get('/admin/nieuwproject', 'AdminController@getNieuwProject');
+Route::post('/admin/nieuwproject', 'AdminController@postNieuwProject');
+
+/*project bewerken*/
+Route::get('/admin/project-bewerken/{id}', 'AdminController@getProjectBewerken');
+Route::post('/admin/project-bewerken/{id}', 'AdminController@postProjectBewerken');
+
