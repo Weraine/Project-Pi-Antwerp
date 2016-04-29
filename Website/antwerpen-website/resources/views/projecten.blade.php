@@ -10,14 +10,17 @@
            <img src="{{$project->foto}}" alt="">
             <article>
                 <time> {{ $project->created_at }} </time>
-                <h1>
+                <h5>
                     <a href="project/{{$project->idProject}}">{{ $project->naam }}</a>
-                </h1>
+                </h5>
                 <p>{{ str_limit($project->uitleg, $limit = 250, $end='...')  }}</p>
                 <div>
-                    <a href="project/{{$project->idProject}}">meer lezen</a>
+                    <a class="meerlezen" href="project/{{$project->idProject}}"> meer lezen</a>
                 </div>
             </article>
+            <div class="project-box-footer">
+                <a href="#" class="footer-link">Test Categorie</a>
+            </div>
         </div>
 
     @endforeach
@@ -25,5 +28,3 @@
 </div>
 
 @endsection
-
-
