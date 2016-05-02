@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="/css/master.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/vertical-timeline-css.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/slick-theme.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="/css/grid-layout.css" media="screen" title="no title" charset="utf-8">
     </head>
     <body>
         <header>
