@@ -2,7 +2,7 @@
 
 .project-box {
     padding: 0;
-    width: 31%;
+    /*width: 31%;*/
     /*margin-left: 1.42857rem;*/
     margin-bottom: 1.2rem;
     background-color: #F5F5F6;
@@ -14,20 +14,6 @@
     border-bottom: 2px solid #BABABA;
 }
 
-@media only screen and (max-width: 900px){
-    .project-box {
-        padding: 0;
-        width: 60%;
-        margin-left: 1rem;
-        margin-bottom: 25px;
-        background-color: #F5F5F6;
-        display: inline-block;
-        vertical-align:top;
-        border-top: 1px solid #E5E5E6;
-        border-left: 1px solid #E5E5E6;
-        border-right: 1px solid #E5E5E6;
-    }
-}
 
 .project-box a.footer-link, .project-box a.bewerken-link{
     font-weight: 700;
