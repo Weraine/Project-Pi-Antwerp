@@ -6,16 +6,23 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading"><h1>Project toevoegen</h1></div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/nieuwproject') }}">
+                <div class="panel-body">                       
+                    {{ Form::open(array(
+                      'action' => 'AdminController@postNieuwProject',
+                      'class' => 'form-horizontal',
+                      'role' => 'form',
+                      'files' => true)) }}
+                       
                         {!! csrf_field() !!}
 
                         <!--<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">-->
-                        <div>
-                            <label class="col-md-4 control-label" for="naam">Projectnaam</label>
+                        <div>   
+                           {{ Form::label('naam','Projectnaam', array(
+                                'class' => 'col-md-4 control-label')) }}       
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="naam" name="naam" value="{{ old('naam') }}">
-
+                                {{ Form::text('naam', '', array(
+                                'class' => 'form-control',
+                                'required' => 'required')) }}
                                 <!--@if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -25,32 +32,42 @@
                         </div>
                         
                         <div>
-                            <label class="col-md-4 control-label" for="uitleg">Uitleg</label>
-                            <div class="col-md-6">            
-                            <textarea name="uitleg" id="uitleg" cols="30" rows="10" value="{{ old('uitleg') }}"></textarea>
+                           {{ Form::label('uitleg','Uitleg', array(
+                                'class' => 'col-md-4 control-label')) }} 
+                            <div class="col-md-6">
+                              {{ Form::textarea('uitleg', '', array(
+                                'class' => 'form-control',
+                                'required' => 'required')) }} 
+                            </div>                    
+                        </div>
+                        
+                        <div>
+                            {{ Form::label('locatie','Locatie', array(
+                                'class' => 'col-md-4 control-label')) }} 
+                             <div class="col-md-6"> 
+                              {{ Form::text('locatie', '', array(
+                                'class' => 'form-control',
+                                'required' => 'required')) }}
                             </div>
                         </div>
                         
                         <div>
-                            <label class="col-md-4 control-label" for="locatie">Locatie</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="locatie" name="locatie" value="{{ old('locatie') }}">
-                            </div>
-                        </div>
-                        
-                        
-                        <div>
-                            <label class="col-md-4 control-label" for="foto">Foto</label>
-                            <div class="col-md-6">
-                                <input type="file" class="form-control" id="foto" name="foto" value="{{ old('foto') }}">
+                           {{ Form::label('foto','Afbeelding', array(
+                                'class' => 'col-md-4 control-label')) }} 
+                             <div class="col-md-6"> 
+                              {{ Form::file('foto', array(
+                                'class' => 'form-control',
+                                'required' => 'required')) }}
                             </div>
                         </div>
                         
                         <div>
-                            <label class="col-md-4 control-label" for="isActief">Is project actief?</label>
-                            <div class="col-md-6">
-                                <input type="checkbox" class="form-control" id="isActief" name="isActief" value="1">
-                            </div>
+                           {{ Form::label('isActief','Is project actief?', array(
+                                'class' => 'col-md-4 control-label')) }} 
+                             <div class="col-md-6"> 
+                              {{ Form::checkbox('isActief', '1', false,array(
+                                'class' => 'form-control')) }}
+                                </div>
                         </div>
 
                         <div class="form-group">
@@ -60,7 +77,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
