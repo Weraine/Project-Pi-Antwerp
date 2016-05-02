@@ -3,6 +3,37 @@
 
 @section('content')
 
+
+<!--<div class="carousel">
+    <div>
+        <img src="/pictures/testafb.jpeg" alt="test" />
+        <div class="overlay">
+            <a href="#"><h1>Project: 1</h1></a>
+        </div>
+    </div>
+    <div>
+        <img src="/pictures/testafb2.jpeg" alt="test" />
+        <div class="overlay">
+            <a href="#"><h1>Project: 2</h1></a>
+        </div>
+    </div>
+    <div>
+        <img src="/pictures/testafb3.jpeg" alt="test" />
+        <div class="overlay">
+            <a href="#"><h1>Project: 3</h1></a>
+        </div>
+    </div>
+    <div>
+        <img src="/pictures/testafb4.jpeg" alt="test" />
+        <div class="overlay">
+            <a href="#"><h1>Project: 4</h1></a>
+        </div>
+    </div>
+</div>-->
+
+
+
+
 <div class="grid">
     @foreach ($projecten as $project)
 

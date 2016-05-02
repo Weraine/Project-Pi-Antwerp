@@ -1,10 +1,22 @@
 jQuery(document).ready(function($){
     $('.grid').masonry({
         procentPosition: true,
-        columnWidth: 200,
+        columnWidth: 207,
         itemSelector: '.project-box',
-        gutter: 16
+        gutter: 7
     });
+
+    /*$('.carousel').slick({
+        infinite: true,
+        speed: 1000,
+        arrows: true,
+        dots: true,
+        fade: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        swipeToSlide: true,
+        useCSS: true
+    });*/
 
 	var timelineBlocks = $('.cd-timeline-block'),
 		offset = 1;

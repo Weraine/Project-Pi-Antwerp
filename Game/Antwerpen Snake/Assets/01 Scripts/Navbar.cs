@@ -9,10 +9,10 @@ public class Navbar : MonoBehaviour {
 	public Texture2D buttonThrophy;
 	private int screenWidth = Screen.width;
 	private int screenHeight = Screen.height;
-  private float iconSize;
+	private float iconSize;
 
 	void Start () {
-    iconSize = screenWidth * 0.1f;
+		iconSize = screenWidth * 0.1f;
 	}
 	
 	void Update () {
@@ -21,21 +21,21 @@ public class Navbar : MonoBehaviour {
 
 	private void OnGUI() //GUIStyle.none voor border rond buttons te verwijderen
 	{
-    if (GUI.Button(new Rect(screenWidth * 0.1f, 0, iconSize + 7, iconSize + 7), buttonHome, GUIStyle.none))
+		if (GUI.Button(new Rect(0, 0, iconSize + 7, iconSize + 7), buttonHome, GUIStyle.none))
 		{
-      Application.OpenURL("http://pi.multimediatechnology.be/");
+			Application.OpenURL("http://pi.multimediatechnology.be/");
 		}
-		if (GUI.Button(new Rect(screenWidth * 0.35f, screenHeight * 0.01f, iconSize, iconSize), buttonList, GUIStyle.none))
+		if (GUI.Button(new Rect(screenWidth * 0.25f, screenHeight * 0.01f, iconSize, iconSize), buttonList, GUIStyle.none))
 		{
 			Application.LoadLevel("ListOfProjects");
 		}
 
-		if (GUI.Button(new Rect(screenWidth * 0.575f, screenHeight * 0.01f, iconSize, iconSize), buttonGame, GUIStyle.none))
+		if (GUI.Button(new Rect(screenWidth * 0.50f, screenHeight * 0.01f, iconSize, iconSize), buttonGame, GUIStyle.none))
 		{
 			Application.LoadLevel("MainScreenSnake");
 		}
 
-		if (GUI.Button(new Rect(screenWidth * 0.8f, screenHeight * 0.01f, iconSize, iconSize), buttonThrophy, GUIStyle.none))
+		if (GUI.Button(new Rect(screenWidth * 0.75f, screenHeight * 0.01f, iconSize, iconSize), buttonThrophy, GUIStyle.none))
 		{
 			Application.LoadLevel("TrophyList");
 		}	 
