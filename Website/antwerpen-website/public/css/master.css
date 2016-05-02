@@ -1,6 +1,7 @@
 body{
     background: #fff;
     font-family: "SunAntwerpen", sans-serif;
+    padding-top: 8rem;
 }
 
 html{
@@ -8,15 +9,7 @@ html{
     line-height: 1.33em;
 }
 
-header{
-    background-color: #2C5697;
-    height: 3.57143rem;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 5000;
-    display: block;
-}
+
 
 h5, h5 a, .project-big-box h1{
     font-family: "Antwerpen";
@@ -45,6 +38,14 @@ i{
     padding-left: 5px;
 }
 
-.grid{
-    margin-top: 1.2rem;
+.thumbnail{
+    display:block;
+    padding: 0;
+    margin-bottom: 0;
+    line-height: normal;
+    background-color: none;
+    border: none;
+    border-radius: 0;
+    transition: none;
+
 }
