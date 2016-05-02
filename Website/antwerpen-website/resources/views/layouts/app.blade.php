@@ -6,11 +6,18 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Welkom | Project | Antwerpen.be</title>
 
+        <!-- BOOTSTRAP & FONT-AWESOME -->
         <link rel="shortcut icon" href="/pictures/favicon/favicon-32x32.png" type="image/png">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
+        <!-- PAGE LAYOUT -->
         <link rel="stylesheet" href="/css/master.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="/css/nav-bar.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="/css/project-box.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="/css/project-page.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="/css/carousel.css" media="screen" title="no title" charset="utf-8">
+        <!-- FUNCTIONAL CSS -->
         <link rel="stylesheet" href="/css/vertical-timeline-css.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/slick-theme.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/grid-layout.css" media="screen" title="no title" charset="utf-8">
@@ -60,6 +67,7 @@
             @yield('content')
         </div>
 
+        <!-- JQUERY & plugins -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
