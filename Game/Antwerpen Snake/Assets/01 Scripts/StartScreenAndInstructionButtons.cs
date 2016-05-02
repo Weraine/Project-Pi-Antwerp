@@ -19,4 +19,10 @@ public class StartScreenAndInstructionButtons : MonoBehaviour {
       {
         Application.LoadLevel("MainScreenSnake");
       }
+
+      //nog wegdoen = tijdelijk
+      public void TijdelijkNaarHome()
+      {
+        Application.OpenURL("http://pi.multimediatechnology.be/");
+      }
 }
