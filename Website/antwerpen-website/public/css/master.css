@@ -1,6 +1,7 @@
 body{
     background: #fff;
     font-family: "SunAntwerpen", sans-serif;
+    padding-top: 8rem;
 }
 
 html{
@@ -8,15 +9,7 @@ html{
     line-height: 1.33em;
 }
 
-header{
-    background-color: #2C5697;
-    height: 3.57143rem;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 5000;
-    display: block;
-}
+
 
 h5, h5 a, .project-big-box h1{
     font-family: "Antwerpen";
@@ -40,320 +33,19 @@ a:hover{
     text-decoration: none;
 }
 
-
-.kaai-outer-container{
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    background-color: inherit;
-    padding: 0px 12px;
-    padding: 0rem 0.85714rem;
-    max-width: 1280px;
-    max-width: 91.42857rem;
-}
-
-.logo-wrapper{
-    float: left;
-    height: 100%;
-    margin: 0px;
-    margin: 0rem;
-    overflow: hidden;
-    display: inline-block;
-
-}
-
-.logo-wrapper img{
-    float: left;
-    height: 50px;
-    height: 3.57143rem;
-}
-
-.kaai-wrapper{
-    width: 100%;
-    height: 100%;
-    padding-left: 50px;
-    padding-left: 3.57143rem;
-}
-
-.kaai-inner-container{
-    width: 100%;
-    height: 100%;
-}
-
-.domain-wrapper{
-    display: block;
-    float: left;
-    height: 100%;
-    padding: 0rem 0.71429rem;
-    width: 30%;
-}
-.domain-wrapper span{
-    display: block;
-    padding: 0px 25px 0px 10px;
-    padding: 0rem 1.78571rem 0rem 0.71429rem;
-    background-image: url("../pictures/dropdown-arrow.svg");
-    background-repeat: no-repeat;
-    background-position: 93% 53%;
-    background-size: 15px;
-    background-size: 1.07143rem;
-}
-
-.search-wrapper{
-    width: auto;
-    height: 50px;
-    display: block;
-    line-height: 50px;
-    line-height: 3.57143rem;
-    padding: 0.71429rem 0rem;
-}
-
-.search-field-wrapper{
-    width: 55%;
-    margin: 0 23%;
-    position: relative;
-    line-height: 3.57143rem;
-    /*padding-top: 0.71429rem;*/
-    padding-right: 0rem;
-    /*padding-bottom: 0.71429rem;*/
-    padding-left: 0rem;
-    width: auto;
-    height: 30px;
-    display: block;
-
-}
-.search-desktop {
-    margin: 0 14%;
-    width: 68%;
-}
-
-.search-container{
-    position: relative;
-}
-
-.search-field-wrapper input{
-    width: 100%;
-    color: black;
-    outline: 0;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    background-color: #FFF;
-    background-image: url("../pictures/search.svg");
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    font-size: 14px;
-    font-size: 1rem;
-    height: 30px;
-    height: 2.14286rem;
-    padding: 0px 30px 0px 10px;
-    padding: 0rem 2.14286rem 0rem 0.71429rem;
-    background-size: 15px;
-    background-size: 1.07143rem;
-    line-height: normal;
-}
-
-::selection {
-    background: #3e4651;
-    color: black;
-}
-
-.container{
-    padding: 50px 0 0;
-    margin:  auto;
-    max-width: 91.42857rem;
-
-}
-
-.container:after{
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.search-desktop {
-    margin-top: -10px;
-}
-
-.profile {
-    opacity: 0.7;
-}
-
-.profile:hover {
-    opacity: 1;
-}
-
-.quick-menu {
-    float: right;
-    margin-top: -30px;
-    z-index: 100;
-    position: relative;
-}
-
-.quick-menu a{
-    padding: 17px;
-    color: white;
-
-}
-
-.quick-menu a:hover{
-    color: #2C5697;
-    background-color: white;
-}
-
 i{
     padding-right: 10px;
     padding-left: 5px;
 }
 
-/* Carousel */
-
-.carousel{
-    margin-top: 1.2rem;
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
-}
-
-.carousel div img{
-    position: relative;
-    width: 90%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: -1;
-
-}
-
-
-.overlay{
-    position: absolute;
-    top: 400px;
-    width: 100%;
-    z-index: 2;
-}
-
-/* Project box */
-
-.project-box {
+.thumbnail{
+    display:block;
     padding: 0;
-    width: 31%;
-    /*margin-left: 1.42857rem;*/
-    margin-bottom: 1.2rem;
-    background-color: #F5F5F6;
-    display: inline-block;
-    vertical-align:top;
-    border-top: 1px solid #E5E5E6;
-    border-left: 1px solid #E5E5E6;
-    border-right: 1px solid #E5E5E6;
-    border-bottom: 2px solid #BABABA;
+    margin-bottom: 0;
+    line-height: normal;
+    background-color: none;
+    border: none;
+    border-radius: 0;
+    transition: none;
+
 }
-
-@media only screen and (max-width: 900px){
-    .project-box {
-        padding: 0;
-        width: 60%;
-        margin-left: 1rem;
-        margin-bottom: 25px;
-        background-color: #F5F5F6;
-        display: inline-block;
-        vertical-align:top;
-        border-top: 1px solid #E5E5E6;
-        border-left: 1px solid #E5E5E6;
-        border-right: 1px solid #E5E5E6;
-    }
-}
-
-.project-box a.footer-link, .project-box a.bewerken-link{
-    font-weight: 700;
-    line-height: 3rem;
-    text-decoration: none;
-    color: black;
-    float: right;
-    padding-right: .5rem;
-    font-family: "SunAntwerpen";
-}
-
-.project-box a.bewerken-link{
-    float: left;
-    padding-left: .5rem;
-}
-
-.project-box a.footer-link:hover, .project-box a.bewerken-link:hover {
-    color: #0064B4;
-}
-
-article {
-    padding: 20px;
-    font-family: "SunAntwerpen";
-}
-
-time {
-    font-size: 0.85em;
-    padding-bottom: 2rem;
-    color: rgb(159, 159, 159);
-}
-
-.project-box-footer{
-    min-height: 3rem;
-    border-top: 1px solid #BABABA;
-}
-
-
-
-.project-box img {
-    width: 100%;
-}
-
-.grid{
-    margin-top: 1.2rem;
-}
-
-/* single project page */
-
-.project-wrapper img{
-    width: 100%;
-}
-
-.project-big-box{
-    border-top: 1px solid #E5E5E6;
-    border-left: 1px solid #E5E5E6;
-    border-right: 1px solid #E5E5E6;
-    border-bottom: 2px solid #BABABA;
-    margin-top: 1.2rem;
-    width: 60%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background: #F5F5F6;
-}
-
-.meerlezen::before {
-    content: "+";
-    padding: 1px;
-    color: #000;
-    -webkit-transition: -webkit-transform 0.2s linear;
-    -moz-transition: -moz-transform 0.2s linear;
-    transition: transform 0.2s linear;
-}
-
-.meerlezen:hover::before {
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    transform: rotate(180deg);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**/
