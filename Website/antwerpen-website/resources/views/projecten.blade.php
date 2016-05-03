@@ -22,7 +22,6 @@
                 @if (!Auth::guest() && Auth::user()->role == 10)
                     <a href="admin/project-bewerken/{{$project->idProject}}" class="bewerken-link">Bewerken</a>
                 @endif
-
                 <a href="#" class="footer-link">Test Categorie</a>
             </div>
         </div>
