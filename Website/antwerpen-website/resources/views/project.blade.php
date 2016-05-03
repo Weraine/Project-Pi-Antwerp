@@ -25,11 +25,23 @@
                     <span>#{{$phase->faseNummer}}</span>
         		</div> <!-- cd-timeline-img -->
 
-        		<div class="cd-timeline-content">
+        		<div class="cd-timeline-content" data-id="{{$phase->idFase}}">
         			<h5>{{$phase->title}}</h5>
         			<p>{{$phase->uitleg}}</p>
-        			<a href="#0" class="cd-read-more">Lees meer</a>
+        			<a href="#0" class="cd-read-more" data-id="{{$phase->idFase}}">Lees meer</a>
         			<span class="cd-date"></span>
+                    {{ Form::open(array(
+                      'url' => '/project/' . $project->idProject,
+                      'class' => 'form-horizontal',
+                      'role' => 'form',
+                      'files' => true)) }}
+                        @foreach($questions as $question)
+
+
+
+
+                        @endforeach
+                    {{ Form::close() }}
         		</div> <!-- cd-timeline-content -->
         	</div> <!-- cd-timeline-block -->
         @endforeach
