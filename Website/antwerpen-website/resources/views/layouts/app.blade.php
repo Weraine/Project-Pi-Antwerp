@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="/css/project-box.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/project-page.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/carousel.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="/css/admin-panel.css" media="screen" title="no title" charset="utf-8">
         <!-- FUNCTIONAL CSS -->
         <link rel="stylesheet" href="/css/vertical-timeline-css.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/slick-theme.css" media="screen" title="no title" charset="utf-8">
@@ -32,7 +33,12 @@
                     <a href="/" class="navbar-brand">
                         <img src="/pictures/a-logo.svg" alt="a-logo" />
                     </a>
+
                 </div>
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a id="page-title" href="/"><h1>Projecten</h1></a></li>
+                </ul>
 
                 <ul class="nav navbar-nav navbar-right" id="navbar-login">
                     @if (Auth::guest())
@@ -53,6 +59,7 @@
         </div>
 
         <!-- JQUERY & plugins -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkN_qoobIjk7OOThbtXZAP4axJuTZOZ4E&callback=window.initMap" defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
