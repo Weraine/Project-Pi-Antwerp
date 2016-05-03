@@ -5,11 +5,20 @@
 */
 var map;
 
+/**
+*Variabele bevat het DOM element waar de map in wordt gerenderd
+*
+*@var mapElement
+*/
+var mapElement = document.getElementById('map');
+
 window.initMap = function() {
-    map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 51.202257, lng: 4.419694},
-            zoom: 10
-        });
+    if(mapElement != null){
+        map = new google.maps.Map(mapElement, {
+                center: {lat: 51.202257, lng: 4.419694},
+                zoom: 10
+            });
+    }
 };
 
 jQuery(document).ready(function($){
