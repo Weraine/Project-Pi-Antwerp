@@ -1,4 +1,20 @@
+/**
+*Variabele bevat de map data van de Google Maps API
+*
+*@var map
+*/
+var map;
+
+window.initMap = function() {
+    map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 51.202257, lng: 4.419694},
+            zoom: 10
+        });
+};
+
 jQuery(document).ready(function($){
+
+
     var $grid = $('.grid').masonry({
                     columnWidth: '.thumbnail',
                     itemSelector: '.thumbnail',
