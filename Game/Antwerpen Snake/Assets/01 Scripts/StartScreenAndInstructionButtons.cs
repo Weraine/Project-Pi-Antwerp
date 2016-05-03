@@ -7,7 +7,7 @@ public class StartScreenAndInstructionButtons : MonoBehaviour {
  
       public void StartGame() //start het spel op
       {
-        Application.LoadLevel("SnakeGame");
+        Application.LoadLevel("NewSnakeGame");
       }
 
       public void ShowInstructions() //gaat naar de pagina met instructies
