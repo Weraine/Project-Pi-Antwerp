@@ -1,6 +1,6 @@
 body{
     background: #fff;
-    font-family: "SunAntwerpen", sans-serif;
+    font-family: "Sun-Antwerpen 500", sans-serif;
     padding-top: 8rem;
 }
 
@@ -11,7 +11,7 @@ html{
 
 
 
-h5, h5 a, .project-big-box h1{
+h1, h5, h5 a, .project-big-box h1{
     font-family: "Antwerpen";
     text-decoration: none;
     color: #282020;
@@ -51,4 +51,26 @@ i{
     border: none;
     border-radius: 0;
     transition: none;
+}
+
+.panel{
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 2px solid #BABABA;
+}
+
+.panel-heading{
+    border-radius: 0;
+}
+
+.panel-heading h1{
+    font-family: "Antwerpen";
+}
+
+.form-control{
+    border-radius: 0;
+}
+
+.btn{
+    border-radius: 0;
 }

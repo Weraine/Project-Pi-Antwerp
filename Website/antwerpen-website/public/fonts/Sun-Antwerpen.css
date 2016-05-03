@@ -1,0 +1,95 @@
+/* Webfont: Sun-Antwerpen 300 */@font-face {
+    font-family: 'Sun-Antwerpen 300';
+    src: url('SunAntwerpen_300.eot'); /* IE9 Compat Modes */
+    src: url('SunAntwerpen_300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('SunAntwerpen_300.woff') format('woff'), /* Modern Browsers */
+         url('SunAntwerpen_300.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('SunAntwerpen_300.svg#Antwerpen-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Sun-Antwerpen 300 italic */@font-face {
+    font-family: 'Sun-Antwerpen 300 italic';
+    src: url('SunAntwerpen_300_italic.eot'); /* IE9 Compat Modes */
+    src: url('SunAntwerpen_300_italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('SunAntwerpen_300_italic.woff') format('woff'), /* Modern Browsers */
+         url('SunAntwerpen_300_italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('SunAntwerpen_300_italic.svg#Antwerpen-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Sun-Antwerpen 500 */@font-face {
+    font-family: 'Sun-Antwerpen 500';
+    src: url('SunAntwerpen_500.eot'); /* IE9 Compat Modes */
+    src: url('SunAntwerpen_500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('SunAntwerpen_500.woff') format('woff'), /* Modern Browsers */
+         url('SunAntwerpen_500.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('SunAntwerpen_500.svg#Antwerpen-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Sun-Antwerpen 500 italic */@font-face {
+    font-family: 'Sun-Antwerpen 500 italic';
+    src: url('SunAntwerpen_500_italic.eot'); /* IE9 Compat Modes */
+    src: url('SunAntwerpen_500_italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('SunAntwerpen_500_italic.woff') format('woff'), /* Modern Browsers */
+         url('SunAntwerpen_500_italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('SunAntwerpen_500_italic.svg#Antwerpen-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Sun-Antwerpen 700 */@font-face {
+    font-family: 'Sun-Antwerpen 700';
+    src: url('SunAntwerpen_700.eot'); /* IE9 Compat Modes */
+    src: url('SunAntwerpen_700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('SunAntwerpen_700.woff') format('woff'), /* Modern Browsers */
+         url('SunAntwerpen_700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('SunAntwerpen_700.svg#Antwerpen-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Sun-Antwerpen 700 italic */@font-face {
+    font-family: 'Sun-Antwerpen 700 italic';
+    src: url('SunAntwerpen_700_italic.eot'); /* IE9 Compat Modes */
+    src: url('SunAntwerpen_700_italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('SunAntwerpen_700_italic.woff') format('woff'), /* Modern Browsers */
+         url('SunAntwerpen_700_italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('SunAntwerpen_700_italic.svg#Antwerpen-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Sun-Antwerpen 800 */@font-face {
+    font-family: 'Sun-Antwerpen 800';
+    src: url('SunAntwerpen_800.eot'); /* IE9 Compat Modes */
+    src: url('SunAntwerpen_800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('SunAntwerpen_800.woff') format('woff'), /* Modern Browsers */
+         url('SunAntwerpen_800.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('SunAntwerpen_800.svg#Antwerpen-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Sun-Antwerpen 800 italic */@font-face {
+    font-family: 'Sun-Antwerpen 800';
+    src: url('SunAntwerpen_800_italic.eot'); /* IE9 Compat Modes */
+    src: url('SunAntwerpen_800_italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('SunAntwerpen_800_italic.woff') format('woff'), /* Modern Browsers */
+         url('SunAntwerpen_800_italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('SunAntwerpen_800_italic.svg#Antwerpen-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
