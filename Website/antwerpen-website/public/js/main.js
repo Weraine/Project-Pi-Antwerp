@@ -1,7 +1,10 @@
 jQuery(document).ready(function($){
-    $('.grid').masonry({
-            columnWidth: '.thumbnail',
-            itemSelector: '.thumbnail',
+    var $grid = $('.grid').masonry({
+                    columnWidth: '.thumbnail',
+                    itemSelector: '.thumbnail',
+                });
+    $grid.imagesLoaded().progress(function(){
+        $grid.masonry('layout');
     });
 
     /*$('.carousel').slick({
