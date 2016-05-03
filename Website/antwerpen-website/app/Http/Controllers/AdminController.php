@@ -164,7 +164,7 @@ class AdminController extends Controller
         $data = Input::all();
 
         
-        /*$validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'naam' => 'required',
             'uitleg' => 'required|min:250',
             'locatie' => 'required',
@@ -175,7 +175,7 @@ class AdminController extends Controller
              return redirect('/admin/project-bewerken/' . $id)
                         ->withErrors($validator)
                         ->withInput();
-        }*/
+        }
        
         /**
         *isActief bevat 1 als checkbox aangevinkt is, 0 als deze uitgevinkt is.
