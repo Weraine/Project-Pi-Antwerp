@@ -1,8 +1,7 @@
 jQuery(document).ready(function($){
     $('.grid').masonry({
-            percentPosition: true,
-            columnWidth: '.project-box',
-            itemSelector: '.project-box',
+            columnWidth: '.thumbnail',
+            itemSelector: '.thumbnail',
     });
 
     /*$('.carousel').slick({
