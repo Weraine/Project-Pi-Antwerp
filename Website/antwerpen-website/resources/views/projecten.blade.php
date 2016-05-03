@@ -3,21 +3,11 @@
 
 @section('content')
 
-
-<div class="carousel">
-    <div class="">
-        
-    </div>
-</div>
-
-
-
-
-<div class="grid">
+<div class="row grid">
     @foreach ($projecten as $project)
-
+    <div class="col-sm-6 col-md-4 thumbnail">
         <div class="project-box">
-           <img src="{{$project->foto}}" alt="">
+           <a href="project/{{$project->idProject}}"><img src="{{$project->foto}}" alt=""></a>
             <article>
                 <time> {{ $project->created_at }} </time>
                 <h5>
@@ -29,12 +19,13 @@
                 </div>
             </article>
             <div class="project-box-footer">
+                @if (!Auth::guest() && Auth::user()->role == 10)
+                    <a href="admin/project-bewerken/{{$project->idProject}}" class="bewerken-link">Bewerken</a>
+                @endif
                 <a href="#" class="footer-link">Test Categorie</a>
             </div>
         </div>
-
+    </div>
     @endforeach
-
 </div>
-
 @endsection

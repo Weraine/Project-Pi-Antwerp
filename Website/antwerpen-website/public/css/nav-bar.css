@@ -1,0 +1,47 @@
+.navbar{
+    background-color: #2C5697;
+    /*height: 3.57143rem;*/
+    height: 7.143rem;
+    top: 0;
+    width: 100%;
+    z-index: 5000;
+    display: block;
+    border-radius: 0;
+}
+
+.navbar-brand{
+    padding: 0;
+}
+
+.navbar-brand img{
+    max-width: 100px;
+}
+
+.profile {
+    opacity: 0.7;
+}
+
+.profile:hover {
+    opacity: 1;
+}
+
+.navbar-brand{
+    height: 100%;
+}
+
+
+
+#navbar-login a{
+    color: white;
+    height: 100%;
+}
+
+#navbar-login a:hover{
+    /*color: #2C5697;*/
+    /*background-color: white;*/
+    text-decoration: underline;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background: none;
+}

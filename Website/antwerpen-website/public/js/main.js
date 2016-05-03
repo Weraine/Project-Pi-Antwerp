@@ -1,10 +1,23 @@
 jQuery(document).ready(function($){
-    $('.grid').masonry({
-        procentPosition: true,
-        columnWidth: 207,
-        itemSelector: '.project-box',
-        gutter: 7
+    var $grid = $('.grid').masonry({
+                    columnWidth: '.thumbnail',
+                    itemSelector: '.thumbnail',
+                });
+    $grid.imagesLoaded().progress(function(){
+        $grid.masonry('layout');
     });
+
+    /*$('.carousel').slick({
+        infinite: true,
+        speed: 1000,
+        arrows: true,
+        dots: true,
+        fade: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        swipeToSlide: true,
+        useCSS: true
+    });*/
 
 	var timelineBlocks = $('.cd-timeline-block'),
 		offset = 1;
