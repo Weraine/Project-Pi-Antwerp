@@ -1,3 +1,0 @@
-*Vragen+antwoorden
-*code: food niet op idem plaats (vorige onthouden?) + border rond player hiervoor?
-*script testforpopup is een random testscript

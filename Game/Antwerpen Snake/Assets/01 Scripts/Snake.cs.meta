@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: 807be54ca8edfa5429e159366af43529
-timeCreated: 1461605169
+guid: bf4a2e5e967e81c4dbcfc8fa3b1b211f
+timeCreated: 1461926756
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences:
-  - tailPrefab: {fileID: 162884, guid: 894ebdea5d3aaab44b7a1efdd25eae3f, type: 2}
-  - food_Diamond: {fileID: 188462, guid: cebdd7f6bbdd1a640b47b0f4f026bad3, type: 2}
-  - food_Bomb: {fileID: 127236, guid: bdc92b939248cd544b6d55b7a025f8b9, type: 2}
-  - food_Bike: {fileID: 187626, guid: ca6aa5b333400db4789420a9683964d3, type: 2}
-  - food_Choco: {fileID: 100000, guid: 733c545ccb7db1542b75089e8ae43115, type: 3}
-  - r_Border: {instanceID: 0}
-  - l_Border: {instanceID: 0}
-  - t_Border: {instanceID: 0}
-  - b_Border: {instanceID: 0}
-  - score_text: {instanceID: 0}
-  - countDown_Text: {instanceID: 0}
-  - leftButtonTexture: {fileID: 2800000, guid: eab2fd1536fd0c44f8751f2f6554fa2f, type: 3}
-  - rightButtonTexture: {fileID: 2800000, guid: c95f812e9a1060948ba30c795f742165,
-      type: 3}
-  - dieTexture: {fileID: 2800000, guid: c3704622d51a3144f857459fae909aa9, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
