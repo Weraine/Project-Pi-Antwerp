@@ -56,8 +56,7 @@
                                 'class' => 'col-md-4 control-label')) }} 
                              <div class="col-md-6"> 
                               {{ Form::file('foto', array(
-                                'class' => 'form-control',
-                                'required' => 'required')) }}
+                                'class' => 'form-control')) }}
                             </div>
                         </div>
                         
