@@ -47,7 +47,13 @@ Route::get('/project/{id}', function($id) {
     *@var array
     */
     $phases = Phase::where('idProject', '=', $id)->get();
-    $phaseId = $phases->idFase;
+
+    foreach($phases as $phase){
+        if($phase->status == 'in-progress'){
+
+        }
+    }
+
 
     /**
     *Array bevat de data van een enkel project.
