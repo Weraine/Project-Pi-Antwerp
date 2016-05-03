@@ -19,9 +19,7 @@ jQuery(document).ready(function($){
                     columnWidth: '.thumbnail',
                     itemSelector: '.thumbnail',
                 });
-    $grid.imagesLoaded().progress(function(){
-        $grid.masonry('layout');
-    });
+
 
     /*$('.carousel').slick({
         infinite: true,
@@ -38,6 +36,8 @@ jQuery(document).ready(function($){
 	var timelineBlocks = $('.cd-timeline-block'),
 		offset = 1;
 
+    console.log(timelineBlocks);
+
 	//hide timeline blocks which are outside the viewport
 	hideBlocks(timelineBlocks, offset);
 
@@ -47,6 +47,13 @@ jQuery(document).ready(function($){
 			? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
 			: window.requestAnimationFrame(function(){ showBlocks(timelineBlocks, offset); });
 	});
+
+    $('.cd-read-more').on('click', function(){
+        var data_id_btn = $(this).attr("data-id");
+        var content = $("*[data-id='" + data_id_btn + "']").first().animate({
+            height: 800
+        });
+    });
 
 	function hideBlocks(blocks, offset) {
 		blocks.each(function(){
@@ -59,4 +66,10 @@ jQuery(document).ready(function($){
 			( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) && $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
 		});
 	}
+
+    function readMore(block, blocks, offset){
+
+    }
+
+
 });

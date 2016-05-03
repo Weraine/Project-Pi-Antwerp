@@ -13,6 +13,7 @@
 
 use App\Project;
 use App\Phase;
+use App\Question;
 use Illuminate\Http\Request;
 
 //!!!!!!!!NIEUWE CLASSES ALTIJD INCLUDEN DOOR "USE"!!!!!!!!//
@@ -46,10 +47,21 @@ Route::get('/project/{id}', function($id) {
     *@var array
     */
     $phases = Phase::where('idProject', '=', $id)->get();
+    $phaseId = $phases->idFase;
+
+    /**
+    *Array bevat de data van een enkel project.
+    *
+    *@var array
+    */
+    $questions = Question::where('idFase', '=', $phaseId)->get();
+
 
     return view('project', [
         'project' => $project,
-        'phases' => $phases
+        'phases' => $phases,
+        'questions' => $questions
+
     ]);
 });
 
@@ -80,4 +92,3 @@ Route::post('/admin/nieuwproject', 'AdminController@postNieuwProject');
 /*project bewerken*/
 Route::get('/admin/project-bewerken/{id}', 'AdminController@getProjectBewerken');
 Route::post('/admin/project-bewerken/{id}', 'AdminController@postProjectBewerken');
-
