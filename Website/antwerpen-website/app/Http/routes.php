@@ -48,11 +48,11 @@ Route::get('/project/{id}', function($id) {
     */
     $phases = Phase::where('idProject', '=', $id)->get();
 
-    foreach($phases as $phase){
+    /*foreach($phases as $phase){
         if($phase->status == 'in-progress'){
 
         }
-    }
+    }*/
 
 
     /**
@@ -60,13 +60,13 @@ Route::get('/project/{id}', function($id) {
     *
     *@var array
     */
-    $questions = Question::where('idFase', '=', $phaseId)->get();
+    //$questions = Question::where('idFase', '=', $phaseId)->get();
 
 
     return view('project', [
         'project' => $project,
         'phases' => $phases,
-        'questions' => $questions
+        
 
     ]);
 });

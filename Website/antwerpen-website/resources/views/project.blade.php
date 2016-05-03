@@ -35,12 +35,7 @@
                       'class' => 'form-horizontal',
                       'role' => 'form',
                       'files' => true)) }}
-                        @foreach($questions as $question)
-
-
-
-
-                        @endforeach
+                        
                     {{ Form::close() }}
         		</div> <!-- cd-timeline-content -->
         	</div> <!-- cd-timeline-block -->
