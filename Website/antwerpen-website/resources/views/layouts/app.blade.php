@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="/css/project-page.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/carousel.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/admin-panel.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="/css/dashboard-user.css" media="screen" title="no title" charset="utf-8">
         <!-- FUNCTIONAL CSS -->
         <link rel="stylesheet" href="/css/vertical-timeline-css.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/slick-theme.css" media="screen" title="no title" charset="utf-8">
@@ -46,7 +47,11 @@
     					<li><a href="/auth/login"><i class="fa fa-sign-in"></i>Inloggen</a></li>
     				@else
     					<li><a id="welkom" href="/dashboard"><i class="fa fa-user"></i>Welkom, {{ Auth::user()->name }}</a></li>
+                        @if (!Auth::guest() && Auth::user()->role == 10)
+                            <li><a href="/admin"><i class="fa fa-cog"></i>Admin panel</a></li>
+                        @endif
                         <li><a href="/auth/logout">Afmelden<i class="fa fa-sign-out"></i></a></li>
+
     				@endif
                 </ul>
             </div>
@@ -63,7 +68,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
-        <script src="/js/masonry.min.js" charset="utf-8"></script>
+        <script src="/js/salvatorre.min.js" charset="utf-8"></script>
         <script src="/js/modernizr.js" charset="utf-8"></script>
         <script src="/js/main.js" charset="utf-8"></script>
 
