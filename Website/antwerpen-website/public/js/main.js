@@ -25,7 +25,7 @@ window.initMap = function() {
 
 jQuery(document).ready(function($){
     var $grid = $('.grid').masonry({
-                    columnWidth: '.thumbnail',
+                    columnWidth: '.project-box',
                     itemSelector: '.thumbnail',
                 });
 
