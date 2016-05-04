@@ -29,6 +29,7 @@ jQuery(document).ready(function($){
                     itemSelector: '.thumbnail',
                 });
 
+    console.log($grid);
 
     /*$('.carousel').slick({
         infinite: true,
