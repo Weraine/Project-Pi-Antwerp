@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TouchLogic : MonoBehaviour
+public class TouchLogic : MonoBehaviour //bevat alle touch logica
 {
 
   public static int currTouch = 0; //zo weten andere script naar welke touch er actief is

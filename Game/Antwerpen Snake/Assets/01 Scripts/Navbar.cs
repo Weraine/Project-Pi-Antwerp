@@ -3,16 +3,15 @@ using System.Collections;
 
 public class Navbar : MonoBehaviour {
 
-	public Texture2D buttonHome;
-	public Texture2D buttonWeb;
-	public Texture2D buttonGame;
-	public Texture2D buttonThrophy;
-	private int screenWidth = Screen.width;
-	private int screenHeight = Screen.height;
-	private float iconSize;
+	public Texture2D buttonHome; //textuur voor HomeButton (A-logo)
+	public Texture2D buttonWeb; //textuur voor WebButton (computer)
+	public Texture2D buttonGame; //textuur voor gameButton (gamepad)
+	private int screenWidth = Screen.width; //screenwidth op voorhand inlezen
+	private int screenHeight = Screen.height; //screenheight op voorhand inlezen
+	private float iconSize; //grootte van de icoontjes
 
 	void Start () {
-		iconSize = screenWidth * 0.1f;
+		iconSize = screenWidth * 0.15f; //icoongrootte vastleggen
 	}
 	
 	void Update () {
@@ -22,9 +21,9 @@ public class Navbar : MonoBehaviour {
 	private void OnGUI() //GUIStyle.none voor border rond buttons te verwijderen
 	{
 
-		if (Screen.orientation == ScreenOrientation.Portrait)
+    if (Screen.orientation == ScreenOrientation.Portrait) //als het scherm portrait gepositioneerd is
 		{ 
-			if (GUI.Button(new Rect(0, 0, iconSize + 7, iconSize + 7), buttonHome, GUIStyle.none)) //lijst van projecten
+			if (GUI.Button(new Rect(0, 0, iconSize, iconSize), buttonHome, GUIStyle.none)) //lijst van projecten
 			{
 				Application.LoadLevel("ListOfProjects");
 			}
@@ -39,9 +38,9 @@ public class Navbar : MonoBehaviour {
 			}
 		}
 
-    else if (Screen.orientation == ScreenOrientation.Landscape)
+    else if (Screen.orientation == ScreenOrientation.Landscape) //als het scherm landscape gepositioneerd is
 		{ 
-			if (GUI.Button(new Rect(0, 0, iconSize + 7, iconSize + 7), buttonHome, GUIStyle.none)) //lijst van projecten
+			if (GUI.Button(new Rect(0, 0, iconSize, iconSize), buttonHome, GUIStyle.none)) //lijst van projecten
 			{
 				Application.LoadLevel("ListOfProjects");
 			}
