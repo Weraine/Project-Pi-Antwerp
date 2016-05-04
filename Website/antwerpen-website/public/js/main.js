@@ -2,16 +2,18 @@
 *Variabele bevat de map data van de Google Maps API
 *
 *@var map
-*/
-var map;
-
-/**
 *Variabele bevat het DOM element waar de map in wordt gerenderd
 *
 *@var mapElement
 */
+var map;
 var mapElement = document.getElementById('map');
 
+/**
+*Google map api initialiseren
+*
+*@method initMap
+*/
 window.initMap = function() {
     if(mapElement != null){
         map = new google.maps.Map(mapElement, {
@@ -22,13 +24,12 @@ window.initMap = function() {
 };
 
 jQuery(document).ready(function($){
-
-
     var $grid = $('.grid').masonry({
                     columnWidth: '.thumbnail',
                     itemSelector: '.thumbnail',
                 });
 
+    console.log($grid);
 
     /*$('.carousel').slick({
         infinite: true,
