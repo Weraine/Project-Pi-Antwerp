@@ -71,6 +71,14 @@
                         </div>
                         
                         <div>
+                           {{ Form::label('categorie','Selecteer een categorie', array(
+                                'class' => 'col-md-4 control-label')) }} 
+                            <div class="col-md-6">                                 
+                                {{ Form::select('status', $categorien, $project->idCategorie,array('class' => 'form-control')) }}
+                            </div>
+                        </div>
+                        
+                        <div>
                            {{ Form::label('isActief','Is project actief?', array(
                                 'class' => 'col-md-4 control-label')) }} 
                              <div class="col-md-6"> 
