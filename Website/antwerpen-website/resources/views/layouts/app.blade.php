@@ -46,7 +46,11 @@
     					<li><a href="/auth/login"><i class="fa fa-sign-in"></i>Inloggen</a></li>
     				@else
     					<li><a id="welkom" href="/dashboard"><i class="fa fa-user"></i>Welkom, {{ Auth::user()->name }}</a></li>
+                        @if (!Auth::guest() && Auth::user()->role == 10)
+                            <li><a href="/admin"><i class="fa fa-cog"></i>Admin panel</a></li>
+                        @endif
                         <li><a href="/auth/logout">Afmelden<i class="fa fa-sign-out"></i></a></li>
+
     				@endif
                 </ul>
             </div>
