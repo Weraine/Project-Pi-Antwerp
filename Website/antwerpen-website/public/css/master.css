@@ -19,6 +19,12 @@ h1, h5, h5 a, .project-big-box h1{
     margin-bottom: 1rem;
 }
 
+h1, h5, h3, h2, h4{
+    font-family: "Antwerpen";
+    text-decoration: none;
+    color: #282020;
+}
+
 h5 a:hover{
     color: #0064B4;
     text-decoration: none;
