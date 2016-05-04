@@ -10,6 +10,7 @@ use Validator;
 use File;
 
 use App\Project;
+use App\Categorie;
 
 class AdminController extends Controller
 {
@@ -23,7 +24,17 @@ class AdminController extends Controller
     }
     
     protected function getNieuwProject(){
-        return view('\admin\nieuw-project');
+        
+        /**
+        *categorien een array van alle categorien uit de db.
+        *
+        *@var array
+        */ 
+        $categorien = Categorie::orderBy('naam', 'asc')->get()->pluck('naam', 'idCategorie');
+        
+        return view('\admin\nieuw-project', [
+        'categorien' => $categorien
+    ]);
     }
     
     protected function postNieuwProject(Request $request)
@@ -43,6 +54,20 @@ class AdminController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
+        
+        /**
+        *Data bevat de values van inputfields van het nieuwe project.
+        *
+        *@var array
+        */        
+        $data = Input::all();
+
+        /**
+        *isActief bevat 1 als checkbox aangevinkt is, 0 als deze uitgevinkt is.
+        *
+        *@var int
+        */   
+        $isActief = (isset($data['isActief'])) ? $data['isActief'] : 0;
         
         if(Input::hasFile('foto')){
             /**
@@ -67,40 +92,37 @@ class AdminController extends Controller
             $nieuwe_naam = uniqid() . "." . $extensie;
         
             $afbeelding->move('pictures/uploads', $nieuwe_naam);
+            
+            /**
+            *nieuw pad naar afbeelding
+            *
+            *@var string
+            */
+            $foto_path = '/pictures/uploads/' . $nieuwe_naam;
+
+            //dd($data);
+
+            Project::create([
+                'naam' => $data['naam'],
+                'uitleg' => $data['uitleg'],
+                'locatie' => $data['locatie'],
+                'foto' => $foto_path,
+                'isActief' => $isActief,
+                'idCategorie' => $data['categorie']
+            ]);
 
         }
+        else {
+            Project::create([
+                'naam' => $data['naam'],
+                'uitleg' => $data['uitleg'],
+                'locatie' => $data['locatie'],
+                'isActief' => $isActief,
+                'idCategorie' => $data['categorie']
+            ]);
+        }
         
-        /**
-        *nieuw pad naar afbeelding
-        *
-        *@var string
-        */
-        $foto_path = '/pictures/uploads/' . $nieuwe_naam;
         
-        /**
-        *Data bevat de values van inputfields van het nieuwe project.
-        *
-        *@var array
-        */        
-        $data = Input::all();
-        
-        /**
-        *isActief bevat 1 als checkbox aangevinkt is, 0 als deze uitgevinkt is.
-        *
-        *@var int
-        */   
-        $isActief = (isset($data['isActief'])) ? $data['isActief'] : 0;
-        
-        //dd($data);
-        
-        Project::create([
-            'naam' => $data['naam'],
-            'uitleg' => $data['uitleg'],
-            'locatie' => $data['locatie'],
-            'foto' => $foto_path,
-            'isActief' => $isActief,
-            'idCategorie' => 5
-        ]);
         
         
         return view('\admin\admin-panel');
@@ -117,7 +139,7 @@ class AdminController extends Controller
         /**
         *Project is het geselecteerde project uit de database.
         *
-        *@var int
+        *@var array
         */ 
         $project = Project::where('idProject', '=', $id)->first();
         //dd($project);
@@ -142,14 +164,23 @@ class AdminController extends Controller
         *@var string
         */   
         $urlpath = "/admin/project-bewerken/" . $project->idProject;
-       
+        
+        /**
+        *categorien een array van alle categorien uit de db.
+        *
+        *@var array
+        */ 
+        $categorien = Categorie::orderBy('naam', 'asc')->get()->pluck('naam', 'idCategorie');
+        
         return view('\admin\project-bewerken', [
         'project' => $project,
         'isActief' => $isActief,
         'picpath' => $picpath,
-        'urlpath' => $urlpath
+        'urlpath' => $urlpath,
+        'categorien' => $categorien
     ]);
     }
+   
     
     protected function postProjectBewerken($id, Request $request)
     {
