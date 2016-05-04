@@ -1,0 +1,19 @@
+.profile-box{
+    background: #E5E5E6;
+}
+
+.profile-box img{
+    border-radius: 50%;
+    width: 100px;
+    margin-top: 25px;
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.profile-box p{
+    text-align: center;
+    font-family: "Sun-Antwerpen 700";
+    margin-top: 20px;
+    font-size: 18px;
+}
