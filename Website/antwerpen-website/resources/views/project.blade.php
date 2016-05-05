@@ -7,7 +7,8 @@
             <div class="project-hero-img">
                 <img src="{{$project->foto}}" alt="">
             </div>
-            <article class="">
+            <a href="#" class="btn btn-success"><i class="fa fa-plus"></i>Project volgen</a>
+            <article>
                 <h1>{{$project->naam}}</h1>
                 <time> {{ $project->created_at }} </time>
                 <p>
@@ -35,7 +36,7 @@
                       'class' => 'form-horizontal',
                       'role' => 'form',
                       'files' => true)) }}
-                        
+
                     {{ Form::close() }}
         		</div> <!-- cd-timeline-content -->
         	</div> <!-- cd-timeline-block -->

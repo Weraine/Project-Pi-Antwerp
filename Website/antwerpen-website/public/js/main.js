@@ -24,7 +24,7 @@ window.initMap = function() {
 };
 
 jQuery(document).ready(function($){
-    
+
 	var timelineBlocks = $('.cd-timeline-block'),
 		offset = 1;
 
@@ -62,6 +62,15 @@ jQuery(document).ready(function($){
     function readMore(block, blocks, offset){
 
     }
+
+    $('.fa.fa-check, .media-heading').mouseenter(function(){
+        $('.fa.fa-check').addClass('fa-times').removeClass('fa-check');
+    });
+
+    $('.fa.fa-times, .media-heading').mouseleave(function(){
+        $('.fa.fa-times').addClass('fa-check').removeClass('fa-times');
+    });
+
 
 
 });
