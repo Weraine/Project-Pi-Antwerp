@@ -68,21 +68,23 @@ jQuery(document).ready(function($){
     *
     *
     */
-    $('.fa.fa-check, .media-heading').mouseenter(function(){
-        $('.fa.fa-check').addClass('fa-times').removeClass('fa-check');
+    //dashboard
+    $('#project-link .fa.fa-check, .media-heading').mouseenter(function(){
+        $('#project-link .fa.fa-check').addClass('fa-times').removeClass('fa-check');
     });
 
-    $('.fa.fa-times, .media-heading').mouseleave(function(){
-        $('.fa.fa-times').addClass('fa-check').removeClass('fa-times');
+    $('#project-link .fa.fa-times, .media-heading').mouseleave(function(){
+        $('#project-link .fa.fa-times').addClass('fa-check').removeClass('fa-times');
     });
 
-    $('.btn.btn-default').mouseenter(function(){
+    //follow button
+    $('#follow-btn').mouseenter(function(){
         $(this).addClass('btn-success').removeClass('btn-default');
         $('.fa.fa-plus').addClass('fa-check').removeClass('fa-plus');
         console.log('hey enter');
     });
 
-    $('.btn.btn-default').mouseleave(function(){
+    $('#follow-btn').mouseleave(function(){
         $(this).addClass('btn-default').removeClass('btn-success');
         $('.fa.fa-check').addClass('fa-plus').removeClass('fa-check');
         console.log('hey leave');
