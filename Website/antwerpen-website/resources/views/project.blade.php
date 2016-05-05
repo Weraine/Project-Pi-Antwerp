@@ -15,7 +15,11 @@
                 <p>
                     {{$project->uitleg}}
                 </p>
-                <a href="#" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
+                @if(true)
+                    <a href="#" id="following-btn" class="btn btn-success" disabled><i class="fa fa-check"></i>Aan het volgen</a>
+                @else
+                    <a href="#" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
+                @endif
             </article>
         </div>
     </div>
@@ -33,7 +37,7 @@
         			<p>{{$phase->uitleg}}</p>
         			<a href="#0" class="cd-read-more" data-id="{{$phase->idFase}}">Lees meer</a>
         			<span class="cd-date">{{ date('d F, Y', strtotime($phase->start_datum)) }}</span>
-                    
+
                     <div class="cd-timeline-question-form">
                         {{ Form::open(array(
                             'url' => '/project/' . $project->idProject,

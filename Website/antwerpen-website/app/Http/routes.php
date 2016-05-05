@@ -14,6 +14,7 @@
 use App\Project;
 use App\Phase;
 use App\Question;
+use App\User_follow;
 use Illuminate\Http\Request;
 
 //!!!!!!!!NIEUWE CLASSES ALTIJD INCLUDEN DOOR "USE"!!!!!!!!//
@@ -37,22 +38,31 @@ Route::get('/project/{id}', function($id) {
     /**
     *Array bevat de data van een enkel project.
     *
-    *@var array
-    */
-    $project = Project::where('idProject', '=', $id)->first();
-
-    /**
+    *@var $project
+    *
     *Array dat de fases bevat.
     *
-    *@var array
+    *@var $phases
+    *
+    *
+    *
+    *@var $projectFollow
+    *
+    *
     */
+    $project = Project::where('idProject', '=', $id)->first();
     $phases = Phase::where('idProject', '=', $id)->get();
+    $currentUser = Auth::user()->id;
+    $projectFollow = User_follow::where('user_id', '=', $currentUser)->get();
+
+
 
     /*foreach($phases as $phase){
         if($phase->status == 'in-progress'){
 
         }
     }*/
+
 
 
     /**
@@ -66,7 +76,7 @@ Route::get('/project/{id}', function($id) {
     return view('project', [
         'project' => $project,
         'phases' => $phases,
-        
+        'projectFollow' => $projectFollow,
 
     ]);
 });
