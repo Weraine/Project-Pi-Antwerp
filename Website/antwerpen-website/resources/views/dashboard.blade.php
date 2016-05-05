@@ -35,7 +35,7 @@
                     </div><!--media-left-->
 
                     <div class="media-body">
-                        <h4 class="media-heading"><a><i class="fa fa-check"></i>Project 1: Lorum Ipsum</a></h4>
+                        <h4 class="media-heading"><a href='#' id="project-link"><i class="fa fa-check"></i>Project 1: Lorum Ipsum</a></h4>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris justo, venenatis eu est nec, interdum fermentum ante. Maecenas facilisis mollis purus vel egestas. Nunc a dui dignissim orci pulvinar facilisis et et purus.
                         </p>
