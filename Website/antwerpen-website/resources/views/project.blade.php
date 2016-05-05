@@ -11,11 +11,15 @@
 
             <article>
                 <h1>{{$project->naam}}</h1>
-                <time> {{ $project->created_at }} </time>
+                <time> {{ date('d F, Y', strtotime($project->created_at)) }} </time>
                 <p>
                     {{$project->uitleg}}
                 </p>
-                <a href="#" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
+                @if(true)
+                    <a href="#" id="following-btn" class="btn btn-success" disabled><i class="fa fa-check"></i>Aan het volgen</a>
+                @else
+                    <a href="#" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
+                @endif
             </article>
         </div>
     </div>
@@ -32,14 +36,24 @@
         			<h5>{{$phase->title}}</h5>
         			<p>{{$phase->uitleg}}</p>
         			<a href="#0" class="cd-read-more" data-id="{{$phase->idFase}}">Lees meer</a>
-        			<span class="cd-date"></span>
-                    {{ Form::open(array(
-                      'url' => '/project/' . $project->idProject,
-                      'class' => 'form-horizontal',
-                      'role' => 'form',
-                      'files' => true)) }}
+        			<span class="cd-date">{{ date('d F, Y', strtotime($phase->start_datum)) }}</span>
 
-                    {{ Form::close() }}
+                    <div class="cd-timeline-question-form">
+                        {{ Form::open(array(
+                            'url' => '/project/' . $project->idProject,
+                            'class' => 'form-horizontal',
+                            'role' => 'form',
+                            'files' => false)) }}
+
+                                {{ Form::label('question','Vraag 1', array(
+                                  'class' => 'col-md-4 control-label')) }}
+
+                                {{ Form::text('naam', '', array(
+                                  'class' => 'form-control')) }}
+
+                        {{ Form::close() }}
+                    </div>
+
         		</div> <!-- cd-timeline-content -->
         	</div> <!-- cd-timeline-block -->
         @endforeach

@@ -9,7 +9,9 @@
     <div class="thumbnail project-box">
        <a href="project/{{$project->idProject}}"><img src="{{$project->foto}}" alt=""></a>
         <article>
-            <time> {{ $project->created_at }} </time>
+            <time>
+                {{ date('d F, Y', strtotime($project->created_at)) }}
+            </time>
             <h5>
                 <a href="project/{{$project->idProject}}">{{ $project->naam }}</a>
             </h5>
