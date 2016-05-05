@@ -6,14 +6,16 @@
         <div class="project-big-box">
             <div class="project-hero-img">
                 <img src="{{$project->foto}}" alt="">
+
             </div>
-            <a href="#" class="btn btn-success"><i class="fa fa-plus"></i>Project volgen</a>
+
             <article>
                 <h1>{{$project->naam}}</h1>
                 <time> {{ $project->created_at }} </time>
                 <p>
                     {{$project->uitleg}}
                 </p>
+                <a href="#" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
             </article>
         </div>
     </div>

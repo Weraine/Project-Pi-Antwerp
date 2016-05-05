@@ -63,6 +63,11 @@ jQuery(document).ready(function($){
 
     }
 
+    /**
+    *Button behavior and Font awesome hover behaviors.
+    *
+    *
+    */
     $('.fa.fa-check, .media-heading').mouseenter(function(){
         $('.fa.fa-check').addClass('fa-times').removeClass('fa-check');
     });
@@ -70,6 +75,19 @@ jQuery(document).ready(function($){
     $('.fa.fa-times, .media-heading').mouseleave(function(){
         $('.fa.fa-times').addClass('fa-check').removeClass('fa-times');
     });
+
+    $('.btn.btn-default').mouseenter(function(){
+        $(this).addClass('btn-success').removeClass('btn-default');
+        $('.fa.fa-plus').addClass('fa-check').removeClass('fa-plus');
+        console.log('hey enter');
+    });
+
+    $('.btn.btn-default').mouseleave(function(){
+        $(this).addClass('btn-default').removeClass('btn-success');
+        $('.fa.fa-check').addClass('fa-plus').removeClass('fa-check');
+        console.log('hey leave');
+    });
+
 
 
 
