@@ -12,6 +12,12 @@ class Project extends Model
         'naam', 'uitleg', 'locatie', 'foto', 'isActief', 'idCategorie'
     ];
 
+    public function categorie()
+    {
+        return $this->hasOne('App\Categorie', 'idCategorie', 'idCategorie');
+    }
+
+
     public function users()
     {
         return $this->belongsToMany('App\User', 'user_follows', 'user_id', 'follow_id');
