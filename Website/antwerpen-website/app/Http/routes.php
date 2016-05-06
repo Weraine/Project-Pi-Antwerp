@@ -27,11 +27,15 @@ Route::get('/', function () {
     *
     *@var array
     */
+
     $projecten = Project::orderBy('idProject', 'asc')->get();
+    $categorien = Categorie::orderBy('idCategorie', 'asc')->get();
+
+
 
     return view('projecten', [
         'projecten' => $projecten,
-
+        'categorien' => $categorien,
     ]);
 });
 
@@ -78,7 +82,7 @@ Route::get('/project/{id}', function($id) {
     return view('project', [
         'project' => $project,
         'phases' => $phases,
-        
+
 
     ]);
 });

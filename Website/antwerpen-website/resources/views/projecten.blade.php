@@ -24,7 +24,13 @@
             @if (!Auth::guest() && Auth::user()->role == 10)
                 <a href="admin/project-bewerken/{{$project->idProject}}" class="bewerken-link"><i class="fa fa-pencil-square-o"></i>Bewerken</a>
             @endif
-            <a href="#" class="footer-link">Test Categorie</a>
+            @foreach($categorien as $categorie)
+                <a href="#" class="footer-link">
+                    @if($categorie->idCategorie == $project->idCategorie)
+                        <i class="{{$categorie->icon_class}}"></i> {{$categorie->naam}}
+                    @endif
+                </a>
+            @endforeach
         </div>
     </div>
     @endforeach
