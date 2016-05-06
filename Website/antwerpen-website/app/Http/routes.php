@@ -12,9 +12,11 @@
 */
 
 use App\Project;
+use App\User;
 use App\Phase;
 use App\Question;
 use App\User_follow;
+use App\Categorie;
 use Illuminate\Http\Request;
 
 //!!!!!!!!NIEUWE CLASSES ALTIJD INCLUDEN DOOR "USE"!!!!!!!!//
@@ -28,7 +30,8 @@ Route::get('/', function () {
     $projecten = Project::orderBy('idProject', 'asc')->get();
 
     return view('projecten', [
-        'projecten' => $projecten
+        'projecten' => $projecten,
+
     ]);
 });
 
@@ -52,10 +55,9 @@ Route::get('/project/{id}', function($id) {
     */
     $project = Project::where('idProject', '=', $id)->first();
     $phases = Phase::where('idProject', '=', $id)->get();
-    $currentUser = Auth::user()->id;
-    $projectFollow = User_follow::where('user_id', '=', $currentUser)->get();
-
-
+    /*$currentUser = User::find(1);
+    $projectFollow = Project::where('idProject', '=', $id)->first();
+    dd($projectFollow->users()->first(), $currentUser->projects()->first());*/
 
     /*foreach($phases as $phase){
         if($phase->status == 'in-progress'){
@@ -76,7 +78,7 @@ Route::get('/project/{id}', function($id) {
     return view('project', [
         'project' => $project,
         'phases' => $phases,
-        'projectFollow' => $projectFollow,
+        
 
     ]);
 });

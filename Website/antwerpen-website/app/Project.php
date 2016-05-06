@@ -12,8 +12,8 @@ class Project extends Model
         'naam', 'uitleg', 'locatie', 'foto', 'isActief', 'idCategorie'
     ];
 
-    public function followers()
+    public function users()
     {
-        return $this->belongsToMany('Project', 'user_follows', 'follow_id', 'user_id');
+        return $this->belongsToMany('App\User', 'user_follows', 'user_id', 'follow_id');
     }
 }

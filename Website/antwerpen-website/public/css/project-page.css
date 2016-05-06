@@ -32,3 +32,7 @@
 .cd-timeline-question-form{
     height: 500px;
 }
+
+#following-btn{
+    cursor: no-drop;
+}
