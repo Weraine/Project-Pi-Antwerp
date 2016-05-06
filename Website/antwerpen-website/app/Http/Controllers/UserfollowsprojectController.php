@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Userfollowsproject;
+use App\User_follow;
 use App\User;
 
 class UserfollowsprojectController extends Controller
@@ -18,7 +18,7 @@ class UserfollowsprojectController extends Controller
         *
         *@var array
         */
-        $following = Userfollowsproject::all();
+        $following = User_follow::all();
         $user      = User::orderBy('idUser');
 
 
