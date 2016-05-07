@@ -56,26 +56,24 @@ Route::get('/project/{id}', function($id) {
     *
     *
     */
-    $project = Project::where('idProject', '=', $id)->first();
-    $phases = Phase::where('idProject', '=', $id)->get();
-    $categorien = Categorie::orderBy('idCategorie', 'asc')->get();
-    /*$currentUser = User::find(1);
-    $projectFollow = Project::where('idProject', '=', $id)->first();
-    dd($projectFollow->users()->first(), $currentUser->projects()->first());*/
-
-    /*foreach($phases as $phase){
-        if($phase->status == 'in-progress'){
-
-        }
-    }*/
-
-
-
     /**
     *Array bevat de data van een enkel project.
     *
     *@var array
     */
+    //get project by id
+    $project = Project::where('idProject', '=', $id)->first();
+    //get phases of project
+    $phases = Phase::where('idProject', '=', $id)->get();
+    //get all categories
+    $categorien = Categorie::orderBy('idCategorie', 'asc')->get();
+
+    //get questions per phase
+    foreach($phases as $key => $phase){
+        $questions[$key] = Question::with('phases')->where('idFase', '=', $phase->idFase)->get();
+    }
+
+    //dd($questions[1][0]->vraag);
     //$questions = Question::where('idFase', '=', $phaseId)->get();
 
 
@@ -83,8 +81,7 @@ Route::get('/project/{id}', function($id) {
         'project' => $project,
         'phases' => $phases,
         'categorien' => $categorien,
-
-
+        'questions' => $questions
     ]);
 });
 

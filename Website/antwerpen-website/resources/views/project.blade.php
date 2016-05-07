@@ -33,7 +33,7 @@
 
 
     <section id="cd-timeline" class="cd-container">
-        @foreach($phases as $phase)
+        @foreach($phases as $key => $phase)
         	<div class="cd-timeline-block">
         		<div class="cd-timeline-img cd-{{$phase->status}}">
                     <span>#{{$phase->faseNummer}}</span>
@@ -52,11 +52,13 @@
                             'role' => 'form',
                             'files' => false)) }}
 
-                                {{ Form::label('question','Vraag 1', array(
-                                  'class' => 'col-md-4 control-label')) }}
+                                @foreach($questions as $key => $question)
+                                    {{ Form::label('question', $question[0]->vraag, array(
+                                        'class' => 'control-label')) }}
 
-                                {{ Form::text('naam', '', array(
-                                  'class' => 'form-control')) }}
+                                    {{ Form::text('naam', '', array(
+                                      'class' => 'form-control')) }}
+                                @endforeach
 
                         {{ Form::close() }}
                     </div>
