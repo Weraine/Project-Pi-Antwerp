@@ -17,6 +17,7 @@ use App\Phase;
 use App\Question;
 use App\User_follow;
 use App\Categorie;
+use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\Request;
 
 //!!!!!!!!NIEUWE CLASSES ALTIJD INCLUDEN DOOR "USE"!!!!!!!!//
@@ -27,15 +28,13 @@ Route::get('/', function () {
     *
     *@var array
     */
-
-    $projecten = Project::orderBy('idProject', 'asc')->get();
-    $categorien = Categorie::orderBy('idCategorie', 'asc')->get();
-
-
+    $projecten = DB::table('projects')
+                    ->join('categories', 'projects.idCategorie', '=', 'categories.idCategorie')
+                    ->select('categories.naam as catNaam', 'categories.icon_class', 'projects.*')
+                    ->get();
 
     return view('projecten', [
         'projecten' => $projecten,
-        'categorien' => $categorien,
     ]);
 });
 
@@ -59,6 +58,7 @@ Route::get('/project/{id}', function($id) {
     */
     $project = Project::where('idProject', '=', $id)->first();
     $phases = Phase::where('idProject', '=', $id)->get();
+    $categorien = Categorie::orderBy('idCategorie', 'asc')->get();
     /*$currentUser = User::find(1);
     $projectFollow = Project::where('idProject', '=', $id)->first();
     dd($projectFollow->users()->first(), $currentUser->projects()->first());*/
@@ -82,6 +82,7 @@ Route::get('/project/{id}', function($id) {
     return view('project', [
         'project' => $project,
         'phases' => $phases,
+        'categorien' => $categorien,
 
 
     ]);

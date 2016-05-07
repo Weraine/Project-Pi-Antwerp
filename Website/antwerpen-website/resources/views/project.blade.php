@@ -10,6 +10,13 @@
             </div>
 
             <article>
+                <p>
+                    @foreach($categorien as $categorie)
+                        @if($project->idCategorie == $categorie->idCategorie)
+                            <i class="{{$categorie->icon_class}}"></i>{{$categorie->naam}}
+                        @endif
+                    @endforeach
+                </p>
                 <h1>{{$project->naam}}</h1>
                 <time> {{ date('d F, Y', strtotime($project->created_at)) }} </time>
                 <p>

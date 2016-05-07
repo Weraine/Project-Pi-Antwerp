@@ -17,7 +17,6 @@ class Project extends Model
         return $this->hasOne('App\Categorie', 'idCategorie', 'idCategorie');
     }
 
-
     public function users()
     {
         return $this->belongsToMany('App\User', 'user_follows', 'user_id', 'follow_id');
