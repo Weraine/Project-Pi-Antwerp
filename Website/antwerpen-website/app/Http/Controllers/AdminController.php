@@ -265,13 +265,13 @@ class AdminController extends Controller
 
             Project::where('idProject', $id)
             ->update([
-            'naam' => $data['naam'],
-            'uitleg' => $data['uitleg'],
-            'locatie' => $data['locatie'],
-            'foto' => $foto_path,
-            'isActief' => $isActief,
-            'idCategorie' => $data['categorie'],
-        ]);
+                'naam' => $data['naam'],
+                'uitleg' => $data['uitleg'],
+                'locatie' => $data['locatie'],
+                'foto' => $foto_path,
+                'isActief' => $isActief,
+                'idCategorie' => $data['categorie'],
+            ]);
         }
         else {
             Project::where('idProject', $id)
