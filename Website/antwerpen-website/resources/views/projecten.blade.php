@@ -13,7 +13,7 @@
         <ul class="dropdown-menu">
             @foreach($categories as $categorie)
                 <!-- TO DO: ADD FILTER METHODE AAN BUTTON CLICK -->
-                <li><a href="#"> {{$categorie->naam}} </a></li>
+                <li><a href="/{{$categorie->idCategorie}}/NULL"> {{$categorie->naam}} </a></li>
             @endforeach
         </ul>
     </div>
