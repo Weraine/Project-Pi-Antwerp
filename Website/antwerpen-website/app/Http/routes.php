@@ -35,9 +35,17 @@ Route::get('/', function () {
 
     $categories = Categorie::all();
 
+    //duplicates filteren
+    $locaties = array_unique(DB::table('projects')
+                ->select('projects.locatie')
+                ->get(), SORT_REGULAR);
+
+
+
     return view('projecten', [
         'projecten' => $projecten,
         'categories' => $categories,
+        'locaties' => $locaties,
     ]);
 });
 
