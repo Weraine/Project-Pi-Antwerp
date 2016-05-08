@@ -90,6 +90,18 @@ jQuery(document).ready(function($){
         console.log('hey leave');
     });
 
+    $('.cd-read-more').on('click', function(){
+        $(this).hide('slow');
+        $('.cd-timeline-question-form').show('slow');
+        $('.cd-read-less').show('slow');
+    });
+
+    $('.cd-read-less').on('click', function(){
+        $(this).hide('slow');
+        $('.cd-timeline-question-form').hide('slow');
+        $('.cd-read-more').show('slow');
+    });
+
 
 
 

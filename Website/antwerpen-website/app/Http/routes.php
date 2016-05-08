@@ -33,8 +33,11 @@ Route::get('/', function () {
                     ->select('categories.naam as catNaam', 'categories.icon_class', 'projects.*')
                     ->get();
 
+    $categories = Categorie::all();
+
     return view('projecten', [
         'projecten' => $projecten,
+        'categories' => $categories,
     ]);
 });
 
@@ -72,6 +75,8 @@ Route::get('/project/{id}', function($id) {
     foreach($phases as $key => $phase){
         $questions[$key] = Question::with('phases')->where('idFase', '=', $phase->idFase)->get();
     }
+
+    //dd($questions);
 
     //dd($questions[1][0]->vraag);
     //$questions = Question::where('idFase', '=', $phaseId)->get();

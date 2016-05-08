@@ -1,3 +1,11 @@
+.filter{
+    margin-bottom: 20px;
+}
+
+.dropdown-menu{
+    border-radius: 0;
+}
+
 /* Project box */
 
 .project-box {
@@ -25,6 +33,7 @@
     float: right;
     padding-right: .5rem;
     font-family: "SunAntwerpen";
+    color: #282020;
 }
 
 .project-box a.bewerken-link{

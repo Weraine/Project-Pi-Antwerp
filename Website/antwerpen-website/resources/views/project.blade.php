@@ -45,7 +45,7 @@
         			<a href="#0" class="cd-read-more" data-id="{{$phase->idFase}}">Lees meer</a>
         			<span class="cd-date">{{ date('d F, Y', strtotime($phase->start_datum)) }}</span>
 
-                    <div class="cd-timeline-question-form">
+                    <div class="cd-timeline-question-form" data-id="{{$phase->idFase}}">
                         {{ Form::open(array(
                             'url' => '/project/' . $project->idProject,
                             'class' => 'form-horizontal',
@@ -59,7 +59,10 @@
                                     {{ Form::text('naam', '', array(
                                       'class' => 'form-control')) }}
                                 @endforeach
-
+                                <br/>
+                                {{ Form::submit('Vragen verzenden', array('class' => 'btn btn-success form-control')) }}
+                                <br/>
+                                <a href="#0" class="cd-read-less" data-id="{{$phase->idFase}}">Lees minder</a>
                         {{ Form::close() }}
                     </div>
 
