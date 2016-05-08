@@ -3,9 +3,9 @@
 
 @section('content')
 
-<div class="col-md-12 filter">
+<div class="col-md-12 col-xs-12 col-sm-12 filter">
     <!-- Single button -->
-    <div class="btn-group">
+    <div class="btn-group" id="filter-btn">
         <button name="filter" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-filter"></i>Filter   <span class="caret"></span>
         </button>

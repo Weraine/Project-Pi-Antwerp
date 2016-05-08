@@ -6,6 +6,10 @@
     border-radius: 0;
 }
 
+#filter-btn{
+    float: right;
+}
+
 /* Project box */
 
 .project-box {
