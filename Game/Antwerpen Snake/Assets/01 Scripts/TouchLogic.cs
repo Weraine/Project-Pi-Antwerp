@@ -1,37 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TouchLogic : MonoBehaviour //bevat alle touch logica
+public class TouchLogic : MonoBehaviour //contains all touch logic
 {
-
-  public static int currTouch = 0; //zo weten andere script naar welke touch er actief is
-  public int touch2Watch = 0; //zal gebruikt worden zodat de andere scripts weten naar welke touch gekeken moet worden
+  public static int currTouch = 0; //is needed for other scripts, so they know which touch is active
+  public int touch2Watch = 0; //other script know at which touch they have to look
 
   void Update()
   {
-    //is er een touch?
+    //is there a touch?
     if (Input.touches.Length <= 0)
     {
-      //als er niets wordt aangeraakt
+      //if there is no touch
     }
-    else //als er een touch is
+    else //if there is a touch
     {
-      //er is geen foreach omdat de snake enkel op 1 touch moet reageren, zo negeert de code de andere touches
-      if (Input.GetTouch(0).phase == TouchPhase.Began) //als een touch begonnen is
+      //there is no foreach since the snake only needs to react to 1 touch ==> all the other touches will be ignored
+      if (Input.GetTouch(0).phase == TouchPhase.Began) //if a touch began
       {
-        this.SendMessage("OnTouchBegan"); //stuur een message die de methode "OnTouchBegan" uitvoert
+        this.SendMessage("OnTouchBegan"); //send a message which executes "OnTouchBegan"
       }
-      if (Input.GetTouch(0).phase == TouchPhase.Ended) //als een touch geëindigd is
+      if (Input.GetTouch(0).phase == TouchPhase.Ended) //if a touch ended
       {
-        this.SendMessage("OnTouchEnded"); //stuur een message die de methode "OnTouchEnded" uitvoert
+        this.SendMessage("OnTouchEnded"); //send a message which executes "OnTouchEnded" 
       }
-      if (Input.GetTouch(0).phase == TouchPhase.Moved) //als een touch bewogen is
+      if (Input.GetTouch(0).phase == TouchPhase.Moved) //if a touch moved
       {
-        this.SendMessage("OnTouchMoved"); //stuur een message die de methode "OnTouchMoved" uitvoert
+        this.SendMessage("OnTouchMoved"); //send a message which executes "OnTouchMoved"
       }
-      if (Input.GetTouch(0).phase == TouchPhase.Stationary) //als een touch stilstaat
+      if (Input.GetTouch(0).phase == TouchPhase.Stationary) //is a touch is stationary
       {
-        this.SendMessage("OnTouchStayed"); //stuur een message die de methode "OnTouchStayed" uitvoert
+        this.SendMessage("OnTouchStayed"); //send a message which executes "OnTouchStayed" 
       }
     }
   }

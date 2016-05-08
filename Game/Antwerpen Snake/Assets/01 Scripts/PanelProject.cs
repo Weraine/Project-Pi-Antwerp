@@ -14,7 +14,7 @@ public class PanelProject : MonoBehaviour {
    public const float startValueScrollbar = 1f; //makes sure the scrollbar is always starting at the top of the page
    public Scrollbar bar = null; //drop the scrollbar in here
 
-    //testimages
+   //testimages
    public Sprite testImage1;
    public Sprite testImage2;
    public Sprite testImage3;
@@ -27,12 +27,14 @@ public class PanelProject : MonoBehaviour {
    private Text[] databaseDescriptions;
 
 	void Start () {
+    //instantiate all arrays
     databaseImages = new Image[numberOfProjects];
     databaseTitels = new Text[numberOfProjects];
     databaseDescriptions = new Text[numberOfProjects];
 
     for (int i = 0; i < numberOfProjects; i++) //for every project
-    { 
+    {
+      //testcode
       switch (i)
       { 
         case 0:

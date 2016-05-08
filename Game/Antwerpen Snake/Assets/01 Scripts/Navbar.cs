@@ -3,56 +3,35 @@ using System.Collections;
 
 public class Navbar : MonoBehaviour {
 
-	public Texture2D buttonHome; //textuur voor HomeButton (A-logo)
-	public Texture2D buttonWeb; //textuur voor WebButton (computer)
-	public Texture2D buttonGame; //textuur voor gameButton (gamepad)
-	private int screenWidth = Screen.width; //screenwidth op voorhand inlezen
-	private int screenHeight = Screen.height; //screenheight op voorhand inlezen
-	private float iconSize; //grootte van de icoontjes
+	public Texture2D buttonHome; //texture for HomeButton (A-logo)
+	public Texture2D buttonWeb; //texture for WebButton (computer)
+	public Texture2D buttonGame; //texture for gameButton (gamepad)
+	private int screenWidth = Screen.width; //load in screenwidth 
+	private int screenHeight = Screen.height; //load in screenheight
+	private float iconSize; //standardsize of icons
 
 	void Start () {
-		iconSize = screenWidth * 0.15f; //icoongrootte vastleggen
+		iconSize = screenWidth * 0.11f; //make de icons spread over de navbar
 	}
 	
 	void Update () {
  
 	}
 
-	private void OnGUI() //GUIStyle.none voor border rond buttons te verwijderen
+	private void OnGUI() //GUIStyle.none to delete the border around the buttons
 	{
-
-    if (Screen.orientation == ScreenOrientation.Portrait) //als het scherm portrait gepositioneerd is
-		{ 
-			if (GUI.Button(new Rect(0, 0, iconSize, iconSize), buttonHome, GUIStyle.none)) //lijst van projecten
+			if (GUI.Button(new Rect(0, 0, iconSize, iconSize), buttonHome, GUIStyle.none)) //when pressed on logo, go to the list of projects
 			{
 				Application.LoadLevel("ListOfProjects");
 			}
-			if (GUI.Button(new Rect(screenWidth * 0.25f, screenHeight * 0.01f, iconSize, iconSize), buttonGame, GUIStyle.none)) //game
+			if (GUI.Button(new Rect(screenWidth * 0.70f, 0, iconSize, iconSize), buttonGame, GUIStyle.none)) //when pressed on gamepad icon, go to the startupMenu of the game
 			{
 				Application.LoadLevel("MainScreenSnake");
 			}
 
-			if (GUI.Button(new Rect(screenWidth * 0.75f, screenHeight * 0.01f, iconSize, iconSize), buttonWeb, GUIStyle.none)) //gaat naar home web
-			{
+			if (GUI.Button(new Rect(screenWidth * 0.85f, 0, iconSize, iconSize), buttonWeb, GUIStyle.none)) //when pressed on computer icon, go to the website of the projects
+      {
 				Application.OpenURL("http://pi.multimediatechnology.be/");
 			}
-		}
-
-    else if (Screen.orientation == ScreenOrientation.Landscape) //als het scherm landscape gepositioneerd is
-		{ 
-			if (GUI.Button(new Rect(0, 0, iconSize, iconSize), buttonHome, GUIStyle.none)) //lijst van projecten
-			{
-				Application.LoadLevel("ListOfProjects");
-			}
-      if (GUI.Button(new Rect(screenWidth * 0.01f, screenHeight * 0.25f, iconSize, iconSize), buttonGame, GUIStyle.none)) //game
-			{
-				Application.LoadLevel("MainScreenSnake");
-			}
-
-      if (GUI.Button(new Rect(screenWidth * 0.01f, screenHeight * 0.75f, iconSize, iconSize), buttonWeb, GUIStyle.none)) //gaat naar home web
-			{
-				Application.OpenURL("http://pi.multimediatechnology.be/");
-			}
-		}
 	}
 }
