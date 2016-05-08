@@ -3,26 +3,26 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class StartScreenAndInstructionButtons : MonoBehaviour {
-  //klasse voor de knoppen van het startscherm van het spel, knoppen van het instructiescherm, knoppen van de lijst van projecten
- 
-      public void StartGame() //start het spel op
-      {
-        Application.LoadLevel("NewSnakeGame");
-      }
+  //class that controls the UI buttons of the main menu of the game, the instructionbuttons and the buttons of the list of projects
 
-      public void ShowInstructions() //gaat naar de pagina met instructies
-      {
-        Application.LoadLevel("Instructions");
-      }
+  public void StartGame() //start the game
+  {
+    Application.LoadLevel("NewSnakeGame");
+  }
 
-      public void GoToStartScreenGame()
-      {
-        Application.LoadLevel("MainScreenSnake");
-      }
+  public void ShowInstructions() //go to the page with instructions
+  {
+    Application.LoadLevel("Instructions");
+  }
+  
+  public void GoToStartScreenGame() //go to the main menu of the game
+  {
+    Application.LoadLevel("MainScreenSnake");
+  }
 
-      //nog wegdoen = tijdelijk
-      public void TijdelijkNaarHome()
-      {
-        Application.OpenURL("http://pi.multimediatechnology.be/");
-      }
+  //nog wegdoen = tijdelijk ==> moet met database in panelproject opgeroepen kunnen wordne
+  public void TijdelijkNaarHome()
+  {
+    Application.OpenURL("http://pi.multimediatechnology.be/");
+  }
 }
