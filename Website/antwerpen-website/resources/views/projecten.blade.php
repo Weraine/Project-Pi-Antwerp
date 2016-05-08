@@ -3,6 +3,22 @@
 
 @section('content')
 
+<div class="col-md-12 filter">
+    <!-- Single button -->
+    <div class="btn-group">
+        <button name="filter" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-filter"></i>Filter   <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu">
+            @foreach($categories as $categorie)
+                <!-- TO DO: ADD FILTER METHODE AAN BUTTON CLICK -->
+                <li><a href="#"> {{$categorie->naam}} </a></li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+
 
 <div id="grid" data-columns>
     @foreach ($projecten as $project)
