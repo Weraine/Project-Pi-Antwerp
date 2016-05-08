@@ -10,15 +10,6 @@ Primary style
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-}
-
-h1, h2 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: bold;
-}
-
 /* --------------------------------
 
 Modules - reusable parts of our design

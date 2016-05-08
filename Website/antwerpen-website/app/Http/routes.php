@@ -12,7 +12,12 @@
 */
 
 use App\Project;
+use App\User;
 use App\Phase;
+use App\Question;
+use App\User_follow;
+use App\Categorie;
+use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\Request;
 
 //!!!!!!!!NIEUWE CLASSES ALTIJD INCLUDEN DOOR "USE"!!!!!!!!//
@@ -23,10 +28,13 @@ Route::get('/', function () {
     *
     *@var array
     */
-    $projecten = Project::orderBy('idProject', 'asc')->get();
+    $projecten = DB::table('projects')
+                    ->join('categories', 'projects.idCategorie', '=', 'categories.idCategorie')
+                    ->select('categories.naam as catNaam', 'categories.icon_class', 'projects.*')
+                    ->get();
 
     return view('projecten', [
-        'projecten' => $projecten
+        'projecten' => $projecten,
     ]);
 });
 
@@ -36,20 +44,44 @@ Route::get('/project/{id}', function($id) {
     /**
     *Array bevat de data van een enkel project.
     *
-    *@var array
-    */
-    $project = Project::where('idProject', '=', $id)->first();
-
-    /**
+    *@var $project
+    *
     *Array dat de fases bevat.
+    *
+    *@var $phases
+    *
+    *
+    *
+    *@var $projectFollow
+    *
+    *
+    */
+    /**
+    *Array bevat de data van een enkel project.
     *
     *@var array
     */
+    //get project by id
+    $project = Project::where('idProject', '=', $id)->first();
+    //get phases of project
     $phases = Phase::where('idProject', '=', $id)->get();
+    //get all categories
+    $categorien = Categorie::orderBy('idCategorie', 'asc')->get();
+
+    //get questions per phase
+    foreach($phases as $key => $phase){
+        $questions[$key] = Question::with('phases')->where('idFase', '=', $phase->idFase)->get();
+    }
+
+    //dd($questions[1][0]->vraag);
+    //$questions = Question::where('idFase', '=', $phaseId)->get();
+
 
     return view('project', [
         'project' => $project,
-        'phases' => $phases
+        'phases' => $phases,
+        'categorien' => $categorien,
+        'questions' => $questions
     ]);
 });
 
@@ -80,4 +112,3 @@ Route::post('/admin/nieuwproject', 'AdminController@postNieuwProject');
 /*project bewerken*/
 Route::get('/admin/project-bewerken/{id}', 'AdminController@getProjectBewerken');
 Route::post('/admin/project-bewerken/{id}', 'AdminController@postProjectBewerken');
-

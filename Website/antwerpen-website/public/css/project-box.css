@@ -2,7 +2,7 @@
 
 .project-box {
     padding: 0;
-    width: 90%;
+    width: 100%;
     /*margin-left: 1.42857rem;*/
     margin-bottom: 1.2rem;
     background-color: #F5F5F6;
@@ -13,7 +13,7 @@
     border-right: 1px solid #E5E5E6;
     border-bottom: 2px solid #BABABA;
     margin-left: auto;
-    margin-right: 10px;
+    transition: width 0.2s ease;
 }
 
 
@@ -38,7 +38,7 @@
 
 article {
     padding: 20px;
-    font-family: "SunAntwerpen";
+    font-family: "Sun-Antwerpen 500";
 }
 
 time {

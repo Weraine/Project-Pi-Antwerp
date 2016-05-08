@@ -16,3 +16,23 @@
     margin-right: auto;
     background: #F5F5F6;
 }
+
+.project-big-box i.fa.fa-plus{
+    color: black;
+}
+
+.project-big-box i.fa.fa-check{
+    color: white;
+}
+
+.project-big-box i{
+    width: 30px;
+}
+
+.cd-timeline-question-form{
+    height: 500px;
+}
+
+#following-btn{
+    cursor: no-drop;
+}
