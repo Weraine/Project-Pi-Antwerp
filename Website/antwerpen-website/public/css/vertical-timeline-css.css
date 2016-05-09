@@ -220,7 +220,7 @@ Main components
   font-size: 13px;
   font-size: 0.8125rem;
 }
-.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date, .cd-timeline-content .cd-read-less{
+.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date{
   display: inline-block;
 }
 .cd-timeline-content p {
