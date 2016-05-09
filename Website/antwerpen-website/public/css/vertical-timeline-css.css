@@ -234,7 +234,7 @@ Main components
   color: white;
   border-radius: 0.25em;
 }
-.no-touch .cd-timeline-content .cd-read-more:hover, .no-touch .cd-timeline-content .cd-read-less {
+.no-touch .cd-timeline-content .cd-read-more:hover, .no-touch .cd-timeline-content .cd-read-less:hover {
   background-color: #bac4cb;
 }
 .cd-timeline-content .cd-date {

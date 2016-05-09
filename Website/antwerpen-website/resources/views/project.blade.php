@@ -62,9 +62,13 @@
                                 <br/>
                                 {{ Form::submit('Vragen verzenden', array('class' => 'btn btn-success form-control')) }}
                                 <br/>
-                                <a href="#0" class="cd-read-less" data-id="{{$phase->idFase}}">Lees minder</a>
+
                         {{ Form::close() }}
+
+
                     </div>
+
+                    <a href="#0" class="cd-read-less" data-id="{{$phase->idFase}}">Lees minder</a>
 
         		</div> <!-- cd-timeline-content -->
         	</div> <!-- cd-timeline-block -->
