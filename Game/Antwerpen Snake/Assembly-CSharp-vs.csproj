@@ -49,10 +49,10 @@
      <Compile Include="Assets\01 Scripts\Navbar.cs" />
      <Compile Include="Assets\01 Scripts\PanelProject.cs" />
      <Compile Include="Assets\01 Scripts\Snake.cs" />
+     <Compile Include="Assets\01 Scripts\SnakeV2.cs" />
      <Compile Include="Assets\01 Scripts\StartScreenAndInstructionButtons.cs" />
+     <Compile Include="Assets\01 Scripts\TouchLogic.cs" />
      <Compile Include="Assets\01 Scripts\testforpopup.cs" />
-     <Compile Include="Assets\testvoorVraag.cs" />
-     <None Include="Assets\nog te fixen.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

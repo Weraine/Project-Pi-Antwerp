@@ -1,6 +1,6 @@
 body{
     background: #fff;
-    font-family: "SunAntwerpen", sans-serif;
+    font-family: "Sun-Antwerpen 500", sans-serif;
     padding-top: 8rem;
 }
 
@@ -11,12 +11,18 @@ html{
 
 
 
-h5, h5 a, .project-big-box h1{
+h1, h5, h5 a, .project-big-box h1{
     font-family: "Antwerpen";
     text-decoration: none;
     color: #282020;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
+}
+
+h1, h5, h3, h2, h4{
+    font-family: "Antwerpen";
+    text-decoration: none;
+    color: #282020;
 }
 
 h5 a:hover{
@@ -37,6 +43,15 @@ i{
     padding-right: 10px;
     padding-left: 5px;
 }
+.navbar-nav>li>#page-title{
+    padding: 30.5px;
+}
+
+.navbar-nav>li>a>h1{
+    color: white;
+    font-family: "Antwerpen";
+    margin: 0;
+}
 
 #content{
     padding: 0;
@@ -51,4 +66,54 @@ i{
     border: none;
     border-radius: 0;
     transition: none;
+}
+
+.panel{
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 2px solid #BABABA;
+}
+
+.panel-heading{
+    border-radius: 0;
+}
+
+.panel-heading h1{
+    font-family: "Antwerpen";
+}
+
+.form-control{
+    border-radius: 0;
+}
+
+.btn{
+    border-radius: 0;
+}
+
+@media screen and (min-width: 1px) and (max-width: 767px){
+    #grid[data-columns]::before {
+        content: '1 .col-xs-12';
+        transition: 1s;
+    }
+}
+@media screen and (min-width:768px) and (max-width: 991px){
+    #grid[data-columns]::before {
+        content: '2 .col-sm-6';
+    }
+}
+@media screen and (min-width:992px) and (max-width: 9999px){
+    #grid[data-columns]::before {
+        content: '4 .col-md-4';
+    }
+}
+
+#grid>div{
+    -webkit-transition:all 0.5s ease;
+    -moz-transition:all 0.5s ease;
+    -o-transition:all 0.5s ease;
+    transition:all 0.5s ease;
+}
+
+.form-horizontal .control-label{
+    text-align: left;
 }

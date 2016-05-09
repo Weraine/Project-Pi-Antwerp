@@ -10,15 +10,6 @@ Primary style
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-}
-
-h1, h2 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: bold;
-}
-
 /* --------------------------------
 
 Modules - reusable parts of our design
@@ -225,25 +216,25 @@ Main components
 .cd-timeline-content h2 {
   color: #303e49;
 }
-.cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+.cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date, .cd-timeline-content .cd-read-less {
   font-size: 13px;
   font-size: 0.8125rem;
 }
-.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date, .cd-timeline-content .cd-read-less{
   display: inline-block;
 }
 .cd-timeline-content p {
   margin: 1em 0;
   line-height: 1.6;
 }
-.cd-timeline-content .cd-read-more {
+.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-read-less {
   float: right;
   padding: .8em 1em;
   background: #acb7c0;
   color: white;
   border-radius: 0.25em;
 }
-.no-touch .cd-timeline-content .cd-read-more:hover {
+.no-touch .cd-timeline-content .cd-read-more:hover, .no-touch .cd-timeline-content .cd-read-less {
   background-color: #bac4cb;
 }
 .cd-timeline-content .cd-date {
@@ -270,7 +261,7 @@ Main components
     font-size: 16px;
     font-size: 1rem;
   }
-  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date, .cd-timeline-content .cd-read-less {
     font-size: 14px;
     font-size: 0.875rem;
   }
@@ -287,7 +278,7 @@ Main components
     border-color: transparent;
     border-left-color: #E5E5E6;
   }
-  .cd-timeline-content .cd-read-more {
+  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-read-less {
     float: left;
   }
   .cd-timeline-content .cd-date {
@@ -308,7 +299,7 @@ Main components
     border-color: transparent;
     border-right-color: #E5E5E6;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more,  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-less{
     float: right;
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
