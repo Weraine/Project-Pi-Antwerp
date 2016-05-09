@@ -24,7 +24,7 @@ window.initMap = function() {
 };
 
 jQuery(document).ready(function($){
-    
+
 	var timelineBlocks = $('.cd-timeline-block'),
 		offset = 1;
 
@@ -62,6 +62,47 @@ jQuery(document).ready(function($){
     function readMore(block, blocks, offset){
 
     }
+
+    /**
+    *Button behavior and Font awesome hover behaviors.
+    *
+    *
+    */
+    //dashboard
+    $('#project-link .fa.fa-check, .media-heading').mouseenter(function(){
+        $('#project-link .fa.fa-check').addClass('fa-times').removeClass('fa-check');
+    });
+
+    $('#project-link .fa.fa-times, .media-heading').mouseleave(function(){
+        $('#project-link .fa.fa-times').addClass('fa-check').removeClass('fa-times');
+    });
+
+    //follow button
+    $('#follow-btn').mouseenter(function(){
+        $(this).addClass('btn-success').removeClass('btn-default');
+        $('.fa.fa-plus').addClass('fa-check').removeClass('fa-plus');
+        console.log('hey enter');
+    });
+
+    $('#follow-btn').mouseleave(function(){
+        $(this).addClass('btn-default').removeClass('btn-success');
+        $('.fa.fa-check').addClass('fa-plus').removeClass('fa-check');
+        console.log('hey leave');
+    });
+
+    $('.cd-read-more').on('click', function(){
+        $(this).hide('slow');
+        $('.cd-timeline-question-form').show('slow');
+        $('.cd-read-less').show('slow');
+    });
+
+    $('.cd-read-less').on('click', function(){
+        $(this).hide('slow');
+        $('.cd-timeline-question-form').hide('slow');
+        $('.cd-read-more').show('slow');
+    });
+
+
 
 
 });
