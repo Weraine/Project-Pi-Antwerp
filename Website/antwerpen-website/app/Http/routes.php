@@ -49,6 +49,50 @@ Route::get('/', function () {
     ]);
 });
 
+/*Route::get('/{categorie}/{locatie}', function ($categorie, $locatie) {
+    
+    /**
+    *Array bevat alle projecten en hun data.
+    *
+    *@var array
+    */
+
+    /*if($categorie != NULL && $locatie != NULL){
+        $projecten = DB::table('projects')
+                        ->join('categories', 'projects.idCategorie', '=', 'categories.idCategorie')
+                        ->select('categories.naam as catNaam', 'categories.icon_class', 'projects.*')
+                        ->where('projects.idCategorie', '=', $categorie)
+                        ->where('projects.locatie', '=', $locatie)
+                        ->get();
+    }
+    else if($categorie != NULL && $locatie == NULL){
+        $projecten = DB::table('projects')
+                        ->join('categories', 'projects.idCategorie', '=', 'categories.idCategorie')
+                        ->select('categories.naam as catNaam', 'categories.icon_class', 'projects.*')
+                        ->where('projects.idCategorie', '=', $categorie)
+                        ->get();
+    }
+
+    //dd($projecten);
+
+    $categories = Categorie::all();
+
+    //duplicates filteren
+    $locaties = array_unique(DB::table('projects')
+                ->select('projects.locatie')
+                ->get(), SORT_REGULAR);
+
+
+
+    return view('projecten', [
+        'projecten' => $projecten,
+        'categories' => $categories,
+        'locaties' => $locaties,
+    ]);
+});*/
+
+
+
 Route::get('/project/{id}', function($id) {
 
     /**
@@ -79,15 +123,16 @@ Route::get('/project/{id}', function($id) {
     $categorien = Categorie::orderBy('idCategorie', 'asc')->get();
 
     //get questions per phase
+    $questions = null;
+    
     foreach($phases as $key => $phase){
         $questions[$key] = Question::with('phases')->where('idFase', '=', $phase->idFase)->get();
     }
 
+
     //dd($questions);
-
-    //dd($questions[1][0]->vraag);
     //$questions = Question::where('idFase', '=', $phaseId)->get();
-
+    
 
     return view('project', [
         'project' => $project,
