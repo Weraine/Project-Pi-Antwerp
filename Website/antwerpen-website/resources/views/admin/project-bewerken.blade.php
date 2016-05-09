@@ -72,7 +72,6 @@
 
                         <div>
                            {{ Form::label('categorie','Selecteer een categorie', array(
-
                                 'class' => 'col-md-4 control-label')) }} 
                             <div class="col-md-6">                                 
                                 {{ Form::select('categorie', $categorien, $project->idCategorie,array('class' => 'form-control')) }}
