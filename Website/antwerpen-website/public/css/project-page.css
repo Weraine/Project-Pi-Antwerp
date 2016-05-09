@@ -38,3 +38,7 @@
 #following-btn{
     cursor: no-drop;
 }
+
+.cd-read-less{
+    display: none;
+}
