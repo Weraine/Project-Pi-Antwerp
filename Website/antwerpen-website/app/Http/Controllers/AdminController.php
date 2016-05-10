@@ -10,6 +10,7 @@ use File;
 use App\Project;
 use App\Categorie;
 use App\Phase;
+use DB;
 
 class AdminController extends Controller
 {
@@ -286,7 +287,7 @@ class AdminController extends Controller
     
     
     protected function getFases($id){
-
+        
         /**
         *id is de idProject van het project dat men wil bewerken.
         *
@@ -306,7 +307,6 @@ class AdminController extends Controller
         *@var array
         */
         $fases = Phase::where('idProject', '=', $id)->orderBy('faseNummer', 'asc')->get();
-        //dd($fases);
 
 
         return view('\admin\fases-overzicht', [
@@ -317,7 +317,7 @@ class AdminController extends Controller
     }
     
     protected function getFaseBewerken($id, $faseid){
-
+        
         /**
         *id is de idProject van het project dat men wil bewerken.
         *
@@ -342,10 +342,10 @@ class AdminController extends Controller
         *
         *@var array
         */
-        $fase = Phase::where('idFase', '=', $faseid)
+        $fase = Phase::where('faseNummer', '=', $faseid)
                     ->where('idProject', '=', $id)->first();
                     
-        //dd($fases);
+        //dd($fase);
 
 
         return view('\admin\fase-bewerken', [
@@ -382,7 +382,7 @@ class AdminController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'uitleg' => 'required|min:250',
+            'uitleg' => 'required|min:50',
             'start_datum' => 'required'
         ]);
 
@@ -404,4 +404,98 @@ class AdminController extends Controller
         return redirect($request->url());
     }
     
+    protected function getFaseVerwijderen($id, $faseid){
+        
+        /**
+        *Project is het geselecteerde project uit de database.
+        *
+        *@var array
+        */
+        $project = Project::where('idProject', '=', $id)->first();
+
+        /**
+        *fase bevat alle data over de fases van het huidige project.
+        *
+        *@var array
+        */
+        $fase = Phase::where('idFase', '=', $faseid)
+                    ->where('idProject', '=', $id)->first();
+        
+        return view('\admin\fase-verwijderen', [
+        'fase' => $fase,
+        'project' => $project
+
+    ]);
+        
+    }
+    
+    protected function postFaseVerwijderen($id, $faseid){
+        
+        DB::table('Phases')->where('faseNummer', '=', $faseid)
+                            ->where('idProject', '=', $id)
+                            ->delete();
+        
+        return redirect('/admin/project-bewerken/'. $id . '/fases');
+    }
+    
+    protected function getNieuweFase($id){
+        
+        /**
+        *id is de idProject van het project waar men een fase wil aan toevoegen.
+        *
+        *@param int
+        */
+    
+        
+        /**
+        *Project is het geselecteerde project uit de database.
+        *
+        *@var array
+        */
+        $project = Project::where('idProject', '=', $id)->first();
+        
+        return view('\admin\nieuwe-fase', [
+        'project' => $project
+
+    ]);
+    }
+    
+    
+    protected function postNieuweFase($id, Request $request){
+        
+        /**
+        *id is de idProject van het project waar men een fase wil aan toevoegen.
+        *
+        *@param int
+        */
+        
+        /**
+        *Data bevat de values van inputfields van het nieuwe project.
+        *
+        *@var array
+        */
+        $data = Input::all();
+    
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'uitleg' => 'required|min:50',
+            'start_datum' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+             return redirect($request->url())
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        
+        Phase::create([
+                'title' => $data['title'],
+                'uitleg' => $data['uitleg'],
+                'start_datum' => $data['start_datum'],
+                'idProject' => $id
+            ]);
+        
+        
+        return redirect('/admin/project-bewerken/'. $id . '/fases');
+    }
 }
