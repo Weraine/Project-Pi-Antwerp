@@ -32,7 +32,7 @@
     box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
-.media-heading>a>i{
+.media-heading>a>button>i{
     width: 30px;
 }
 .media-heading>a{
@@ -40,13 +40,19 @@
 }
 
 .fa-times{
-    color: #DA291C;
+    color: white;
 }
 .fa-check{
-    color: #4AA32C;
+    color: white;
 }
 
 
 .fa-times, .fa-check{
     transition: all 0s;
+}
+
+.btn-following:hover{
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    content: 'Niet meer volgen';
 }
