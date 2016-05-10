@@ -11,6 +11,7 @@ use File;
 
 use App\Project;
 use App\Categorie;
+use App\Phase;
 
 class AdminController extends Controller
 {
@@ -182,7 +183,6 @@ class AdminController extends Controller
     ]);
     }
 
-
     protected function postProjectBewerken($id, Request $request)
     {
 
@@ -286,4 +286,32 @@ class AdminController extends Controller
 
         return redirect('/');
     }
+    
+    
+    protected function getFases($id){
+
+        /**
+        *id is de idProject van het project dat men wil bewerken.
+        *
+        *@var int
+        */
+
+        /**
+        *fases bevat alle data over de fases van het huidige project.
+        *
+        *@var array
+        */
+        $fases = Phase::where('idProject', '=', $id)->get();
+        //dd($fases);
+
+
+        return view('\admin\fases-overzicht', [
+        'fases' => $fases,
+        'idProject' => $id
+
+    ]);
+    }
+    
+    
+    
 }

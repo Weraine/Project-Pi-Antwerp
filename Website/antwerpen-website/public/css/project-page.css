@@ -31,8 +31,14 @@
 
 .cd-timeline-question-form{
     height: 500px;
+    display: none;
+
 }
 
 #following-btn{
     cursor: no-drop;
+}
+
+.cd-read-less{
+    display: none;
 }

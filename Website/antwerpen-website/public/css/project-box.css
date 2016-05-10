@@ -1,3 +1,16 @@
+.filter{
+    margin-bottom: 20px;
+}
+
+.dropdown-menu{
+    border-radius: 0;
+}
+
+.btn-group{
+    float: right;
+    margin-left: 10px;
+}
+
 /* Project box */
 
 .project-box {
@@ -25,6 +38,7 @@
     float: right;
     padding-right: .5rem;
     font-family: "SunAntwerpen";
+    color: #282020;
 }
 
 .project-box a.bewerken-link{
@@ -52,14 +66,11 @@ time {
     border-top: 1px solid #BABABA;
 }
 
-
-
 .project-box img {
     width: 100%;
 }
 
-.meerlezen::before {
-    content: "+";
+.meerlezen_plus {
     padding: 1px;
     color: #000;
     -webkit-transition: -webkit-transform 0.2s linear;
@@ -67,7 +78,7 @@ time {
     transition: transform 0.2s linear;
 }
 
-.meerlezen:hover::before {
+.meerlezen:hover .meerlezen_plus {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     transform: rotate(180deg);
