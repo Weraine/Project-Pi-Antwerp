@@ -32,7 +32,7 @@ class HomeController extends Controller
         }
 
         $projects = DB::table('projects')
-                    ->select('projects.naam', 'projects.uitleg', 'projects.foto')
+                    ->select('projects.idProject' ,'projects.naam', 'projects.uitleg', 'projects.foto')
                     ->whereIn('projects.idProject', $followingProjectIdArray)
                     ->get();
 

@@ -37,7 +37,7 @@
 
                         <div class="media-body">
 
-                                <h4 class="media-heading"><a href='#' id="project-link"> Project: {{ $project->naam }} <button type="button" name="button" class="btn btn-success btn-following"><i class="fa fa-check"></i> Aan het volgen</button></a></h4>
+                                <h4 class="media-heading"><a href='/project/{{ $project->idProject }}' id="project-link"> Project: {{ $project->naam }} <button type="button" name="button" class="btn btn-success btn-following"><i class="fa fa-check"></i> Aan het volgen</button></a></h4>
                                 <p>
                                     {{ $project->uitleg }}
                                 </p>
