@@ -233,10 +233,16 @@ Route::get('/admin', 'AdminController@panel');
 Route::get('/admin/nieuwproject', 'AdminController@getNieuwProject');
 Route::post('/admin/nieuwproject', 'AdminController@postNieuwProject');
 
-/*project bewerken*/
+/*Project bewerken*/
 Route::get('/admin/project-bewerken/{id}', 'AdminController@getProjectBewerken');
 Route::post('/admin/project-bewerken/{id}', 'AdminController@postProjectBewerken');
 
+/*Fases bewerken*/
 Route::get('/admin/project-bewerken/{id}/fases', 'AdminController@getFases');
 Route::get('/admin/project-bewerken/{id}/fases/{faseid}', 'AdminController@getFaseBewerken');
 Route::post('/admin/project-bewerken/{id}/fases/{faseid}', 'AdminController@postFaseBewerken');
+Route::get('/admin/project-bewerken/{id}/fases/verwijderen/{faseid}', 'AdminController@getFaseVerwijderen');
+Route::post('/admin/project-bewerken/{id}/fases/verwijderen/{faseid}', 'AdminController@postFaseVerwijderen');
+Route::get('/admin/project-bewerken/{id}/nieuwefase', 'AdminController@getNieuweFase');
+Route::post('/admin/project-bewerken/{id}/nieuwefase', 'AdminController@postNieuweFase');
+
