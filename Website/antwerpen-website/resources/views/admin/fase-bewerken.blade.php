@@ -30,16 +30,11 @@
 
                         <!--<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">-->
                         <div>
-                           {{ Form::label('naam','Projectnaam', array(
+                           {{ Form::label('title','Fasenaam', array(
                                 'class' => 'col-md-4 control-label')) }}
                             <div class="col-md-6">
-                                {{ Form::text('naam', $project->naam, array(
+                                {{ Form::text('title', $fase->title, array(
                                 'class' => 'form-control')) }}
-                                <!--@if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif-->
                             </div>
                         </div>
 
@@ -47,20 +42,12 @@
                            {{ Form::label('uitleg','Uitleg', array(
                                 'class' => 'col-md-4 control-label')) }}
                             <div class="col-md-6">
-                              {{ Form::textarea('uitleg', $project->uitleg, array(
+                              {{ Form::textarea('uitleg', $fase->uitleg, array(
                                 'class' => 'form-control')) }}
                             </div>
                         </div>
 
-                        <div>
-                            {{ Form::label('locatie','Locatie', array(
-                                'class' => 'col-md-4 control-label')) }}
-                             <div class="col-md-6">
-                              {{ Form::text('locatie', $project->locatie, array(
-                                'class' => 'form-control')) }}
-                            </div>
-                        </div>
-
+                       <!--
                         <div>
                            {{ Form::label('foto','Afbeelding', array(
                                 'class' => 'col-md-4 control-label',
@@ -70,22 +57,26 @@
                                 'class' => 'form-control')) }}
                             </div>
                         </div>
-
+                        -->
+                        
                         <div>
-                           {{ Form::label('categorie','Selecteer een categorie', array(
+                           {{ Form::label('status','Selecteer een status', array(
                                 'class' => 'col-md-4 control-label')) }} 
                             <div class="col-md-6">                                 
-                                {{ Form::select('categorie', $categorien, $project->idCategorie,array('class' => 'form-control')) }}
+                                {{ Form::select('status', ['not-started' => 'not-started', 'in-progress' => 'in-progress', 'done' => 'done'],$fase->status, array('class' => 'form-control')) }}
                             </div>
                         </div>
-
+                        
                         <div>
-                           {{ Form::label('isActief','Is project actief?', array(
-                                'class' => 'col-md-4 control-label')) }}
-                             <div class="col-md-6">
-                              {{ Form::checkbox('isActief', '1', $project->isActief, array(
-                                'class' => 'form-control')) }}
+                           {{ Form::label('start_datum','Selecteer de startdatum (jjjj-mm-dd)', array(
+                                'class' => 'col-md-4 control-label')) }} 
+                            <div class="col-md-6">                                 
+                                <div class="input-group date">
+                                 {{ Form::text('start_datum', substr($fase->start_datum, 0, 10), array(
+                                'class' => 'form-control',
+                                 'placeholder' => 'jjjj/dd/mm')) }}<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                                 </div>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -102,3 +93,5 @@
     </div>
 </div>
 @endsection
+
+
