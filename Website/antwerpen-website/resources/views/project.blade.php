@@ -19,11 +19,19 @@
                 </p>
                 <div class="title-with-follow">
                     <h1>{{$project->naam}}</h1>
-                    @if($isFollowing)
-                        <a href="#" id="following-btn" class="btn btn-success" disabled><i class="fa fa-check"></i>Aan het volgen</a>
-                    @else
-                        <a href="#" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
-                    @endif
+                    {{ Form::open(array(
+                      'url' => Request::fullUrl(),
+                      'class' => 'form-horizontal',
+                      'role' => 'form',
+                      'files' => true)) }}
+
+                        @if($isFollowing)
+                            <button type="submit" id="following-btn" class="btn btn-success"><i class="fa fa-check"></i>Aan het volgen</button>
+                        @else
+                            <button type="submit" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
+                        @endif
+
+                    {{ Form::close() }}
                 </div>
 
                 <time> {{ date('d F, Y', strtotime($project->created_at)) }} </time>
@@ -31,10 +39,7 @@
                     {{$project->uitleg}}
                 </p>
 
-                <a href="#{{$project->huidige_fasenr}}" class="btn btn-success"><i class="fa fa-arrow-circle-down"></i>Geef je mening</a>
-
-
-
+                <a href="#{{$project->huidige_fasenr}}" class="btn btn-info"><i class="fa fa-arrow-circle-down"></i>Geef je mening</a>
 
             </article>
         </div>

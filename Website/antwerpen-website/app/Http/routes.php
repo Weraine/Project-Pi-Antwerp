@@ -19,6 +19,9 @@ use App\User_follow;
 use App\Categorie;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use App\Http\Requests;
+
 
 //!!!!!!!!NIEUWE CLASSES ALTIJD INCLUDEN DOOR "USE"!!!!!!!!//
 
@@ -92,6 +95,7 @@ Route::get('/', function () {
 });*/
 
 
+//Route::get('/project/{id}', 'FollowController@GetProject')
 
 Route::get('/project/{id}', function($id) {
 
@@ -131,6 +135,8 @@ Route::get('/project/{id}', function($id) {
                         ->where('user_follows.user_id', '=', $userId)
                         ->get();
 
+    $followingProjectIdArray = array();
+
     foreach($followingProjectsId as $key => $followingProjectId){
         $followingProjectIdArray[$key] = $followingProjectId->project_id;
     }
@@ -163,6 +169,46 @@ Route::get('/project/{id}', function($id) {
     ]);
 });
 
+Route::post('/project/{id}', function($id, Request $request) {
+
+    $userId = Auth::id();
+
+    $isFollowing = false;
+
+    $followingProjectsId = DB::table('user_follows')
+                        ->select('user_follows.project_id')
+                        ->where('user_follows.user_id', '=', $userId)
+                        ->get();
+
+    $followingProjectIdArray = array();
+
+    foreach($followingProjectsId as $key => $followingProjectId){
+        $followingProjectIdArray[$key] = $followingProjectId->project_id;
+    }
+
+    foreach($followingProjectIdArray as $followingProject){
+        if($followingProject == $id){
+            $isFollowing = true;
+        }
+    }
+
+    if(!$isFollowing){
+        DB::table('user_follows')
+            ->insert(
+                array('user_id' => $userId, 'project_id' => $id)
+            );
+    }
+    else if($isFollowing){
+        DB::table('user_follows')
+            ->where('user_id', '=', $userId )
+            ->where('project_id', '=', $id)
+            ->delete();
+    }
+
+    return redirect($request->url());
+
+
+});
 
 // Authentication Routes...
 Route::get('/auth/login', 'Auth\AuthController@getLogin');

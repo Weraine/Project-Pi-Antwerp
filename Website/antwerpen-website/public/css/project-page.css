@@ -34,10 +34,6 @@
     display: none;
 }
 
-#following-btn{
-    cursor: no-drop;
-}
-
 .cd-read-less{
     display: none;
 }
@@ -52,6 +48,6 @@
     margin: 0;
 }
 
-.title-with-follow a{
+.title-with-follow button{
     float: right;
 }
