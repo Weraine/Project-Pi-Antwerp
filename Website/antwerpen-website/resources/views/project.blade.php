@@ -17,18 +17,25 @@
                         @endif
                     @endforeach
                 </p>
-                <h1>{{$project->naam}}</h1>
+                <div class="title-with-follow">
+                    <h1>{{$project->naam}}</h1>
+                    @if($isFollowing)
+                        <a href="#" id="following-btn" class="btn btn-success" disabled><i class="fa fa-check"></i>Aan het volgen</a>
+                    @else
+                        <a href="#" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
+                    @endif
+                </div>
+
                 <time> {{ date('d F, Y', strtotime($project->created_at)) }} </time>
                 <p>
                     {{$project->uitleg}}
                 </p>
-                @if($isFollowing)
-                    <a href="#" id="following-btn" class="btn btn-success" disabled><i class="fa fa-check"></i>Aan het volgen</a>
-                @else
-                    <a href="#" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
-                @endif
 
                 <a href="#{{$project->huidige_fasenr}}" class="btn btn-success"><i class="fa fa-arrow-circle-down"></i>Geef je mening</a>
+
+
+
+
             </article>
         </div>
     </div>
