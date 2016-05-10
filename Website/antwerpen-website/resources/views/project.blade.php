@@ -19,19 +19,24 @@
                 </p>
                 <div class="title-with-follow">
                     <h1>{{$project->naam}}</h1>
-                    {{ Form::open(array(
-                      'url' => Request::fullUrl(),
-                      'class' => 'form-horizontal',
-                      'role' => 'form',
-                      'files' => true)) }}
 
-                        @if($isFollowing)
-                            <button type="submit" id="following-btn" class="btn btn-success"><i class="fa fa-check"></i>Aan het volgen</button>
-                        @else
-                            <button type="submit" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
-                        @endif
+                    @if (Auth::guest())
 
-                    {{ Form::close() }}
+                    @else
+                        {{ Form::open(array(
+                          'url' => Request::fullUrl(),
+                          'class' => 'form-horizontal',
+                          'role' => 'form',
+                          'files' => true)) }}
+
+                            @if($isFollowing)
+                                <button type="submit" id="following-btn" class="btn btn-success"><i class="fa fa-check"></i>Aan het volgen</button>
+                            @else
+                                <button type="submit" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
+                            @endif
+
+                        {{ Form::close() }}
+                    @endif
                 </div>
 
                 <time> {{ date('d F, Y', strtotime($project->created_at)) }} </time>
@@ -39,8 +44,11 @@
                     {{$project->uitleg}}
                 </p>
 
-                <a href="#{{$project->huidige_fasenr}}" class="btn btn-info"><i class="fa fa-arrow-circle-down"></i>Geef je mening</a>
-
+                @if (Auth::guest())
+                    <a href="/auth/login" class="btn btn-info"><i class="fa fa-arrow-circle-down"></i>Meld je aan voor je mening te geven</a>
+                @else
+                    <a href="#{{$project->huidige_fasenr}}" class="btn btn-info"><i class="fa fa-arrow-circle-down"></i>Geef je mening</a>
+                @endif
             </article>
         </div>
     </div>
