@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="/css/grid-layout.css" media="screen" title="no title" charset="utf-8">
     </head>
     <body>
+
         <nav class="navbar navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
