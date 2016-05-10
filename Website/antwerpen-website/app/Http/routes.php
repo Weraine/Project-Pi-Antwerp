@@ -169,3 +169,6 @@ Route::post('/admin/nieuwproject', 'AdminController@postNieuwProject');
 /*project bewerken*/
 Route::get('/admin/project-bewerken/{id}', 'AdminController@getProjectBewerken');
 Route::post('/admin/project-bewerken/{id}', 'AdminController@postProjectBewerken');
+
+Route::get('/admin/project-bewerken/{id}/fases', 'AdminController@getFases');
+Route::post('/admin/project-bewerken/{id}/fases/{faseid}', 'AdminController@postFaseBewerken');

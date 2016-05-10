@@ -5,7 +5,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1>Project {{$project->idProject}} aanpassen</h1></div>
+                <div class="panel-heading"><h1>Project {{$project->idProject}} aanpassen</h1>
+                <a class="btn btn-primary" href="{{$project->idProject}}/fases" role="button"><i class="fa fa-edit"></i>Fases en vragen bewerken</a>
+                </div>
                 <div class="panel-body">
                     {{ Form::open(array(
                       'url' => '/admin/project-bewerken/' . $project->idProject,
