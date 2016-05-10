@@ -113,7 +113,7 @@ jQuery(document).ready(function($){
         $('.cd-read-more').show('slow');
     });
 
-
+    
 
 
 });
