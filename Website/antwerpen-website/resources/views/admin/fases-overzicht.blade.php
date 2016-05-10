@@ -14,14 +14,7 @@
                     @if($fase->foto != null)
                     <img src="/pictures/uploads/{{$fase->foto}}" alt="">
                     @endif
-                    <p>Status: <span class="{{$fase->status}}"><strong>{{$fase->status}}</strong></span></p>
-                    {{ Form::label('isLocked','Is fase gelocked?', array(
-                                'class' => 'col-md-4 control-label')) }}
-                    {{ Form::checkbox('isLocked', '1', $fase->isLocked, array(
-                                'class' => 'form-control',
-                                'disabled' => 'disabled')) }}
-
-
+                    <p>Status: <span class="{{$fase->status}}"><strong>{{$fase->status}}</strong></span></p>   
                     <a class="btn btn-primary" href="fases/{{$fase->faseNummer}}" role="button"><i class="fa fa-edit"></i>Fase bewerken</a>
                     </div>
                    @endforeach
