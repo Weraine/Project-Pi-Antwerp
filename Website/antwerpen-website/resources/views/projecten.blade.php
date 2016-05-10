@@ -46,7 +46,7 @@
             </h5>
             <p>{{ str_limit($project->uitleg, $limit = 250, $end='...')  }}</p>
             <div>
-                <a class="meerlezen" href="project/{{$project->idProject}}"> meer lezen</a>
+                <a class="meerlezen" href="project/{{$project->idProject}}"><i class="fa fa-plus meerlezen_plus"></i> meer lezen</a>
             </div>
         </article>
         <div class="project-box-footer">

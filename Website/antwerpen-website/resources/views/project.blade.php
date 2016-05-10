@@ -27,6 +27,8 @@
                 @else
                     <a href="#" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
                 @endif
+                
+                <a href="#{{$project->huidige_fasenr}}" class="btn btn-success"><i class="fa fa-arrow-circle-down"></i>Geef je mening</a>
             </article>
         </div>
     </div>
@@ -34,7 +36,7 @@
 
     <section id="cd-timeline" class="cd-container">
         @foreach($phases as $key => $phase)
-        	<div class="cd-timeline-block">
+        	<div class="cd-timeline-block" id="{{$phase->faseNummer}}">
         		<div class="cd-timeline-img cd-{{$phase->status}}">
                     <span>#{{$phase->faseNummer}}</span>
         		</div> <!-- cd-timeline-img -->
@@ -45,6 +47,7 @@
         			<a href="#0" class="cd-read-more" data-id="{{$phase->idFase}}">Lees meer</a>
         			<span class="cd-date">{{ date('d F, Y', strtotime($phase->start_datum)) }}</span>
 
+                   @if($project->huidige_fasenr == $phase->faseNummer)
                     <div class="cd-timeline-question-form" data-id="{{$phase->idFase}}">
                         {{ Form::open(array(
                             'url' => '/project/' . $project->idProject,
@@ -62,14 +65,11 @@
                                 <br/>
                                 {{ Form::submit('Vragen verzenden', array('class' => 'btn btn-success form-control')) }}
                                 <br/>
-
                         {{ Form::close() }}
-
-
+                        <a href="#0" class="cd-read-less" data-id="{{$phase->idFase}}">Lees minder</a>
                     </div>
-
-                    <a href="#0" class="cd-read-less" data-id="{{$phase->idFase}}">Lees minder</a>
-
+                  @endif
+                  
         		</div> <!-- cd-timeline-content -->
         	</div> <!-- cd-timeline-block -->
         @endforeach
