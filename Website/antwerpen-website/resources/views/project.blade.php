@@ -22,12 +22,12 @@
                 <p>
                     {{$project->uitleg}}
                 </p>
-                @if(true)
+                @if($isFollowing)
                     <a href="#" id="following-btn" class="btn btn-success" disabled><i class="fa fa-check"></i>Aan het volgen</a>
                 @else
                     <a href="#" id="follow-btn" class="btn btn-default"><i class="fa fa-plus"></i>Project volgen</a>
                 @endif
-                
+
                 <a href="#{{$project->huidige_fasenr}}" class="btn btn-success"><i class="fa fa-arrow-circle-down"></i>Geef je mening</a>
             </article>
         </div>
@@ -69,7 +69,7 @@
                         <a href="#0" class="cd-read-less" data-id="{{$phase->idFase}}">Lees minder</a>
                     </div>
                   @endif
-                  
+
         		</div> <!-- cd-timeline-content -->
         	</div> <!-- cd-timeline-block -->
         @endforeach
