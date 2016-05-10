@@ -83,13 +83,22 @@ jQuery(document).ready(function($){
     $('#follow-btn').mouseenter(function(){
         $(this).addClass('btn-success').removeClass('btn-default');
         $('.fa.fa-plus').addClass('fa-check').removeClass('fa-plus');
-        console.log('hey enter');
     });
 
     $('#follow-btn').mouseleave(function(){
         $(this).addClass('btn-default').removeClass('btn-success');
         $('.fa.fa-check').addClass('fa-plus').removeClass('fa-check');
-        console.log('hey leave');
+    });
+
+    $('#following-btn').mouseenter(function(){
+        $(this).addClass('btn-danger').removeClass('btn-success');
+        $('.fa.fa-check').addClass('fa-times').removeClass('fa-check');
+    });
+
+    $('#following-btn').mouseleave(function(){
+        $(this).addClass('btn-success').removeClass('btn-danger');
+        $('.fa.fa-times').addClass('fa-check').removeClass('fa-times');
+
     });
 
     $('.cd-read-more').on('click', function(){
