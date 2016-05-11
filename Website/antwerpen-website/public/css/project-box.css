@@ -102,6 +102,7 @@ article time {
     -webkit-transition: -webkit-transform 0.2s linear;
     -moz-transition: -moz-transform 0.2s linear;
     transition: transform 0.2s linear;
+    font-size: 87.5%;
 }
 
 .meerlezen:hover .meerlezen_plus {

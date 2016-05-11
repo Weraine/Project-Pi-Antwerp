@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-4">
                 <div>
-                    <a class="btn btn-warning center-block" href="/admin/projectaanpassen"><i class="fa fa-pencil-square-o"></i>Project wijzigen</a>
+                    <a class="btn btn-warning center-block" href="/admin/"><i class="fa fa-pencil-square-o"></i>Project wijzigen</a>
                 </div>
             </div>
             <div class="col-md-4">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="container" id="map">
-        
+
     </div>
 
 </div>
