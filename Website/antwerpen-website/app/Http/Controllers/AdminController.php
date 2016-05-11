@@ -529,7 +529,14 @@ class AdminController extends Controller
         *
         *@var int
         */
-        $nieuweFaseNummer = (int)$laatsteFase->faseNummer + 1;
+        
+        if($laatsteFase != null){
+            $nieuweFaseNummer = (int)$laatsteFase->faseNummer + 1;
+        }
+        else {
+            $nieuweFaseNummer = 1;
+        }
+        
         
         Phase::create([
                 'title' => $data['title'],
