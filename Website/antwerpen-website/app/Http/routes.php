@@ -34,6 +34,7 @@ Route::get('/', function () {
     $projecten = DB::table('projects')
                     ->join('categories', 'projects.idCategorie', '=', 'categories.idCategorie')
                     ->select('categories.naam as catNaam', 'categories.icon_class', 'projects.*')
+                    ->orderBy('projects.created_at', 'desc')
                     ->get();
 
     $categories = Categorie::all();
