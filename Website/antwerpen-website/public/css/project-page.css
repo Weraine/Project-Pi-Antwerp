@@ -32,13 +32,22 @@
 .cd-timeline-question-form{
     height: 500px;
     display: none;
-
-}
-
-#following-btn{
-    cursor: no-drop;
 }
 
 .cd-read-less{
     display: none;
+}
+
+.title-with-follow{
+    width: 100%;
+    height: 3rem;
+}
+
+.title-with-follow h1{
+    float: left;
+    margin: 0;
+}
+
+.title-with-follow button{
+    float: right;
 }

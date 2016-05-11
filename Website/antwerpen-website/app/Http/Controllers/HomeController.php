@@ -25,12 +25,14 @@ class HomeController extends Controller
                             ->where('user_follows.user_id', '=', $userId)
                             ->get();
 
+        $followingProjectIdArray = array();
+
         foreach($followingProjectsId as $key => $followingProjectId){
             $followingProjectIdArray[$key] = $followingProjectId->project_id;
         }
 
         $projects = DB::table('projects')
-                    ->select('projects.naam', 'projects.uitleg')
+                    ->select('projects.idProject' ,'projects.naam', 'projects.uitleg', 'projects.foto')
                     ->whereIn('projects.idProject', $followingProjectIdArray)
                     ->get();
 

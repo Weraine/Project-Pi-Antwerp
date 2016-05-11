@@ -19,150 +19,20 @@ use App\User_follow;
 use App\Categorie;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use App\Http\Requests;
+
 
 //!!!!!!!!NIEUWE CLASSES ALTIJD INCLUDEN DOOR "USE"!!!!!!!!//
 
-Route::get('/', function () {
-    /**
-    *Array bevat alle projecten en hun data.
-    *
-    *@var array
-    */
-    $projecten = DB::table('projects')
-                    ->join('categories', 'projects.idCategorie', '=', 'categories.idCategorie')
-                    ->select('categories.naam as catNaam', 'categories.icon_class', 'projects.*')
-                    ->get();
+//get all projects
+Route::get('/', 'ProjectController@GetProjects');
 
-    $categories = Categorie::all();
+//get 1 project + check if following or not
+Route::get('/project/{id}', 'ProjectController@GetProject');
 
-    //duplicates filteren
-    $locaties = array_unique(DB::table('projects')
-                ->select('projects.locatie')
-                ->get(), SORT_REGULAR);
-
-
-
-    return view('projecten', [
-        'projecten' => $projecten,
-        'categories' => $categories,
-        'locaties' => $locaties,
-    ]);
-});
-
-/*Route::get('/{categorie}/{locatie}', function ($categorie, $locatie) {
-
-    /**
-    *Array bevat alle projecten en hun data.
-    *
-    *@var array
-    */
-
-    /*if($categorie != NULL && $locatie != NULL){
-        $projecten = DB::table('projects')
-                        ->join('categories', 'projects.idCategorie', '=', 'categories.idCategorie')
-                        ->select('categories.naam as catNaam', 'categories.icon_class', 'projects.*')
-                        ->where('projects.idCategorie', '=', $categorie)
-                        ->where('projects.locatie', '=', $locatie)
-                        ->get();
-    }
-    else if($categorie != NULL && $locatie == NULL){
-        $projecten = DB::table('projects')
-                        ->join('categories', 'projects.idCategorie', '=', 'categories.idCategorie')
-                        ->select('categories.naam as catNaam', 'categories.icon_class', 'projects.*')
-                        ->where('projects.idCategorie', '=', $categorie)
-                        ->get();
-    }
-
-    //dd($projecten);
-
-    $categories = Categorie::all();
-
-    //duplicates filteren
-    $locaties = array_unique(DB::table('projects')
-                ->select('projects.locatie')
-                ->get(), SORT_REGULAR);
-
-
-
-    return view('projecten', [
-        'projecten' => $projecten,
-        'categories' => $categories,
-        'locaties' => $locaties,
-    ]);
-});*/
-
-
-
-Route::get('/project/{id}', function($id) {
-
-    /**
-    *Array bevat de data van een enkel project.
-    *
-    *@var $project
-    *
-    *Array dat de fases bevat.
-    *
-    *@var $phases
-    *
-    *
-    *
-    *@var $projectFollow
-    *
-    *
-    */
-    /**
-    *Array bevat de data van een enkel project.
-    *
-    *@var array
-    */
-    //get project by id
-    $project = Project::where('idProject', '=', $id)->first();
-    //get phases of project
-    $phases = Phase::where('idProject', '=', $id)->get();
-    //get all categories
-    $categorien = Categorie::orderBy('idCategorie', 'asc')->get();
-
-    $userId = Auth::id();
-
-    $isFollowing = false;
-
-    $followingProjectsId = DB::table('user_follows')
-                        ->select('user_follows.project_id')
-                        ->where('user_follows.user_id', '=', $userId)
-                        ->get();
-
-    foreach($followingProjectsId as $key => $followingProjectId){
-        $followingProjectIdArray[$key] = $followingProjectId->project_id;
-    }
-
-
-    foreach($followingProjectIdArray as $followingProject){
-        if($followingProject == $id){
-            $isFollowing = true;
-        }
-    }
-
-    //get questions per phase
-    $questions = null;
-
-    foreach($phases as $key => $phase){
-        $questions[$key] = Question::with('phases')->where('idFase', '=', $phase->idFase)->get();
-    }
-
-
-    //dd($questions);
-    //$questions = Question::where('idFase', '=', $phaseId)->get();
-
-
-    return view('project', [
-        'project' => $project,
-        'phases' => $phases,
-        'categorien' => $categorien,
-        'questions' => $questions,
-        'isFollowing' => $isFollowing,
-    ]);
-});
-
+//post follow to data base
+Route::post('/project/{id}', 'ProjectController@PostProjectFollow');
 
 // Authentication Routes...
 Route::get('/auth/login', 'Auth\AuthController@getLogin');
@@ -187,10 +57,15 @@ Route::get('/admin', 'AdminController@panel');
 Route::get('/admin/nieuwproject', 'AdminController@getNieuwProject');
 Route::post('/admin/nieuwproject', 'AdminController@postNieuwProject');
 
-/*project bewerken*/
+/*Project bewerken*/
 Route::get('/admin/project-bewerken/{id}', 'AdminController@getProjectBewerken');
 Route::post('/admin/project-bewerken/{id}', 'AdminController@postProjectBewerken');
 
+/*Fases bewerken*/
 Route::get('/admin/project-bewerken/{id}/fases', 'AdminController@getFases');
 Route::get('/admin/project-bewerken/{id}/fases/{faseid}', 'AdminController@getFaseBewerken');
 Route::post('/admin/project-bewerken/{id}/fases/{faseid}', 'AdminController@postFaseBewerken');
+Route::get('/admin/project-bewerken/{id}/fases/verwijderen/{faseid}', 'AdminController@getFaseVerwijderen');
+Route::post('/admin/project-bewerken/{id}/fases/verwijderen/{faseid}', 'AdminController@postFaseVerwijderen');
+Route::get('/admin/project-bewerken/{id}/nieuwefase', 'AdminController@getNieuweFase');
+Route::post('/admin/project-bewerken/{id}/nieuwefase', 'AdminController@postNieuweFase');

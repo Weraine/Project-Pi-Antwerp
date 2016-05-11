@@ -15,87 +15,82 @@
                       'role' => 'form',
                       'files' => true)) }}
 
-                      <div>
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                </div>
+                    <div>
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
 
-                        {!! csrf_field() !!}
+                    {!! csrf_field() !!}
 
-                        <!--<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">-->
-                        <div>
-                           {{ Form::label('naam','Projectnaam', array(
-                                'class' => 'col-md-4 control-label')) }}
-                            <div class="col-md-6">
-                                {{ Form::text('naam', $project->naam, array(
+                    <div class='form-group'>
+                        {{ Form::label('naam','Projectnaam', array(
+                            'class' => 'col-md-4 control-label')) }}
+                        <div class="col-md-6">
+                            {{ Form::text('naam', $project->naam, array(
                                 'class' => 'form-control')) }}
-                                <!--@if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif-->
-                            </div>
                         </div>
+                    </div>
 
-                        <div>
-                           {{ Form::label('uitleg','Uitleg', array(
-                                'class' => 'col-md-4 control-label')) }}
-                            <div class="col-md-6">
-                              {{ Form::textarea('uitleg', $project->uitleg, array(
+                    <div class='form-group'>
+                        {{ Form::label('uitleg','Uitleg', array(
+                            'class' => 'col-md-4 control-label')) }}
+                        <div class="col-md-6">
+                            {{ Form::textarea('uitleg', $project->uitleg, array(
                                 'class' => 'form-control')) }}
-                            </div>
                         </div>
+                    </div>
 
-                        <div>
-                            {{ Form::label('locatie','Locatie', array(
-                                'class' => 'col-md-4 control-label')) }}
-                             <div class="col-md-6">
-                              {{ Form::text('locatie', $project->locatie, array(
+                    <div class='form-group'>
+                        {{ Form::label('locatie','Locatie', array(
+                            'class' => 'col-md-4 control-label')) }}
+                        <div class="col-md-6">
+                            {{ Form::text('locatie', $project->locatie, array(
                                 'class' => 'form-control')) }}
-                            </div>
                         </div>
+                    </div>
 
-                        <div>
-                           {{ Form::label('foto','Afbeelding', array(
-                                'class' => 'col-md-4 control-label',
-                                'title' => 'test')) }}
-                             <div class="col-md-6">
-                              {{ Form::file('foto', array(
+                    <div class='form-group'>
+                       {{ Form::label('foto','Afbeelding', array(
+                            'class' => 'col-md-4 control-label',
+                            'title' => 'test')) }}
+                         <div class="col-md-6">
+                            {{ Form::file('foto', array(
                                 'class' => 'form-control')) }}
-                            </div>
                         </div>
+                    </div>
 
-                        <div>
-                           {{ Form::label('categorie','Selecteer een categorie', array(
-                                'class' => 'col-md-4 control-label')) }} 
-                            <div class="col-md-6">                                 
-                                {{ Form::select('categorie', $categorien, $project->idCategorie,array('class' => 'form-control')) }}
-                            </div>
-                        </div>
-
-                        <div>
-                           {{ Form::label('isActief','Is project actief?', array(
-                                'class' => 'col-md-4 control-label')) }}
-                             <div class="col-md-6">
-                              {{ Form::checkbox('isActief', '1', $project->isActief, array(
+                    <div class='form-group'>
+                        {{ Form::label('categorie','Selecteer een categorie', array(
+                            'class' => 'col-md-4 control-label')) }}
+                        <div class="col-md-6">
+                            {{ Form::select('categorie', $categorien, $project->idCategorie,array(
                                 'class' => 'form-control')) }}
-                                </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i>Aanpassen
-                                </button>
-                            </div>
+                    <div class='form-group'>
+                        {{ Form::label('isActief','Is project actief?', array(
+                            'class' => 'col-md-4 control-label')) }}
+                        <div class="col-md-6">
+                            {{ Form::checkbox('isActief', '1', $project->isActief, array(
+                                'class' => 'checkbox')) }}
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-btn fa-sign-in"></i>Aanpassen
+                            </button>
+                        </div>
+                    </div>
                     {{ Form::close() }}
                 </div>
             </div>

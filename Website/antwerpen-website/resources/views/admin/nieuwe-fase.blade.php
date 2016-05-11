@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                <h3>Fase {{$fase->faseNummer}} van project <ins>{{$project->naam}}</ins>:  aanpassen</h3>
+                <h3>Niewe fase aanmaken voor project: <ins>{{$project->naam}}</ins></h3>
                 </div>
                 <div class="panel-body">
                  {{ Form::open(array(
@@ -34,7 +34,7 @@
                            {{ Form::label('title','Fasenaam', array(
                                 'class' => 'col-md-4 control-label')) }}
                             <div class="col-md-6">
-                                {{ Form::text('title', $fase->title, array(
+                                {{ Form::text('title', '',array(
                                 'class' => 'form-control')) }}
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                            {{ Form::label('uitleg','Uitleg', array(
                                 'class' => 'col-md-4 control-label')) }}
                             <div class="col-md-6">
-                              {{ Form::textarea('uitleg', $fase->uitleg, array(
+                              {{ Form::textarea('uitleg', '',array(
                                 'class' => 'form-control')) }}
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                            {{ Form::label('status','Selecteer een status', array(
                                 'class' => 'col-md-4 control-label')) }} 
                             <div class="col-md-6">                                 
-                                {{ Form::select('status', ['not-started' => 'not-started', 'in-progress' => 'in-progress', 'done' => 'done'],$fase->status, array('class' => 'form-control')) }}
+                                {{ Form::select('status', ['not-started' => 'not-started', 'in-progress' => 'in-progress', 'done' => 'done'],null, array('class' => 'form-control')) }}
                             </div>
                         </div>
                         
@@ -73,7 +73,7 @@
                                 'class' => 'col-md-4 control-label')) }} 
                             <div class="col-md-6">                                 
                                 <div class="input-group date">
-                                 {{ Form::text('start_datum', substr($fase->start_datum, 0, 10), array(
+                                 {{ Form::text('start_datum', '',array(
                                 'class' => 'form-control',
                                  'placeholder' => 'jjjj/dd/mm')) }}<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                                 </div>

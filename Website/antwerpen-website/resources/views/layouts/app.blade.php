@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap-datepicker3.standalone.min.css" type="text/css">
         <!-- FONTS -->
         <link rel="stylesheet" href="/fonts/Antwerpen-Regular.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/fonts/Sun-Antwerpen.css" media="screen" title="no title" charset="utf-8">
@@ -74,7 +75,9 @@
         <script src="/js/salvatorre.min.js" charset="utf-8"></script>
         <script src="/js/modernizr.js" charset="utf-8"></script>
         <script src="/js/main.js" charset="utf-8"></script>
-
+        <script src="/js/bootstrap-datepicker.min.js" charset="utf-8"></script>
+        <script src="/js/bootstrap-datepicker.nl-BE.min.js" charset="utf-8"></script>
+        <script src="/js/datepicker.js" charset="utf-8"></script>
 
     </body>
 </html>
