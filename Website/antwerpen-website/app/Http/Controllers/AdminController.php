@@ -178,7 +178,6 @@ class AdminController extends Controller
         'project' => $project,
         'isActief' => $isActief,
         'picpath' => $picpath,
-        'urlpath' => $urlpath,
         'categorien' => $categorien
     ]);
     }
@@ -295,19 +294,65 @@ class AdminController extends Controller
         *
         *@var int
         */
+        
+        /**
+        *Project is het geselecteerde project uit de database.
+        *
+        *@var array
+        */
+        $project = Project::where('idProject', '=', $id)->first();
 
         /**
         *fases bevat alle data over de fases van het huidige project.
         *
         *@var array
         */
-        $fases = Phase::where('idProject', '=', $id)->get();
+        $fases = Phase::where('idProject', '=', $id)->orderBy('faseNummer', 'asc')->get();
         //dd($fases);
 
 
         return view('\admin\fases-overzicht', [
         'fases' => $fases,
-        'idProject' => $id
+        'project' => $project
+
+    ]);
+    }
+    
+    protected function getFaseBewerken($id, $faseid){
+
+        /**
+        *id is de idProject van het project dat men wil bewerken.
+        *
+        *@var int
+        */
+        
+        /**
+        *faseid is de idFase van de fase dat men wil bewerken.
+        *
+        *@var int
+        */
+        
+        /**
+        *Project is het geselecteerde project uit de database.
+        *
+        *@var array
+        */
+        $project = Project::where('idProject', '=', $id)->first();
+
+        /**
+        *fase bevat alle data over de fases van het huidige project.
+        *
+        *@var array
+        */
+        $fase = Phase::where('idFase', '=', $idfase)
+                    ->where('idProject', '=', $id)->first();
+                    
+        //dd($fases);
+
+
+        return view('\admin\fases-overzicht', [
+        'fase' => $fase,
+        'project' => $project
 
     ]);
     }

@@ -50,7 +50,7 @@ Route::get('/', function () {
 });
 
 /*Route::get('/{categorie}/{locatie}', function ($categorie, $locatie) {
-    
+
     /**
     *Array bevat alle projecten en hun data.
     *
@@ -122,9 +122,29 @@ Route::get('/project/{id}', function($id) {
     //get all categories
     $categorien = Categorie::orderBy('idCategorie', 'asc')->get();
 
+    $userId = Auth::id();
+
+    $isFollowing = false;
+
+    $followingProjectsId = DB::table('user_follows')
+                        ->select('user_follows.project_id')
+                        ->where('user_follows.user_id', '=', $userId)
+                        ->get();
+
+    foreach($followingProjectsId as $key => $followingProjectId){
+        $followingProjectIdArray[$key] = $followingProjectId->project_id;
+    }
+
+
+    foreach($followingProjectIdArray as $followingProject){
+        if($followingProject == $id){
+            $isFollowing = true;
+        }
+    }
+
     //get questions per phase
     $questions = null;
-    
+
     foreach($phases as $key => $phase){
         $questions[$key] = Question::with('phases')->where('idFase', '=', $phase->idFase)->get();
     }
@@ -132,13 +152,14 @@ Route::get('/project/{id}', function($id) {
 
     //dd($questions);
     //$questions = Question::where('idFase', '=', $phaseId)->get();
-    
+
 
     return view('project', [
         'project' => $project,
         'phases' => $phases,
         'categorien' => $categorien,
-        'questions' => $questions
+        'questions' => $questions,
+        'isFollowing' => $isFollowing,
     ]);
 });
 
@@ -171,4 +192,5 @@ Route::get('/admin/project-bewerken/{id}', 'AdminController@getProjectBewerken')
 Route::post('/admin/project-bewerken/{id}', 'AdminController@postProjectBewerken');
 
 Route::get('/admin/project-bewerken/{id}/fases', 'AdminController@getFases');
+Route::get('/admin/project-bewerken/{id}/fases/{faseid}', 'AdminController@getFaseBewerken');
 Route::post('/admin/project-bewerken/{id}/fases/{faseid}', 'AdminController@postFaseBewerken');

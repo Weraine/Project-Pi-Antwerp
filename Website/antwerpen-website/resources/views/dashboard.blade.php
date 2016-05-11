@@ -26,22 +26,26 @@
             </div><!--panel-heading-->
 
             <div class="panel-body">
+                @foreach($projects as $project)
                 <div class="media">
 
-                    <div class="media-left media-top">
-                        <a href="#">
-                            <img class="media-object profile-picture-small" src="/pictures/a-logo.svg" alt="a-logo">
-                        </a>
-                    </div><!--media-left-->
+                        <div class="media-left media-top">
+                            <a href="#">
+                                <img class="media-object profile-picture-small" src="/pictures/a-logo.svg" alt="a-logo">
+                            </a>
+                        </div><!--media-left-->
 
-                    <div class="media-body">
-                        <h4 class="media-heading"><a href='#' id="project-link"><i class="fa fa-check"></i>Project 1: Lorum Ipsum</a></h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris justo, venenatis eu est nec, interdum fermentum ante. Maecenas facilisis mollis purus vel egestas. Nunc a dui dignissim orci pulvinar facilisis et et purus.
-                        </p>
-                    </div><!--media-body-->
+                        <div class="media-body">
+
+                                <h4 class="media-heading"><a href='#' id="project-link"> Project: {{ $project->naam }} <button type="button" name="button" class="btn btn-success btn-following"><i class="fa fa-check"></i> Aan het volgen</button></a></h4>
+                                <p>
+                                    {{ $project->uitleg }}
+                                </p>
+
+                        </div><!--media-body-->
 
                 </div><!--media-->
+                @endforeach
             </div><!--panel-body-->
         </div><!--panel-->
     </div><!--col-md-9-->

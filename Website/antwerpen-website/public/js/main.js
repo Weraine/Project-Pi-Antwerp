@@ -69,13 +69,15 @@ jQuery(document).ready(function($){
     *
     */
     //dashboard
-    $('#project-link .fa.fa-check, .media-heading').mouseenter(function(){
+    /*$('#project-link .fa.fa-check, .media-heading').mouseenter(function(){
         $('#project-link .fa.fa-check').addClass('fa-times').removeClass('fa-check');
+        $('#project-link button').addClass('btn-danger').removeClass('btn-success');
     });
 
     $('#project-link .fa.fa-times, .media-heading').mouseleave(function(){
         $('#project-link .fa.fa-times').addClass('fa-check').removeClass('fa-times');
-    });
+        $('#project-link button').addClass('btn-success').removeClass('btn-danger');
+    });*/
 
     //follow button
     $('#follow-btn').mouseenter(function(){

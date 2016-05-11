@@ -1,0 +1,11 @@
+.done {
+    color: #5cb85c;
+}
+
+.in-progress {
+    color: orange;
+}
+
+.not-started {
+    color: 	#d9534f
+}

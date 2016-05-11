@@ -22,12 +22,14 @@
         <link rel="stylesheet" href="/css/carousel.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/admin-panel.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/dashboard-user.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="/css/fases.css" media="screen" title="no title" charset="utf-8">
         <!-- FUNCTIONAL CSS -->
         <link rel="stylesheet" href="/css/vertical-timeline-css.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/slick-theme.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="/css/grid-layout.css" media="screen" title="no title" charset="utf-8">
     </head>
     <body>
+
         <nav class="navbar navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
