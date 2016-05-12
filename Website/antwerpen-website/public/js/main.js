@@ -69,40 +69,49 @@ jQuery(document).ready(function($){
     *
     */
     //dashboard
-    $('#project-link .fa.fa-check, .media-heading').mouseenter(function(){
+    /*$('#project-link .fa.fa-check, .media-heading').mouseenter(function(){
         $('#project-link .fa.fa-check').addClass('fa-times').removeClass('fa-check');
+        $('#project-link button').addClass('btn-danger').removeClass('btn-success');
     });
 
     $('#project-link .fa.fa-times, .media-heading').mouseleave(function(){
         $('#project-link .fa.fa-times').addClass('fa-check').removeClass('fa-times');
-    });
+        $('#project-link button').addClass('btn-success').removeClass('btn-danger');
+    });*/
 
     //follow button
     $('#follow-btn').mouseenter(function(){
         $(this).addClass('btn-success').removeClass('btn-default');
         $('.fa.fa-plus').addClass('fa-check').removeClass('fa-plus');
-        console.log('hey enter');
     });
 
     $('#follow-btn').mouseleave(function(){
         $(this).addClass('btn-default').removeClass('btn-success');
         $('.fa.fa-check').addClass('fa-plus').removeClass('fa-check');
-        console.log('hey leave');
     });
 
-    $('.cd-read-more').on('click', function(){
-        $(this).hide('slow');
-        $('.cd-timeline-question-form').show('slow');
-        $('.cd-read-less').show('slow');
+    $('#following-btn').mouseenter(function(){
+        $(this).addClass('btn-danger').removeClass('btn-success');
+        $('.fa.fa-check').addClass('fa-times').removeClass('fa-check');
     });
 
-    $('.cd-read-less').on('click', function(){
-        $(this).hide('slow');
-        $('.cd-timeline-question-form').hide('slow');
-        $('.cd-read-more').show('slow');
+    $('#following-btn').mouseleave(function(){
+        $(this).addClass('btn-success').removeClass('btn-danger');
+        $('.fa.fa-times').addClass('fa-check').removeClass('fa-times');
+
     });
 
+    $('.cd-timeline-content p').readmore({
+        speed: 500,
+        embedCSS: true,
+        collapsedHeight: 102,
+        moreLink: '<a href="#0" data-id="{{$phase->idFase}}" style="float: left; width: 100px"><i class="fa fa-plus meerlezen_plus"></i> meer lezen</a>',
+        lessLink: '<a href="#0" data-id="{{$phase->idFase}}" style="float: left; width: 100px"> <i class="fa fa-minus meerlezen_plus"></i> minder lezen</a>',
+    });
 
-
+    $('#form-reveal').on('click', function(){
+        $(this).hide();
+        $('.cd-timeline-question-form').show('fast');
+    });
 
 });

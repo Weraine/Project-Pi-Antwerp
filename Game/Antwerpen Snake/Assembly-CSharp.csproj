@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\01 Scripts\DatabaseLogic.cs" />
      <Compile Include="Assets\01 Scripts\Navbar.cs" />
      <Compile Include="Assets\01 Scripts\PanelProject.cs" />
      <Compile Include="Assets\01 Scripts\Snake.cs" />
@@ -61,6 +62,15 @@
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="MySql.Data">
+ <HintPath>C:/Users/Gebruiker/Documents/GitHub/Project-Pi-Antwerp/Game/Antwerpen Snake/Assets/05 DLL/MySql.Data.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Data">
+ <HintPath>C:/Users/Gebruiker/Documents/GitHub/Project-Pi-Antwerp/Game/Antwerpen Snake/Assets/05 DLL/System.Data.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Drawing">
+ <HintPath>C:/Users/Gebruiker/Documents/GitHub/Project-Pi-Antwerp/Game/Antwerpen Snake/Assets/05 DLL/System.Drawing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

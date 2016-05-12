@@ -36,17 +36,23 @@
 <div id="grid" data-columns>
     @foreach ($projecten as $project)
     <div class="thumbnail project-box">
-       <a href="project/{{$project->idProject}}"><img src="{{$project->foto}}" alt=""></a>
-        <article>
-            <time>
-                {{ date('d F, Y', strtotime($project->created_at)) }}
-            </time>
+        <a href="project/{{$project->idProject}}"><img src="{{$project->foto}}" alt=""></a>
+        <div class="location">
             <h5>
                 <a href="project/{{$project->idProject}}">{{ $project->naam }}</a>
             </h5>
+            <a href='#'>
+                <i class="fa fa-map-marker"></i> {{ $project->locatie }}
+            </a>
+        </div>
+        <article>
+
+            <time>
+                {{ date('d F, Y', strtotime($project->created_at)) }}
+            </time>
             <p>{{ str_limit($project->uitleg, $limit = 250, $end='...')  }}</p>
             <div>
-                <a class="meerlezen" href="project/{{$project->idProject}}"> meer lezen</a>
+                <a class="meerlezen" href="project/{{$project->idProject}}"><i class="fa fa-plus meerlezen_plus"></i> meer lezen</a>
             </div>
         </article>
         <div class="project-box-footer">

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Validator;
 use File;
-
 use App\Project;
 use App\Categorie;
+use App\Phase;
+use DB;
 
 class AdminController extends Controller
 {
@@ -22,6 +22,8 @@ class AdminController extends Controller
     protected function panel(){
         return view('\admin\admin-panel');
     }
+    
+    /*-----PROJECTEN-----*/
 
     protected function getNieuwProject(){
 
@@ -44,7 +46,7 @@ class AdminController extends Controller
 
         $validator = Validator::make($request->all(), [
             'naam' => 'required',
-            'uitleg' => 'required',
+            'uitleg' => 'required|min:250',
             'locatie' => 'required',
             'foto' => 'image|max:1000',
         ]);
@@ -101,9 +103,9 @@ class AdminController extends Controller
             */
             $foto_path = '/pictures/uploads/' . $nieuwe_naam;
 
-            //dd($data);
+            //dd($foto_path);
 
-            Project::create([
+            $nieuwProject = Project::create([
                 'naam' => $data['naam'],
                 'uitleg' => $data['uitleg'],
                 'locatie' => $data['locatie'],
@@ -114,19 +116,18 @@ class AdminController extends Controller
 
         }
         else {
-            Project::create([
+            $nieuwProject = Project::create([
                 'naam' => $data['naam'],
                 'uitleg' => $data['uitleg'],
                 'locatie' => $data['locatie'],
                 'isActief' => $isActief,
                 'idCategorie' => $data['categorie']
             ]);
+            
         }
 
 
-
-
-        return view('\admin\admin-panel');
+        return redirect('/admin/project-bewerken/' . $nieuwProject->id . '/fases');
     }
 
     protected function getProjectBewerken($id){
@@ -177,11 +178,9 @@ class AdminController extends Controller
         'project' => $project,
         'isActief' => $isActief,
         'picpath' => $picpath,
-        'urlpath' => $urlpath,
         'categorien' => $categorien
     ]);
     }
-
 
     protected function postProjectBewerken($id, Request $request)
     {
@@ -285,5 +284,270 @@ class AdminController extends Controller
         }
 
         return redirect('/');
+    }
+    
+    protected function getProjectVerwijderen($id){
+        
+        /**
+        *Project is het geselecteerde project uit de database.
+        *
+        *@var array
+        */
+        $project = Project::where('idProject', '=', $id)->first();
+        
+        return view('\admin\project-verwijderen', [
+        'project' => $project
+
+    ]);
+        
+    }
+    
+    protected function postProjectVerwijderen($id){
+        
+        DB::table('Projects')->where('idProject', '=', $id)
+                            ->delete();
+        
+        return redirect('/');
+    }
+    
+    
+    /*-----FASES-----*/
+    
+    protected function getFases($id){
+        
+        /**
+        *id is de idProject van het project dat men wil bewerken.
+        *
+        *@var int
+        */
+        
+        /**
+        *Project is het geselecteerde project uit de database.
+        *
+        *@var array
+        */
+        $project = Project::where('idProject', '=', $id)->first();
+
+        /**
+        *fases bevat alle data over de fases van het huidige project.
+        *
+        *@var array
+        */
+        $fases = Phase::where('idProject', '=', $id)->orderBy('faseNummer', 'asc')->get();
+
+
+        return view('\admin\fases-overzicht', [
+        'fases' => $fases,
+        'project' => $project
+
+    ]);
+    }
+    
+    protected function getFaseBewerken($id, $faseid){
+        
+        /**
+        *id is de idProject van het project dat men wil bewerken.
+        *
+        *@param int
+        */
+        
+        /**
+        *faseid is de idFase van de fase dat men wil bewerken.
+        *
+        *@param int
+        */
+        
+        /**
+        *Project is het geselecteerde project uit de database.
+        *
+        *@var array
+        */
+        $project = Project::where('idProject', '=', $id)->first();
+
+        /**
+        *fase bevat alle data over de fases van het huidige project.
+        *
+        *@var array
+        */
+        $fase = Phase::where('faseNummer', '=', $faseid)
+                    ->where('idProject', '=', $id)->first();
+                    
+        //dd($fase);
+
+
+        return view('\admin\fase-bewerken', [
+        'fase' => $fase,
+        'project' => $project
+
+    ]);
+    }
+    
+    protected function postFaseBewerken($id, $faseid, Request $request)
+    {
+
+        //dd( Input::all() );  // om input data te testen.
+
+        /**
+        *id is de idProject van het project dat men wil bewerken.
+        *
+        *@param int
+        */
+        
+        /**
+        *faseid is de idFase van de fase dat men wil bewerken.
+        *
+        *@param int
+        */
+        
+        /**
+        *Data bevat de values van inputfields van het nieuwe project.
+        *
+        *@var array
+        */
+        $data = Input::all();
+
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'uitleg' => 'required|min:50',
+            'start_datum' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+             return redirect($request->url())
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+            Phase::where('idFase', '=', $faseid)
+                    ->where('idProject', '=', $id)
+            ->update([
+            'title' => $data['title'],
+            'uitleg' => $data['uitleg'],
+            'status' => $data['status'],
+            'start_datum' => $data['start_datum'],
+            'status' => $data['status']
+        ]);
+
+        return redirect('/admin/project-bewerken/'. $id . '/fases');
+    }
+    
+    protected function getFaseVerwijderen($id, $faseid){
+        
+        /**
+        *Project is het geselecteerde project uit de database.
+        *
+        *@var array
+        */
+        $project = Project::where('idProject', '=', $id)->first();
+
+        /**
+        *fase bevat alle data over de fases van het huidige project.
+        *
+        *@var array
+        */
+        $fase = Phase::where('faseNummer', '=', $faseid)
+                    ->where('idProject', '=', $id)->first();
+        
+        return view('\admin\fase-verwijderen', [
+        'fase' => $fase,
+        'project' => $project
+
+    ]);
+        
+    }
+    
+    protected function postFaseVerwijderen($id, $faseid){
+        
+        DB::table('Phases')->where('faseNummer', '=', $faseid)
+                            ->where('idProject', '=', $id)
+                            ->delete();
+        
+        return redirect('/admin/project-bewerken/'. $id . '/fases');
+    }
+    
+    protected function getNieuweFase($id){
+        
+        /**
+        *id is de idProject van het project waar men een fase wil aan toevoegen.
+        *
+        *@param int
+        */
+    
+        
+        /**
+        *Project is het geselecteerde project uit de database.
+        *
+        *@var array
+        */
+        $project = Project::where('idProject', '=', $id)->first();
+        
+        return view('\admin\nieuwe-fase', [
+        'project' => $project
+
+    ]);
+    }
+    
+    
+    protected function postNieuweFase($id, Request $request){
+        
+        /**
+        *id is de idProject van het project waar men een fase wil aan toevoegen.
+        *
+        *@param int
+        */
+        
+        /**
+        *Data bevat de values van inputfields van het nieuwe project.
+        *
+        *@var array
+        */
+        $data = Input::all();
+    
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'uitleg' => 'required|min:50',
+            'start_datum' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+             return redirect($request->url())
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        
+        /**
+        *laatsteFase is de fase met het hoogste fasenummer van het project waar men een nieuwe fase wil aan toevoegen.
+        *
+        *@var array
+        */
+        $laatsteFase = DB::table('Phases')->where('idProject', '=', $id)
+                                          ->orderBy('faseNummer', 'desc')
+                                          ->first();
+        /**
+        *nieuweFaseNummer is de faseNummer voor de nieuwe fase.
+        *
+        *@var int
+        */
+        
+        if($laatsteFase != null){
+            $nieuweFaseNummer = (int)$laatsteFase->faseNummer + 1;
+        }
+        else {
+            $nieuweFaseNummer = 1;
+        }
+        
+        
+        Phase::create([
+                'title' => $data['title'],
+                'uitleg' => $data['uitleg'],
+                'start_datum' => $data['start_datum'],
+                'idProject' => $id,
+                'faseNummer' => $nieuweFaseNummer,
+                'status' => $data['status']
+            ]);
+        
+        
+        return redirect('/admin/project-bewerken/'. $id . '/fases');
     }
 }
