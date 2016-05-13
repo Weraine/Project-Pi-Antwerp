@@ -1,0 +1,58 @@
+.profile-box{
+    background: #E5E5E6;
+}
+
+.profile-box p{
+    text-align: center;
+    font-family: "Sun-Antwerpen 700";
+    margin-top: 20px;
+    font-size: 18px;
+}
+.profile-box img{
+    margin-top: 25px;
+}
+
+.panel-default>.profile-heading{
+    background: #E5E5E6;
+}
+
+.profile-picture-big{
+    border-radius: 50%;
+    width: 100px;
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.profile-picture-small{
+    border-radius: 50%;
+    width: 50px;
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.media-heading>a>button>i{
+    width: 30px;
+}
+.media-heading>a{
+    cursor: pointer;
+}
+
+.fa-times{
+    color: white;
+}
+.fa-check{
+    color: white;
+}
+
+
+.fa-times, .fa-check{
+    transition: all 0s;
+}
+
+.btn-following:hover{
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    content: 'Niet meer volgen';
+}

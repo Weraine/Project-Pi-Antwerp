@@ -3,41 +3,35 @@ using System.Collections;
 
 public class Navbar : MonoBehaviour {
 
-	public Texture2D buttonHome;
-	public Texture2D buttonList;
-	public Texture2D buttonGame;
-	public Texture2D buttonThrophy;
-	private int screenWidth = Screen.width;
-	private int screenHeight = Screen.height;
-  private float iconSize;
+	public Texture2D buttonHome; //texture for HomeButton (A-logo)
+	public Texture2D buttonWeb; //texture for WebButton (computer)
+	public Texture2D buttonGame; //texture for gameButton (gamepad)
+	private int screenWidth = Screen.width; //load in screenwidth 
+	private int screenHeight = Screen.height; //load in screenheight
+	private float iconSize; //standardsize of icons
 
 	void Start () {
-    iconSize = screenWidth * 0.1f;
+		iconSize = screenWidth * 0.11f; //make de icons spread over de navbar
 	}
 	
 	void Update () {
  
 	}
 
-	private void OnGUI() //GUIStyle.none voor border rond buttons te verwijderen
+	private void OnGUI() //GUIStyle.none to delete the border around the buttons
 	{
-    if (GUI.Button(new Rect(screenWidth * 0.1f, 0, iconSize + 7, iconSize + 7), buttonHome, GUIStyle.none))
-		{
-      Application.OpenURL("http://pi.multimediatechnology.be/");
-		}
-		if (GUI.Button(new Rect(screenWidth * 0.35f, screenHeight * 0.01f, iconSize, iconSize), buttonList, GUIStyle.none))
-		{
-			Application.LoadLevel("ListOfProjects");
-		}
+			if (GUI.Button(new Rect(0, 0, iconSize, iconSize), buttonHome, GUIStyle.none)) //when pressed on logo, go to the list of projects
+			{
+				Application.LoadLevel("ListOfProjects");
+			}
+			if (GUI.Button(new Rect(screenWidth * 0.70f, 0, iconSize, iconSize), buttonGame, GUIStyle.none)) //when pressed on gamepad icon, go to the startupMenu of the game
+			{
+				Application.LoadLevel("MainScreenSnake");
+			}
 
-		if (GUI.Button(new Rect(screenWidth * 0.575f, screenHeight * 0.01f, iconSize, iconSize), buttonGame, GUIStyle.none))
-		{
-			Application.LoadLevel("MainScreenSnake");
-		}
-
-		if (GUI.Button(new Rect(screenWidth * 0.8f, screenHeight * 0.01f, iconSize, iconSize), buttonThrophy, GUIStyle.none))
-		{
-			Application.LoadLevel("TrophyList");
-		}	 
+			if (GUI.Button(new Rect(screenWidth * 0.85f, 0, iconSize, iconSize), buttonWeb, GUIStyle.none)) //when pressed on computer icon, go to the website of the projects
+      {
+				Application.OpenURL("http://pi.multimediatechnology.be/");
+			}
 	}
 }

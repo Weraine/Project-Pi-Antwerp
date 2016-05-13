@@ -25,7 +25,7 @@ public class Snake : MonoBehaviour
 
 	private float buttonSize;
 	private float speed = 0.25f; //snelheid waarmee de snake beweegt (is omgekeert evenredig)
-	private const float whenToStart = 3; //geeft aan over hoeveel seconded de snake moet beginnen met bewegen
+	private const float whenToStart = 0; //geeft aan over hoeveel seconded de snake moet beginnen met bewegen
 	private float timerForMoving = 10; //timer die ervoor zorgt dat je snake niet te snel kan afslaan
 	private float timerForCountDown = 4; //de variabele die helpt bij het aftellen in het begin van het spel
 	private float timePassed = 0f; //tijd in seconden sinds start
@@ -36,24 +36,28 @@ public class Snake : MonoBehaviour
 	private Vector2 moveVector; //verplaatst de player
 
 	private List<Transform> tailPieces = new List<Transform>(); //lijst die alle staartdelen opslaat
-	private List<Object> foods = new List<Object>(); //lijst waarin de mogelijke antwoorden opgeslagen wordt
 
 	private bool hasEaten = false; //heeft de speler een antwoord opgeraapt?
 	private bool isGamePlaying = false; //is het spel al begonnen?
 	private bool isDead = false; //is de player dood?
+    private bool started = false;//mag de player starten
 
 	public Texture2D leftButtonTexture; //texture van de button om naar links te draaien
   public Texture2D rightButtonTexture; //texture van de button om naar rechts te draaien
 	public Texture2D dieTexture; //texture die gebruikt wordt als je dood gaat
 	private GUIStyle dieStyle = new GUIStyle(); //stijl van de kader als je sterft
 
+
+
 	void Start()
 	{
 		buttonSize = screenWidth * 0.5f;
 		CreateDieStyle();
 
-		SpawnFood();
-    InvokeRepeating("MovementAndEating", whenToStart, speed);
+    SpawnFood("foodBike");
+    SpawnFood("foodChoco");
+    SpawnFood("foodDiamond");
+    SpawnFood("foodBomb");
 	}
 
 	void Update()
@@ -72,29 +76,59 @@ public class Snake : MonoBehaviour
 			moveVector = vectorDirection / 3f;
 			timerForMoving++;
 
-		if (!isGamePlaying) { CountDown(); } //Is het spel bezig? Zo niet, tel af.
+            if (!isGamePlaying) { StartCoroutine(WaitToLoad(1f)); } //Is het spel bezig? Zo niet, tel af.
 	}
 
-	public void SpawnFood()//spawn food binnen de muren
+  public void SpawnFood(string foodToSpawn)//spawn food binnen de muren
 	{
-		short i = 0;
-		do
-		{
-			float x = Random.Range(l_Border.position.x + 0.5f, r_Border.position.x - 0.5f);
-			float y = Random.Range(b_Border.position.y + 0.5f, t_Border.position.y - 0.5f);
+		float x = Random.Range(l_Border.position.x + 0.5f, r_Border.position.x - 0.5f);
+      float y = Random.Range(b_Border.position.y + 0.5f, t_Border.position.y - 0.5f);
 
-			float playerX = transform.position.x;
-			float playerY = transform.position.y;
+      float playerX = transform.position.x;
+      float playerY = transform.position.y;
+      
+      float diamondY = food_Diamond.transform.position.y;
+      float bombY = food_Bomb.transform.position.y;
+      float chocoY = food_Choco.transform.position.y;
+      float bikeY = food_Bike.transform.position.y;
 
-			if (x != playerX && y != playerY) //zorgt ervoor dat de food niet op de player gespawnt kunnen worden
-			{
-				if (i == 0) { foods.Insert(0, Instantiate(food_Diamond, new Vector2(x, y), Quaternion.identity)); }
-				if (i == 1) { foods.Insert(0, Instantiate(food_Bomb, new Vector2(x, y), Quaternion.identity)); }
-				if (i == 2) { foods.Insert(0, Instantiate(food_Choco, new Vector2(x, y), Quaternion.identity)); }
-				if (i == 3) { foods.Insert(0, Instantiate(food_Bike, new Vector2(x, y), Quaternion.identity)); }
-				i++;
-			}
-		} while (i < numberOfAnswers);
+      float diamondX = food_Diamond.transform.position.x;
+      float bombX = food_Bomb.transform.position.x;
+      float chocoX = food_Choco.transform.position.x;
+      float bikeX = food_Bike.transform.position.x;
+
+      if (x != playerX && y != playerY) //zorgt ervoor dat de food niet op de player gespawnt kunnen worden
+      {
+        if (x != diamondX && x != bombX && x != chocoX && x != bikeX && y != diamondY && y != bombY && y != chocoY && y != bikeY)// zorgt ervoor dat de icoontjes niet op dezelfde xPositie kunnen staan
+        {
+          switch (foodToSpawn)
+          {
+            case "foodDiamond":
+              Instantiate(food_Diamond, new Vector2(x, y), Quaternion.identity);
+              break;
+            case "foodBomb":
+              Instantiate(food_Bomb, new Vector2(x, y), Quaternion.identity);
+              break;
+            case "foodChoco":
+              Instantiate(food_Choco, new Vector2(x, y), Quaternion.identity);
+              break;
+            case "foodBike":
+              Instantiate(food_Bike, new Vector2(x, y), Quaternion.identity);
+              break;
+            default:
+              Debug.LogError("Wrong tag");
+              break;
+          }
+        }
+        else
+        {
+          SpawnFood(foodToSpawn);
+        }
+      }
+      else
+      {
+        SpawnFood(foodToSpawn);
+      }
 	}
 
 	void MovementAndEating() //move player en reageer op het oppakken van iets
@@ -125,13 +159,17 @@ public class Snake : MonoBehaviour
 
 		if (timePassed % 1 == 0)
 			{
+        if (countDown_Text != null)
+        { 
 				timerForCountDown--;
 				countDown_Text.text = timerForCountDown.ToString();
+        }
 			}
 		
 		if (timerForCountDown == 0)
 		{
 			Destroy(countDown_Text);
+            startSnake();
 			isGamePlaying = true; 
 		}
 	}
@@ -154,11 +192,9 @@ public class Snake : MonoBehaviour
 		if (c.tag.StartsWith("food"))
 		{
 			hasEaten = true;
-			foreach (Object food in foods) { Destroy(food); } //vernietigt de objecten
-			foods.Clear(); //maakt de lijst leeg
+      Destroy(c.gameObject); //vernietigd hetgeen dat opgepakt is
 
-			SpawnFood();
-			Debug.Log(c.tag + " grabbed!");
+			SpawnFood(c.tag.ToString());
 			score++;
 			score_text.text = score.ToString();
 		}
@@ -203,4 +239,17 @@ public class Snake : MonoBehaviour
 			}
 		}
 	}
+    IEnumerator WaitToLoad(float waitTime)//geeft de applicatie een beetje extra tijd om te laden
+    {
+        yield return new WaitForSeconds(waitTime);
+        CountDown();
+    }
+    private void startSnake()
+    {
+        if (!started)
+        {
+            InvokeRepeating("MovementAndEating", whenToStart, speed);
+            started = true;
+        }
+    }
 }
